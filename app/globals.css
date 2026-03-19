@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green-accent: #2D8C4E;
+  --color-green-light: #E8F5EE;
+  --color-green-dark: #1A5C32;
+  --color-dark: #1A1A1A;
+  --color-gray-text: #4A4A4A;
+  --color-gray-light: #F5F5F5;
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-dark);
+}
