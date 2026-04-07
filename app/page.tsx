@@ -8,7 +8,7 @@ import Arrondissements from "@/components/Arrondissements";
 import Info from "@/components/Info";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import ChatbotFAQ from "@/components/ChatbotFAQ";
 
 export default function Home() {
   return (
@@ -25,7 +25,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton />
+      <ChatbotFAQ />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ChatbotFAQ from "@/components/ChatbotFAQ";
 import { COMPANY, CONTACT, SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -118,6 +119,7 @@ export default function Confidentialite() {
         </article>
       </main>
       <Footer />
+      <ChatbotFAQ />
     </>
   );
 }
