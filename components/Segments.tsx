@@ -1,76 +1,95 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const segments = [
   {
-    label: "Chapitre I",
+    idx: "01",
     title: "Particuliers",
     description:
-      "Appartements haussmanniens, copropriétés, hôtels particuliers : nous prenons soin du logement comme on entretient une œuvre.",
+      "Appartements, maisons, hôtels particuliers. Rénovation complète, mise aux normes, dépannage urgent.",
     href: "#particuliers",
     image: "/assets/img/particuliers.jpg",
+    tags: ["Électricité", "Plomberie", "Dépannage"],
   },
   {
-    label: "Chapitre II",
+    idx: "02",
     title: "Tertiaire",
     description:
-      "Boutiques, bureaux, cafés-hôtels-restaurants, théâtres : des lieux d'exception qui exigent une rigueur d'exception.",
+      "Boutiques, bureaux, hôtels, restaurants, théâtres. Pilotage de chantier, maintenance, astreinte 24/7.",
     href: "#tertiaire",
     image: "/assets/img/tertiaire.jpg",
+    tags: ["Maîtrise d'œuvre", "CVC", "Supervision"],
   },
 ];
 
 export default function Segments() {
   return (
-    <section className="py-24 sm:py-32 bg-paris-cream">
+    <section className="py-24 sm:py-32 bg-paper">
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
-        {/* Section header — editorial */}
-        <div className="max-w-2xl mx-auto text-center mb-20">
-          <div className="paris-label paris-label-centered mb-6">
-            <span>Nos terrains</span>
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
+          <div>
+            <div className="eyebrow mb-4">
+              <span>Nos terrains</span>
+            </div>
+            <h2 className="text-ink text-5xl sm:text-6xl md:text-7xl font-semibold tracking-[-0.04em] leading-[0.95]">
+              Deux mondes,
+              <br />
+              une exigence.
+            </h2>
           </div>
-          <h2 className="font-[var(--font-heading)] text-anthracite text-4xl sm:text-5xl md:text-6xl leading-[1.05]">
-            Deux mondes,
-            <br />
-            <span className="italic font-light">une seule</span> exigence
-            <span className="text-paris-gold">.</span>
-          </h2>
+          <p className="text-ink-mute text-base lg:text-lg max-w-md leading-relaxed">
+            Du studio d&apos;artiste au plateau de bureaux, nous appliquons la même
+            rigueur de chantier et le même soin du détail.
+          </p>
         </div>
 
-        {/* Two editorial cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+        {/* Two large cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {segments.map((seg) => (
             <a
               key={seg.title}
               href={seg.href}
-              className="group block"
+              className="group block relative overflow-hidden rounded-3xl bg-ink aspect-[4/5] sm:aspect-[3/4]"
             >
               {/* Image */}
-              <div className="relative aspect-[4/5] overflow-hidden bg-paris-stone mb-6">
-                <div
-                  className="absolute inset-0 bg-cover bg-center group-hover:scale-[1.04] transition-transform duration-[1200ms] ease-out"
-                  style={{
-                    backgroundImage: `url('${seg.image}')`,
-                    filter: "grayscale(0.5) contrast(1.05)",
-                  }}
-                />
-                <div className="absolute inset-0 bg-anthracite/20 group-hover:bg-anthracite/10 transition-colors" />
-              </div>
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                style={{
+                  backgroundImage: `url('${seg.image}')`,
+                  filter: "grayscale(0.2) brightness(0.85)",
+                }}
+              />
+              {/* Bottom gradient */}
+              <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink via-ink/80 to-transparent" />
 
-              {/* Caption */}
-              <div className="paris-label mb-3">
-                <span>{seg.label}</span>
+              {/* Content */}
+              <div className="absolute inset-0 p-8 sm:p-10 flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="idx-tag text-paper/60">{seg.idx}</span>
+                  <span className="w-12 h-12 rounded-full bg-paper/10 backdrop-blur-sm border border-paper/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
+                    <ArrowUpRight size={20} className="text-paper group-hover:text-ink transition-colors" strokeWidth={2.5} />
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-paper text-4xl sm:text-5xl md:text-6xl font-semibold tracking-[-0.03em] mb-4">
+                    {seg.title}
+                  </h3>
+                  <p className="text-paper/70 leading-relaxed mb-5 max-w-md">
+                    {seg.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {seg.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs font-medium px-3 py-1.5 rounded-full border border-paper/20 text-paper/80"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <h3 className="font-[var(--font-heading)] text-anthracite text-3xl sm:text-4xl md:text-5xl mb-4 group-hover:text-paris-gold transition-colors">
-                {seg.title}
-                <span className="text-paris-gold">.</span>
-              </h3>
-              <p className="text-anthracite/70 leading-relaxed mb-6 max-w-md">
-                {seg.description}
-              </p>
-              <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-anthracite group-hover:text-paris-gold transition-colors">
-                Découvrir
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </span>
             </a>
           ))}
         </div>

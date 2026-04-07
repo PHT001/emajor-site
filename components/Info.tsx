@@ -1,17 +1,22 @@
+import { Leaf } from "lucide-react";
+
 export default function Info() {
   return (
-    <section className="bg-anthracite py-16">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <div className="paris-label paris-label-centered mb-6 text-paris-gold">
-          <span>Engagement</span>
+    <section className="py-16 bg-paper">
+      <div className="max-w-5xl mx-auto px-6 sm:px-10">
+        <div className="bg-ink rounded-3xl p-10 sm:p-14 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <div className="w-14 h-14 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+            <Leaf size={26} className="text-accent" strokeWidth={2.2} />
+          </div>
+          <div>
+            <div className="text-xs font-mono text-accent uppercase tracking-wider mb-2">
+              Engagement environnemental
+            </div>
+            <p className="text-paper text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight leading-tight">
+              Chaque chantier est évalué selon son impact énergétique et écologique.
+            </p>
+          </div>
         </div>
-        <p className="font-[var(--font-heading)] italic text-paris-cream/90 text-2xl sm:text-3xl md:text-4xl leading-[1.3] font-light">
-          « Chaque chantier est évalué selon son impact
-          <br className="hidden sm:block" /> énergétique et écologique. »
-        </p>
-        <p className="mt-6 text-xs uppercase tracking-[0.25em] text-paris-gold">
-          — La Maison E-Major
-        </p>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "E-Major — Maison parisienne d'électricité et de plomberie";
+export const alt = "E-Major — Électricité & plomberie à Paris";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -11,56 +11,60 @@ export default function OpengraphImage() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#1B1B1F",
+          background: "#0A0A0B",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px",
-          fontFamily: "serif",
-          color: "#FBF8F2",
-          position: "relative",
+          fontFamily: "system-ui, -apple-system, sans-serif",
+          color: "#FAFAFA",
         }}
       >
-        {/* Top label */}
+        {/* Top eyebrow */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 20,
-            color: "#B08D48",
-            fontSize: 22,
-            letterSpacing: 6,
-            textTransform: "uppercase",
+            gap: 12,
+            color: "#FF6A2C",
+            fontSize: 24,
+            fontWeight: 500,
           }}
         >
-          <div style={{ width: 60, height: 1, background: "#B08D48" }} />
-          <span>Maison fondée à Paris</span>
+          <div
+            style={{
+              width: 10,
+              height: 10,
+              borderRadius: 9999,
+              background: "#FF6A2C",
+            }}
+          />
+          <span>Disponible aujourd&apos;hui</span>
         </div>
 
-        {/* Big editorial title */}
+        {/* Big title */}
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
               display: "flex",
-              fontSize: 180,
-              lineHeight: 0.95,
-              fontWeight: 400,
-              letterSpacing: -3,
+              fontSize: 200,
+              lineHeight: 0.9,
+              fontWeight: 700,
+              letterSpacing: -8,
             }}
           >
             <span>E-Major</span>
-            <span style={{ color: "#B08D48" }}>.</span>
+            <span style={{ color: "#FF6A2C" }}>.</span>
           </div>
           <div
             style={{
               fontSize: 38,
-              fontStyle: "italic",
-              color: "rgba(251, 248, 242, 0.65)",
-              marginTop: 30,
-              letterSpacing: 0.5,
+              color: "rgba(250, 250, 250, 0.6)",
+              marginTop: 24,
+              fontWeight: 400,
             }}
           >
-            Électricité &amp; plomberie — Paris XIVᵉ
+            Électricité & plomberie — Paris XIVᵉ
           </div>
         </div>
 
@@ -70,13 +74,12 @@ export default function OpengraphImage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            color: "rgba(251, 248, 242, 0.45)",
-            fontSize: 20,
-            letterSpacing: 4,
-            textTransform: "uppercase",
+            color: "rgba(250, 250, 250, 0.4)",
+            fontSize: 22,
+            fontFamily: "ui-monospace, monospace",
           }}
         >
-          <span>149, av. du Maine — 75014</span>
+          <span>149 av. du Maine — 75014</span>
           <span>06 61 86 43 03</span>
         </div>
       </div>

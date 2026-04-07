@@ -1,27 +1,33 @@
+import { Building2, Wrench, ShieldCheck } from "lucide-react";
+
 const offers = [
   {
-    num: "I",
+    idx: "01",
+    icon: Building2,
     title: "Chantier tertiaire",
     description:
       "Rénovation complète de vos espaces professionnels avec une gestion de projet rigoureuse.",
     items: [
-      "Pilotage de chantier, études techniques, planification",
+      "Pilotage, études techniques, planification",
       "Installation électrique, ventilation, climatisation",
       "Infrastructure réseau et contrôle d'accès",
     ],
   },
   {
-    num: "II",
+    idx: "02",
+    icon: Wrench,
     title: "Dépannage",
     description:
       "Intervention rapide 7j/7 pour rétablir le fonctionnement de vos installations.",
     items: [
       "Coupures de courant, pannes urgentes",
-      "Levée de réserves ERP/ERT (hôtelier) après commission de sécurité",
+      "Levée de réserves ERP/ERT après commission",
+      "Réponse sous 2 heures sur Paris intra-muros",
     ],
   },
   {
-    num: "III",
+    idx: "03",
+    icon: ShieldCheck,
     title: "Maintenance",
     description:
       "Sérénité garantie avec un suivi régulier et une astreinte permanente.",
@@ -35,56 +41,58 @@ const offers = [
 
 export default function Offers() {
   return (
-    <section id="offres" className="py-24 sm:py-32 bg-paris-cream">
+    <section id="offres" className="py-24 sm:py-32 bg-paper">
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
-        {/* Editorial header */}
-        <div className="max-w-2xl mb-20">
-          <div className="paris-label mb-6">
-            <span>Offres</span>
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
+          <div>
+            <div className="eyebrow mb-4">
+              <span>Offres</span>
+            </div>
+            <h2 className="text-ink text-5xl sm:text-6xl md:text-7xl font-semibold tracking-[-0.04em] leading-[0.95]">
+              Trois façons
+              <br />
+              de travailler ensemble.
+            </h2>
           </div>
-          <h2 className="font-[var(--font-heading)] text-anthracite text-4xl sm:text-5xl md:text-6xl leading-[1.05]">
-            Trois manières
-            <br />
-            de <span className="italic font-light">travailler</span> ensemble
-            <span className="text-paris-gold">.</span>
-          </h2>
         </div>
 
-        {/* Three editorial columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-paris-stone border border-paris-stone">
+        {/* Three modern cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
           {offers.map((offer) => (
-            <div
+            <article
               key={offer.title}
-              className="bg-paris-cream p-10 sm:p-12 hover:bg-paris-ivory transition-colors group"
+              className="group bg-paper-2 rounded-3xl p-8 sm:p-10 hover:bg-ink hover:text-paper transition-colors"
             >
               <div className="flex items-start justify-between mb-8">
-                <span className="font-[var(--font-heading)] italic text-paris-gold text-3xl">
-                  {offer.num}
-                </span>
-                <div className="h-px w-16 bg-paris-gold/40 mt-4" />
+                <div className="w-14 h-14 rounded-2xl bg-paper border border-line flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
+                  <offer.icon size={26} className="text-ink group-hover:text-ink transition-colors" strokeWidth={2.2} />
+                </div>
+                <span className="idx-tag group-hover:text-paper/40 transition-colors">{offer.idx}</span>
               </div>
 
-              <h3 className="font-[var(--font-heading)] text-anthracite text-2xl sm:text-3xl mb-4 group-hover:text-paris-gold transition-colors">
+              <h3 className="text-3xl sm:text-4xl font-semibold tracking-[-0.03em] mb-4">
                 {offer.title}
-                <span className="text-paris-gold">.</span>
               </h3>
 
-              <p className="text-anthracite/70 mb-6 leading-relaxed text-sm">
+              <p className="text-ink-mute group-hover:text-paper/70 transition-colors mb-6 leading-relaxed text-sm">
                 {offer.description}
               </p>
 
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {offer.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-baseline gap-3 text-anthracite/75 text-sm leading-relaxed"
+                    className="flex items-start gap-3 text-sm leading-relaxed"
                   >
-                    <span className="text-paris-gold text-xs shrink-0">—</span>
-                    <span>{item}</span>
+                    <span className="text-accent mt-1.5 shrink-0">▸</span>
+                    <span className="text-ink-mute group-hover:text-paper/70 transition-colors">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </article>
           ))}
         </div>
       </div>

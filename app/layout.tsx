@@ -1,28 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { COMPANY, CONTACT, SITE } from "@/lib/constants";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["italic", "normal"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
 const inter = Inter({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-body",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["italic", "normal"],
-  variable: "--font-display",
   display: "swap",
 });
 
@@ -67,7 +52,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1B1B1F",
+  themeColor: "#0A0A0B",
   width: "device-width",
   initialScale: 1,
 };
@@ -113,8 +98,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${playfair.variable} ${inter.variable} ${cormorant.variable}`}>
-      <body className="bg-paris-cream antialiased">
+    <html lang="fr" className={inter.variable}>
+      <body className="bg-paper antialiased">
         {children}
         <Script
           id="ld-json-localbusiness"

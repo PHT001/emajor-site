@@ -16,7 +16,7 @@ export default function Confidentialite() {
       <Navbar />
       <main className="pt-28 pb-24 bg-white">
         <article className="max-w-3xl mx-auto px-6">
-          <h1 className="font-[var(--font-heading)] text-4xl sm:text-5xl font-bold text-dark mb-10">
+          <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-10">
             Politique de confidentialité
           </h1>
 
@@ -29,7 +29,7 @@ export default function Confidentialite() {
             </p>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Responsable du traitement
               </h2>
               <p>
@@ -40,7 +40,7 @@ export default function Confidentialite() {
             </div>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Données collectées
               </h2>
               <p>
@@ -52,7 +52,7 @@ export default function Confidentialite() {
             </div>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Cookies et services tiers
               </h2>
               <p>
@@ -72,7 +72,7 @@ export default function Confidentialite() {
             </div>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Durée de conservation
               </h2>
               <p>
@@ -83,7 +83,7 @@ export default function Confidentialite() {
             </div>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Vos droits
               </h2>
               <p>
@@ -102,7 +102,7 @@ export default function Confidentialite() {
             </div>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Sécurité
               </h2>
               <p>

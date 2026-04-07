@@ -1,51 +1,50 @@
 const arrondissements = [
-  { num: "Iᵉʳ", name: "Louvre" },
-  { num: "IVᵉ", name: "Le Marais" },
-  { num: "VIᵉ", name: "Saint-Germain" },
-  { num: "VIIᵉ", name: "Invalides" },
-  { num: "VIIIᵉ", name: "Champs-Élysées" },
-  { num: "IXᵉ", name: "Opéra" },
-  { num: "XIVᵉ", name: "Montparnasse" },
-  { num: "XVIᵉ", name: "Passy" },
-  { num: "XVIIᵉ", name: "Batignolles" },
+  { num: "01", name: "Louvre" },
+  { num: "04", name: "Le Marais" },
+  { num: "06", name: "Saint-Germain" },
+  { num: "07", name: "Invalides" },
+  { num: "08", name: "Champs-Élysées" },
+  { num: "09", name: "Opéra" },
+  { num: "14", name: "Montparnasse" },
+  { num: "16", name: "Passy" },
+  { num: "17", name: "Batignolles" },
 ];
 
 export default function Arrondissements() {
   return (
-    <section className="py-24 sm:py-32 bg-paris-ivory border-y border-paris-stone">
+    <section className="py-24 sm:py-32 bg-paper">
       <div className="max-w-6xl mx-auto px-6 sm:px-10">
-        {/* Editorial header */}
-        <div className="text-center mb-20">
-          <div className="paris-label paris-label-centered mb-6">
-            <span>Nos arrondissements</span>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="eyebrow paris-label-centered mb-4">
+            <span>Zone d&apos;intervention</span>
           </div>
-          <h2 className="font-[var(--font-heading)] text-anthracite text-4xl sm:text-5xl md:text-6xl leading-[1.05]">
-            Présents dans
+          <h2 className="text-ink text-5xl sm:text-6xl md:text-7xl font-semibold tracking-[-0.04em] leading-[0.95]">
+            Présents partout
             <br />
-            <span className="italic font-light">tout Paris</span>
-            <span className="text-paris-gold">.</span>
+            dans Paris.
           </h2>
         </div>
 
-        {/* Editorial grid */}
-        <ul className="grid grid-cols-3 md:grid-cols-9 gap-px bg-paris-stone border border-paris-stone">
+        {/* Modern grid — sharp borders, no rounded */}
+        <ul className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-9 gap-2">
           {arrondissements.map((a) => (
             <li
               key={a.num}
-              className="bg-paris-ivory hover:bg-paris-cream transition-colors py-8 px-3 text-center"
+              className="group bg-paper-2 hover:bg-ink rounded-2xl p-5 sm:p-6 text-center transition-colors cursor-default"
             >
-              <div className="font-[var(--font-heading)] text-2xl text-paris-gold-dark italic">
+              <div className="text-2xl sm:text-3xl font-semibold text-ink group-hover:text-accent transition-colors">
                 {a.num}
               </div>
-              <div className="text-[0.65rem] uppercase tracking-[0.15em] text-anthracite/60 mt-2">
+              <div className="text-[0.65rem] uppercase tracking-wider text-ink-faint group-hover:text-paper/60 mt-2 transition-colors">
                 {a.name}
               </div>
             </li>
           ))}
         </ul>
 
-        <p className="mt-10 text-center font-[var(--font-display)] italic text-anthracite/50 text-sm">
-          ... et toute l&apos;Île-de-France sur demande
+        <p className="mt-10 text-center text-sm text-ink-faint">
+          + toute l&apos;Île-de-France pour les chantiers tertiaires
         </p>
       </div>
     </section>

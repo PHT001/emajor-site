@@ -2,33 +2,30 @@ import { CONTACT, COMPANY } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-anthracite text-paris-cream/80">
+    <footer className="bg-ink text-paper">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-          {/* Wordmark + tagline */}
+          {/* Wordmark */}
           <div className="md:col-span-5">
-            <div className="font-[var(--font-heading)] text-paris-cream text-3xl sm:text-4xl tracking-tight">
-              E-Major<span className="text-paris-gold">.</span>
+            <div className="text-paper text-4xl sm:text-5xl font-bold tracking-tight">
+              E-Major<span className="text-accent">.</span>
             </div>
-            <p className="font-[var(--font-display)] italic text-paris-gold/80 mt-3 text-lg">
-              L&apos;artisanat de l&apos;ombre
+            <p className="text-paper/60 mt-6 text-base leading-relaxed max-w-sm">
+              Maison artisanale d&apos;électricité et de plomberie, fondée au cœur
+              du 14ᵉ arrondissement de Paris.
             </p>
-            <p className="text-paris-cream/50 mt-6 text-sm leading-relaxed max-w-sm">
-              Maison parisienne d&apos;électricité et de plomberie, fondée au cœur
-              du 14ᵉ arrondissement.
-            </p>
-            <div className="inline-flex items-center gap-3 mt-6 px-4 py-2 border border-paris-gold/30">
-              <div className="w-1 h-1 rounded-full bg-paris-gold" />
-              <span className="text-[0.65rem] text-paris-gold uppercase tracking-[0.2em]">
-                Établi&nbsp;Paris&nbsp;XIV
+            <div className="inline-flex items-center gap-2 mt-6 px-4 py-2 rounded-full border border-accent/30">
+              <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              <span className="text-xs text-accent font-medium">
+                Disponible aujourd&apos;hui
               </span>
             </div>
           </div>
 
           {/* Nav */}
           <div className="md:col-span-3">
-            <div className="paris-label mb-6 text-paris-gold">
-              <span>Navigation</span>
+            <div className="text-xs font-mono text-paper/40 uppercase tracking-wider mb-6">
+              Navigation
             </div>
             <ul className="space-y-3">
               {[
@@ -40,7 +37,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-paris-cream/60 hover:text-paris-gold transition-colors text-sm"
+                    className="text-paper/70 hover:text-accent transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -51,25 +48,19 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="md:col-span-2">
-            <div className="paris-label mb-6 text-paris-gold">
-              <span>Atelier</span>
+            <div className="text-xs font-mono text-paper/40 uppercase tracking-wider mb-6">
+              Atelier
             </div>
-            <ul className="space-y-3 text-paris-cream/60 text-sm">
+            <ul className="space-y-3 text-paper/70 text-sm">
               <li>149, av. du Maine</li>
               <li>75014 Paris</li>
               <li>
-                <a
-                  href={CONTACT.phoneHref}
-                  className="hover:text-paris-gold transition-colors"
-                >
+                <a href={CONTACT.phoneHref} className="hover:text-accent transition-colors">
                   {CONTACT.phoneDisplay}
                 </a>
               </li>
               <li>
-                <a
-                  href={CONTACT.emailHref}
-                  className="hover:text-paris-gold transition-colors"
-                >
+                <a href={CONTACT.emailHref} className="hover:text-accent transition-colors">
                   {CONTACT.email}
                 </a>
               </li>
@@ -78,17 +69,17 @@ export default function Footer() {
 
           {/* Légal */}
           <div className="md:col-span-2">
-            <div className="paris-label mb-6 text-paris-gold">
-              <span>Légal</span>
+            <div className="text-xs font-mono text-paper/40 uppercase tracking-wider mb-6">
+              Légal
             </div>
-            <ul className="space-y-3 text-paris-cream/60 text-sm">
+            <ul className="space-y-3 text-paper/70 text-sm">
               <li>
-                <a href="/mentions-legales" className="hover:text-paris-gold transition-colors">
+                <a href="/mentions-legales" className="hover:text-accent transition-colors">
                   Mentions légales
                 </a>
               </li>
               <li>
-                <a href="/confidentialite" className="hover:text-paris-gold transition-colors">
+                <a href="/confidentialite" className="hover:text-accent transition-colors">
                   Confidentialité
                 </a>
               </li>
@@ -97,11 +88,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-paris-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-paris-cream/40 text-xs uppercase tracking-[0.15em]">
+        <div className="pt-8 border-t border-paper/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="text-paper/40 text-xs font-mono">
             &copy; {new Date().getFullYear()} {COMPANY.name} — Tous droits réservés
           </p>
-          <p className="text-paris-cream/40 text-xs uppercase tracking-[0.15em]">
+          <p className="text-paper/40 text-xs font-mono">
             SIRET {COMPANY.siret}
           </p>
         </div>

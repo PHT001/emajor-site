@@ -9,19 +9,20 @@ export default function AppleIcon() {
       <div
         style={{
           fontSize: 110,
-          background: "#1B1B1F",
+          background: "#0A0A0B",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#FBF8F2",
-          fontWeight: 600,
-          fontFamily: "serif",
+          color: "#FAFAFA",
+          fontWeight: 700,
+          fontFamily: "system-ui, -apple-system, sans-serif",
+          letterSpacing: -4,
         }}
       >
         <span>E</span>
-        <span style={{ color: "#B08D48" }}>.</span>
+        <span style={{ color: "#FF6A2C" }}>.</span>
       </div>
     ),
     { ...size },

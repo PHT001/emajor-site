@@ -16,13 +16,13 @@ export default function MentionsLegales() {
       <Navbar />
       <main className="pt-28 pb-24 bg-white">
         <article className="max-w-3xl mx-auto px-6">
-          <h1 className="font-[var(--font-heading)] text-4xl sm:text-5xl font-bold text-dark mb-10">
+          <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-10">
             Mentions légales
           </h1>
 
           <section className="space-y-6 text-gray-text leading-relaxed">
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Éditeur du site
               </h2>
               <p>
@@ -39,14 +39,14 @@ export default function MentionsLegales() {
             </div>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Directeur de la publication
               </h2>
               <p>Le directeur de la publication est le représentant légal de {COMPANY.legalName}.</p>
             </div>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Hébergeur
               </h2>
               <p>
@@ -59,7 +59,7 @@ export default function MentionsLegales() {
             </div>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Propriété intellectuelle
               </h2>
               <p>
@@ -72,7 +72,7 @@ export default function MentionsLegales() {
             </div>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Assurance professionnelle
               </h2>
               <p>
@@ -83,7 +83,7 @@ export default function MentionsLegales() {
             </div>
 
             <div>
-              <h2 className="font-[var(--font-heading)] text-2xl font-bold text-dark mb-2">
+              <h2 className="text-2xl font-bold text-dark mb-2">
                 Droit applicable
               </h2>
               <p>

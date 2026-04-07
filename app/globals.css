@@ -1,66 +1,106 @@
 @import "tailwindcss";
 
 @theme {
-  /* Sober Parisian editorial palette */
-  --color-anthracite: #1B1B1F;
-  --color-anthracite-soft: #2C2C32;
-  --color-paris-gold: #B08D48;
-  --color-paris-gold-light: #D4B57E;
-  --color-paris-gold-dark: #876A2F;
-  --color-paris-cream: #FBF8F2;
-  --color-paris-stone: #E8DFD0;
-  --color-paris-ivory: #F5F1E8;
+  /* Modern monochrome palette with single sharp accent */
+  --color-ink: #0A0A0B;
+  --color-ink-soft: #18181B;
+  --color-ink-mute: #3F3F46;
+  --color-ink-faint: #71717A;
+  --color-line: #E4E4E7;
+  --color-line-soft: #F4F4F5;
+  --color-paper: #FAFAFA;
+  --color-paper-2: #F4F4F5;
 
-  /* Legacy aliases (kept to avoid breakage during transition) */
-  --color-green-accent: #B08D48;
-  --color-green-light: #F5F1E8;
-  --color-green-dark: #876A2F;
-  --color-dark: #1B1B1F;
-  --color-gray-text: #4A4A4A;
-  --color-gray-light: #FBF8F2;
+  /* Single accent — electric copper, modern + warm + premium */
+  --color-accent: #FF6A2C;
+  --color-accent-soft: #FFE3D5;
+  --color-accent-dark: #D54E10;
 
-  --font-heading: "Playfair Display", "Cormorant Garamond", Georgia, serif;
-  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "Space Grotesk", sans-serif;
+  /* Legacy aliases (kept so unedited components don't crash) */
+  --color-anthracite: #0A0A0B;
+  --color-anthracite-soft: #18181B;
+  --color-paris-gold: #FF6A2C;
+  --color-paris-gold-light: #FFE3D5;
+  --color-paris-gold-dark: #D54E10;
+  --color-paris-cream: #FAFAFA;
+  --color-paris-stone: #E4E4E7;
+  --color-paris-ivory: #F4F4F5;
+  --color-green-accent: #FF6A2C;
+  --color-green-light: #FFE3D5;
+  --color-green-dark: #D54E10;
+  --color-dark: #0A0A0B;
+  --color-gray-text: #3F3F46;
+  --color-gray-light: #FAFAFA;
+
+  --font-heading: "Inter", "Inter Tight", system-ui, sans-serif;
+  --font-display: "Inter", "Inter Tight", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: var(--font-body);
-  color: var(--color-anthracite);
-  background: var(--color-paris-cream);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-feature-settings: "ss01", "cv11", "calt";
 }
 
-/* Editorial label — small caps gold with thin rule */
-.paris-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.875rem;
-  color: var(--color-paris-gold);
-  font-family: var(--font-body);
+/* Modern utility — small mono index tag (01, 02, 03 …) */
+.idx-tag {
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-faint);
+}
+
+/* Modern eyebrow label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 9999px;
+}
+
+/* Legacy label classes redirected to eyebrow look */
+.paris-label,
+.paris-label-centered {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 .paris-label::before {
   content: "";
-  display: block;
-  width: 2.5rem;
-  height: 1px;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
   background: currentColor;
+  border-radius: 9999px;
 }
 .paris-label-centered {
   justify-content: center;
-}
-.paris-label-centered::after {
-  content: "";
-  display: block;
-  width: 2.5rem;
-  height: 1px;
-  background: currentColor;
 }

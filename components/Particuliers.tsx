@@ -1,8 +1,10 @@
+import { Zap, Droplets, ArrowUpRight } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 
 const blocks = [
   {
-    num: "I",
+    idx: "01",
+    icon: Zap,
     title: "Électricité",
     items: [
       "Rénovation électrique complète",
@@ -14,7 +16,8 @@ const blocks = [
     images: ["/assets/img/part-1.jpg", "/assets/img/part-2.jpg", "/assets/img/part-3.jpg"],
   },
   {
-    num: "II",
+    idx: "02",
+    icon: Droplets,
     title: "Plomberie",
     items: [
       "Installation sanitaire",
@@ -29,66 +32,65 @@ const blocks = [
 
 export default function Particuliers() {
   return (
-    <section id="particuliers" className="py-24 sm:py-32 bg-paris-ivory">
+    <section id="particuliers" className="py-24 sm:py-32 bg-paper-2">
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
-        {/* Editorial header */}
-        <div className="max-w-2xl mb-20">
-          <div className="paris-label mb-6">
-            <span>Particuliers</span>
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
+          <div>
+            <div className="eyebrow mb-4">
+              <span>Particuliers</span>
+            </div>
+            <h2 className="text-ink text-5xl sm:text-6xl md:text-7xl font-semibold tracking-[-0.04em] leading-[0.95]">
+              Votre logement,
+              <br />
+              entre nos mains.
+            </h2>
           </div>
-          <h2 className="font-[var(--font-heading)] text-anthracite text-4xl sm:text-5xl md:text-6xl leading-[1.05]">
-            Pour les
-            <br />
-            <span className="italic font-light">appartements</span> qui ont
-            <br />
-            une histoire
-            <span className="text-paris-gold">.</span>
-          </h2>
-          <p className="text-anthracite/70 mt-8 text-lg leading-relaxed max-w-xl">
-            Du studio d&apos;artiste au pied-à-terre haussmannien, nous intervenons
-            avec la même attention aux détails et aux moulures.
+          <p className="text-ink-mute text-base lg:text-lg max-w-md leading-relaxed">
+            Nous intervenons sur Paris et toute l&apos;Île-de-France pour les
+            particuliers et les cabinets de gestion. Devis gratuit sous 24h.
           </p>
         </div>
 
-        {/* Two editorial blocks */}
-        <div className="space-y-24">
-          {blocks.map((b, idx) => (
+        {/* Two big editorial blocks */}
+        <div className="space-y-8 lg:space-y-12">
+          {blocks.map((b) => (
             <article
               key={b.title}
-              className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 ${
-                idx % 2 === 1 ? "lg:[&>:first-child]:order-2" : ""
-              }`}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10"
             >
-              {/* Triptych image */}
-              <div className="lg:col-span-7 grid grid-cols-3 gap-2">
+              {/* Big triptych image */}
+              <div className="lg:col-span-7 grid grid-cols-3 gap-2 rounded-3xl overflow-hidden h-80 sm:h-96">
                 {b.images.map((src) => (
                   <div
                     key={src}
-                    className="aspect-[3/4] bg-cover bg-center bg-paris-stone"
+                    className="bg-cover bg-center"
                     style={{
                       backgroundImage: `url('${src}')`,
-                      filter: "grayscale(0.45) contrast(1.05)",
+                      filter: "grayscale(0.15) contrast(1.05)",
                     }}
                   />
                 ))}
               </div>
 
-              {/* Text */}
-              <div className="lg:col-span-5 lg:py-8">
-                <div className="paris-label mb-4">
-                  <span>Métier {b.num}</span>
+              {/* Text card */}
+              <div className="lg:col-span-5 bg-paper rounded-3xl p-8 sm:p-10 flex flex-col">
+                <div className="flex items-start justify-between mb-8">
+                  <div className="w-14 h-14 rounded-2xl bg-accent-soft flex items-center justify-center">
+                    <b.icon size={26} className="text-accent" strokeWidth={2.2} />
+                  </div>
+                  <span className="idx-tag">{b.idx}</span>
                 </div>
-                <h3 className="font-[var(--font-heading)] text-anthracite text-3xl sm:text-4xl md:text-5xl mb-8">
+                <h3 className="text-ink text-3xl sm:text-4xl font-semibold tracking-[-0.03em] mb-6">
                   {b.title}
-                  <span className="text-paris-gold">.</span>
                 </h3>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-8 flex-1">
                   {b.items.map((item) => (
                     <li
                       key={item}
-                      className="text-anthracite/75 text-sm leading-relaxed flex items-baseline gap-3"
+                      className="text-ink-mute text-sm leading-relaxed flex items-start gap-3"
                     >
-                      <span className="text-paris-gold text-xs">—</span>
+                      <span className="text-accent mt-1.5 shrink-0">▸</span>
                       {item}
                     </li>
                   ))}
@@ -99,17 +101,23 @@ export default function Particuliers() {
         </div>
 
         {/* CTA */}
-        <div className="mt-24 pt-16 border-t border-paris-stone text-center">
-          <p className="font-[var(--font-display)] italic text-anthracite/60 text-xl mb-6">
-            Devis sous 24 heures, gracieusement.
-          </p>
+        <div className="mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-8 sm:p-10 bg-ink rounded-3xl">
+          <div>
+            <div className="text-paper text-2xl sm:text-3xl font-semibold tracking-tight">
+              Devis gratuit sous 24&nbsp;heures.
+            </div>
+            <div className="text-paper/60 text-sm mt-2">
+              Envoyez-nous quelques photos par WhatsApp, on vous répond immédiatement.
+            </div>
+          </div>
           <a
             href={CONTACT.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-anthracite text-paris-cream px-10 py-4 hover:bg-paris-gold transition-colors text-sm uppercase tracking-[0.2em] font-medium"
+            className="group inline-flex items-center gap-3 bg-accent hover:bg-accent-dark text-ink px-7 py-4 rounded-full font-semibold transition-colors shrink-0"
           >
-            Demander un devis
+            Démarrer
+            <ArrowUpRight size={18} strokeWidth={2.5} className="group-hover:rotate-45 transition-transform" />
           </a>
         </div>
       </div>
