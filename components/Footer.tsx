@@ -5,16 +5,25 @@ export default function Footer() {
     <footer className="bg-dark text-white py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-          {/* Logo */}
+          {/* Logo + Paris badge */}
           <div>
             <span aria-label="E-Major" className="font-[var(--font-heading)] text-2xl font-bold">
-              e-maj<span className="text-green-accent">o</span>r
+              e-maj<span className="text-paris-gold">o</span>r
             </span>
-            <p className="text-gray-400 mt-3 leading-relaxed">
+            <p className="font-[var(--font-display)] italic text-paris-gold/80 mt-2 text-sm tracking-wide">
+              L&apos;artisanat parisien
+            </p>
+            <p className="text-gray-400 mt-4 leading-relaxed text-sm">
               Électricité &amp; plomberie
               <br />
               Paris &amp; Île-de-France.
             </p>
+            <div className="inline-flex items-center gap-2 mt-5 px-3 py-1.5 border border-paris-gold/30 rounded-full">
+              <div className="w-1 h-1 rounded-full bg-paris-gold" />
+              <span className="text-xs text-paris-gold tracking-widest uppercase">
+                Établi&nbsp;Paris&nbsp;14ᵉ
+              </span>
+            </div>
           </div>
 
           {/* Nav */}

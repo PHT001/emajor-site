@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { COMPANY, CONTACT, SITE } from "@/lib/constants";
@@ -13,6 +13,14 @@ const spaceGrotesk = Space_Grotesk({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["italic", "normal"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -103,7 +111,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang="fr" className={`${spaceGrotesk.variable} ${inter.variable} ${cormorant.variable}`}>
       <body className="bg-white antialiased">
         {children}
         <Script

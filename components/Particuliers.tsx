@@ -32,17 +32,13 @@ export default function Particuliers() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <div className="max-w-2xl mb-16 text-center mx-auto">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-[2px] bg-green-accent" />
-            <span className="text-sm font-semibold text-green-accent uppercase tracking-widest">
-              Particuliers
-            </span>
-            <div className="w-8 h-[2px] bg-green-accent" />
+          <div className="paris-separator mb-4">
+            <span className="paris-separator-label">Particuliers</span>
           </div>
           <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-dark">
             Votre logement
             <br />
-            entre de bonnes mains
+            <span className="font-[var(--font-display)] italic font-medium">entre de bonnes mains</span>
           </h2>
           <p className="text-gray-text mt-6 text-lg leading-relaxed max-w-xl mx-auto">
             Nous intervenons pour les particuliers et les cabinets de gestion

@@ -24,17 +24,13 @@ export default function Segments() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <div className="max-w-2xl mb-16 text-center mx-auto">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-[2px] bg-green-accent" />
-            <span className="text-sm font-semibold text-green-accent uppercase tracking-widest">
-              Nos univers
-            </span>
-            <div className="w-8 h-[2px] bg-green-accent" />
+          <div className="paris-separator mb-4">
+            <span className="paris-separator-label">Nos univers</span>
           </div>
           <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-dark">
             À qui s&apos;adressent
             <br />
-            nos services&nbsp;?
+            <span className="font-[var(--font-display)] italic font-medium">nos services</span>&nbsp;?
           </h2>
         </div>
 

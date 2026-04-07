@@ -10,17 +10,13 @@ export default function Services() {
 
       {/* Section header */}
       <div className="relative z-10 max-w-2xl mx-auto text-center pt-24 sm:pt-32 pb-16 px-6">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="w-8 h-[2px] bg-green-accent" />
-          <span className="text-sm font-semibold text-green-accent uppercase tracking-widest">
-            Tertiaire
-          </span>
-          <div className="w-8 h-[2px] bg-green-accent" />
+        <div className="paris-separator mb-4">
+          <span className="paris-separator-label">Tertiaire</span>
         </div>
         <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
           Nos domaines
           <br />
-          d&apos;expertise
+          <span className="font-[var(--font-display)] italic font-medium">d&apos;expertise</span>
         </h2>
         <p className="text-white/50 mt-6 text-lg leading-relaxed max-w-xl mx-auto">
           Commerces, plateaux de bureaux, cafés-hôtels-restaurants (CHR),

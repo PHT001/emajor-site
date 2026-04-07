@@ -7,14 +7,16 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <div className="max-w-2xl mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-[2px] bg-green-accent" />
-            <span className="text-sm font-semibold text-green-accent uppercase tracking-widest">
+          <div className="flex items-center gap-3 mb-4 text-paris-gold">
+            <div className="w-12 h-[1px] bg-paris-gold" />
+            <span className="font-[var(--font-display)] italic text-sm tracking-[0.15em] uppercase">
               Contact
             </span>
           </div>
           <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-dark">
-            Nous trouver
+            <span className="font-[var(--font-display)] italic font-medium">Nous trouver</span>
+            <br />
+            au cœur du 14ᵉ
           </h2>
         </div>
 

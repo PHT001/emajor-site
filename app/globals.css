@@ -8,8 +8,16 @@
   --color-gray-text: #4A4A4A;
   --color-gray-light: #F5F5F5;
 
+  /* Parisian palette */
+  --color-paris-gold: #C9A66B;
+  --color-paris-gold-light: #F5EBD7;
+  --color-paris-gold-dark: #8E6F3D;
+  --color-paris-cream: #FBF8F2;
+  --color-paris-stone: #E8DFD0;
+
   --font-heading: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
 }
 
 html {
@@ -19,4 +27,28 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-dark);
+}
+
+/* Parisian ornamental separator — fine gold line with diamond center */
+.paris-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--color-paris-gold);
+}
+.paris-separator::before,
+.paris-separator::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background: currentColor;
+}
+.paris-separator-label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
