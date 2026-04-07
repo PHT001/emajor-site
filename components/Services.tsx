@@ -1,6 +1,5 @@
 import { PenTool, Zap, Monitor, Wind, MessageCircle } from "lucide-react";
-
-const WHATSAPP_LINK = "https://wa.me/33XXXXXXXXX";
+import { CONTACT } from "@/lib/constants";
 
 export default function Services() {
   return (
@@ -164,13 +163,13 @@ export default function Services() {
       {/* CTA */}
       <div className="relative z-10 py-16 text-center">
         <a
-          href={WHATSAPP_LINK}
+          href={CONTACT.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-green-accent hover:bg-green-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors"
         >
           <MessageCircle size={20} />
-          Demander un devis gratuit
+          Parlons de votre projet
         </a>
       </div>
     </section>

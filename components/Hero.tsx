@@ -1,6 +1,5 @@
-import { MessageCircle, ArrowDown } from "lucide-react";
-
-const WHATSAPP_LINK = "https://wa.me/33XXXXXXXXX";
+import { MessageCircle, Phone } from "lucide-react";
+import { CONTACT } from "@/lib/constants";
 
 export default function Hero() {
   return (
@@ -46,15 +45,22 @@ export default function Hero() {
             plomberie
           </h1>
 
-          <div className="flex items-center justify-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href={WHATSAPP_LINK}
+              href={CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-green-accent hover:bg-green-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors"
             >
               <MessageCircle size={20} />
-              Demander un devis
+              Devis sur WhatsApp
+            </a>
+            <a
+              href={CONTACT.phoneHref}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors"
+            >
+              <Phone size={20} />
+              {CONTACT.phoneDisplay}
             </a>
           </div>
         </div>

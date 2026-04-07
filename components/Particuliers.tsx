@@ -1,6 +1,5 @@
 import { Zap, Droplets, MessageCircle } from "lucide-react";
-
-const WHATSAPP_LINK = "https://wa.me/33XXXXXXXXX";
+import { CONTACT } from "@/lib/constants";
 
 const categories = [
   {
@@ -128,13 +127,13 @@ export default function Particuliers() {
         {/* CTA */}
         <div className="mt-12 text-center">
           <a
-            href={WHATSAPP_LINK}
+            href={CONTACT.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-green-accent hover:bg-green-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors"
           >
             <MessageCircle size={20} />
-            Demander un devis gratuit
+            Devis gratuit en 24h
           </a>
         </div>
       </div>

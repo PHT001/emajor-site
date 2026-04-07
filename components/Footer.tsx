@@ -1,11 +1,13 @@
+import { CONTACT, COMPANY } from "@/lib/constants";
+
 export default function Footer() {
   return (
     <footer className="bg-dark text-white py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Logo */}
           <div>
-            <span className="font-[var(--font-heading)] text-2xl font-bold">
+            <span aria-label="E-Major" className="font-[var(--font-heading)] text-2xl font-bold">
               e-maj<span className="text-green-accent">o</span>r
             </span>
             <p className="text-gray-400 mt-3 leading-relaxed">
@@ -15,7 +17,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links */}
+          {/* Nav */}
           <div>
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-widest text-gray-400">
               Navigation
@@ -39,19 +41,46 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact info */}
+          {/* Contact */}
           <div>
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-widest text-gray-400">
               Contact
             </h4>
             <ul className="space-y-2 text-gray-400">
-              <li>149 Av. du Maine, 75014 Paris</li>
+              <li>{COMPANY.address.replace(", France", "")}</li>
               <li>
                 <a
-                  href="mailto:contact@emajor.fr"
+                  href={CONTACT.phoneHref}
                   className="hover:text-white transition-colors"
                 >
-                  contact@emajor.fr
+                  {CONTACT.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={CONTACT.emailHref}
+                  className="hover:text-white transition-colors"
+                >
+                  {CONTACT.email}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Légal */}
+          <div>
+            <h4 className="font-semibold mb-4 text-sm uppercase tracking-widest text-gray-400">
+              Informations
+            </h4>
+            <ul className="space-y-2 text-gray-400">
+              <li>
+                <a href="/mentions-legales" className="hover:text-white transition-colors">
+                  Mentions légales
+                </a>
+              </li>
+              <li>
+                <a href="/confidentialite" className="hover:text-white transition-colors">
+                  Confidentialité
                 </a>
               </li>
             </ul>
@@ -61,9 +90,9 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} E-Major. Tous droits réservés.
+            &copy; {new Date().getFullYear()} {COMPANY.name}. Tous droits réservés.
           </p>
-          <p className="text-gray-500 text-sm">SIRET : 95103995700018</p>
+          <p className="text-gray-500 text-sm">SIRET : {COMPANY.siret}</p>
         </div>
       </div>
     </footer>
