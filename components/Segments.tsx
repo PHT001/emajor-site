@@ -1,18 +1,19 @@
-import { ArrowRight, MessageCircle } from "lucide-react";
-import { CONTACT } from "@/lib/constants";
+import { ArrowRight } from "lucide-react";
 
 const segments = [
   {
+    label: "Chapitre I",
     title: "Particuliers",
     description:
-      "Rénovation électrique, plomberie, mise aux normes pour appartements et maisons.",
+      "Appartements haussmanniens, copropriétés, hôtels particuliers : nous prenons soin du logement comme on entretient une œuvre.",
     href: "#particuliers",
     image: "/assets/img/particuliers.jpg",
   },
   {
+    label: "Chapitre II",
     title: "Tertiaire",
     description:
-      "Commerces, bureaux, cafés-hôtels-restaurants, théâtres.",
+      "Boutiques, bureaux, cafés-hôtels-restaurants, théâtres : des lieux d'exception qui exigent une rigueur d'exception.",
     href: "#tertiaire",
     image: "/assets/img/tertiaire.jpg",
   },
@@ -20,72 +21,58 @@ const segments = [
 
 export default function Segments() {
   return (
-    <section className="py-24 sm:py-32 bg-gradient-to-b from-[#F5F0EB] via-[#E8DFD5] to-[#F5F0EB]">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section header */}
-        <div className="max-w-2xl mb-16 text-center mx-auto">
-          <div className="paris-separator mb-4">
-            <span className="paris-separator-label">Nos univers</span>
+    <section className="py-24 sm:py-32 bg-paris-cream">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10">
+        {/* Section header — editorial */}
+        <div className="max-w-2xl mx-auto text-center mb-20">
+          <div className="paris-label paris-label-centered mb-6">
+            <span>Nos terrains</span>
           </div>
-          <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-dark">
-            À qui s&apos;adressent
+          <h2 className="font-[var(--font-heading)] text-anthracite text-4xl sm:text-5xl md:text-6xl leading-[1.05]">
+            Deux mondes,
             <br />
-            <span className="font-[var(--font-display)] italic font-medium">nos services</span>&nbsp;?
+            <span className="italic font-light">une seule</span> exigence
+            <span className="text-paris-gold">.</span>
           </h2>
         </div>
 
-        {/* Two pastille cards */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Warm glow behind left card */}
-          <div className="absolute -top-16 -left-16 w-80 h-80 bg-[#D4A44A]/30 rounded-full blur-[100px] pointer-events-none" />
-          {/* Warm glow behind right card */}
-          <div className="absolute -bottom-16 -right-16 w-80 h-80 bg-[#C48A3F]/25 rounded-full blur-[100px] pointer-events-none" />
+        {/* Two editorial cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           {segments.map((seg) => (
             <a
               key={seg.title}
               href={seg.href}
-              className="group block rounded-3xl overflow-hidden shadow-lg"
+              className="group block"
             >
-              {/* Image zone with title overlay */}
-              <div className="relative h-72 sm:h-80 overflow-hidden">
+              {/* Image */}
+              <div className="relative aspect-[4/5] overflow-hidden bg-paris-stone mb-6">
                 <div
-                  className="absolute inset-0 bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-[800ms] ease-out will-change-transform"
-                  style={{ backgroundImage: `url('${seg.image}')` }}
+                  className="absolute inset-0 bg-cover bg-center group-hover:scale-[1.04] transition-transform duration-[1200ms] ease-out"
+                  style={{
+                    backgroundImage: `url('${seg.image}')`,
+                    filter: "grayscale(0.5) contrast(1.05)",
+                  }}
                 />
-                {/* Gradient overlay bottom */}
-                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 to-transparent" />
-                {/* Title over image */}
-                <h3 className="absolute bottom-6 left-8 font-[var(--font-heading)] text-3xl font-bold text-white">
-                  {seg.title}
-                </h3>
+                <div className="absolute inset-0 bg-anthracite/20 group-hover:bg-anthracite/10 transition-colors" />
               </div>
 
-              {/* Description zone */}
-              <div className="bg-dark px-8 py-5">
-                <div className="flex items-center justify-between">
-                  <p className="text-white/60 text-sm leading-relaxed">
-                    {seg.description}
-                  </p>
-                  <div className="w-10 h-10 rounded-full bg-green-accent flex items-center justify-center shrink-0 ml-4 group-hover:bg-green-dark transition-colors duration-300">
-                    <ArrowRight size={18} className="text-white" />
-                  </div>
-                </div>
+              {/* Caption */}
+              <div className="paris-label mb-3">
+                <span>{seg.label}</span>
               </div>
+              <h3 className="font-[var(--font-heading)] text-anthracite text-3xl sm:text-4xl md:text-5xl mb-4 group-hover:text-paris-gold transition-colors">
+                {seg.title}
+                <span className="text-paris-gold">.</span>
+              </h3>
+              <p className="text-anthracite/70 leading-relaxed mb-6 max-w-md">
+                {seg.description}
+              </p>
+              <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-anthracite group-hover:text-paris-gold transition-colors">
+                Découvrir
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </span>
             </a>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-14 text-center">
-          <a
-            href={CONTACT.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-green-accent hover:bg-green-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors"
-          >
-            <MessageCircle size={20} />
-            Discuter de mon projet
-          </a>
         </div>
       </div>
     </section>

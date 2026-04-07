@@ -1,105 +1,114 @@
-import { Clock, Mail, MessageCircle, Phone } from "lucide-react";
+import { Clock, Mail, MessageCircle, Phone, MapPin } from "lucide-react";
 import { CONTACT, COMPANY, MAPS } from "@/lib/constants";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section header */}
-        <div className="max-w-2xl mb-16">
-          <div className="flex items-center gap-3 mb-4 text-paris-gold">
-            <div className="w-12 h-[1px] bg-paris-gold" />
-            <span className="font-[var(--font-display)] italic text-sm tracking-[0.15em] uppercase">
-              Contact
-            </span>
+    <section id="contact" className="py-24 sm:py-32 bg-paris-cream">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10">
+        {/* Editorial header */}
+        <div className="max-w-2xl mb-20">
+          <div className="paris-label mb-6">
+            <span>Contact</span>
           </div>
-          <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-dark">
-            <span className="font-[var(--font-display)] italic font-medium">Nous trouver</span>
+          <h2 className="font-[var(--font-heading)] text-anthracite text-4xl sm:text-5xl md:text-6xl leading-[1.05]">
+            Au cœur du
             <br />
-            au cœur du 14ᵉ
+            <span className="italic font-light">14ᵉ arrondissement</span>
+            <span className="text-paris-gold">.</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           {/* Map */}
-          <div className="rounded-2xl overflow-hidden h-[400px] lg:h-auto bg-gray-200">
-            <iframe
-              src={MAPS.embedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: 400 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={`${COMPANY.name} - ${COMPANY.address}`}
-            />
+          <div className="lg:col-span-7 relative">
+            <div className="aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden bg-paris-stone min-h-[400px]">
+              <iframe
+                src={MAPS.embedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: 400, filter: "grayscale(0.5) contrast(0.95)" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={`${COMPANY.name} - ${COMPANY.address}`}
+              />
+            </div>
           </div>
 
-          {/* Info cards */}
-          <div className="space-y-5">
-            {/* Téléphone */}
-            <a
-              href={CONTACT.phoneHref}
-              className="block bg-gray-light rounded-2xl p-6 hover:bg-green-light transition-colors group"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-green-light group-hover:bg-white flex items-center justify-center shrink-0 transition-colors">
-                  <Phone size={24} className="text-green-accent" />
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-heading)] text-lg font-bold text-dark mb-1">
-                    Téléphone
-                  </h4>
-                  <p className="text-gray-text group-hover:text-green-dark transition-colors">
-                    {CONTACT.phoneDisplay}
-                  </p>
-                </div>
+          {/* Editorial info column */}
+          <div className="lg:col-span-5 space-y-10">
+            <div>
+              <div className="paris-label mb-3 text-paris-gold">
+                <span>Adresse</span>
               </div>
-            </a>
-
-            {/* Horaires */}
-            <div className="bg-gray-light rounded-2xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-green-light flex items-center justify-center shrink-0">
-                  <Clock size={24} className="text-green-accent" />
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-heading)] text-lg font-bold text-dark mb-1">
-                    Horaires d&apos;ouverture
-                  </h4>
-                  <p className="text-gray-text">{CONTACT.openingHours}</p>
-                </div>
-              </div>
+              <a
+                href={MAPS.directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <p className="font-[var(--font-heading)] text-anthracite text-xl sm:text-2xl leading-snug group-hover:text-paris-gold transition-colors">
+                  149, avenue du Maine
+                  <br />
+                  75014 Paris
+                </p>
+                <span className="inline-flex items-center gap-2 mt-2 text-xs uppercase tracking-[0.15em] text-anthracite/60 group-hover:text-paris-gold transition-colors">
+                  <MapPin size={12} />
+                  Itinéraire
+                </span>
+              </a>
             </div>
 
-            {/* Email */}
-            <a
-              href={CONTACT.emailHref}
-              className="block bg-gray-light rounded-2xl p-6 hover:bg-green-light transition-colors group"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-green-light group-hover:bg-white flex items-center justify-center shrink-0 transition-colors">
-                  <Mail size={24} className="text-green-accent" />
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-heading)] text-lg font-bold text-dark mb-1">
-                    Email
-                  </h4>
-                  <p className="text-gray-text group-hover:text-green-dark transition-colors">
-                    {CONTACT.email}
-                  </p>
-                </div>
-              </div>
-            </a>
+            <div className="h-px bg-paris-stone" />
 
-            {/* CTA button */}
+            <div>
+              <div className="paris-label mb-3 text-paris-gold">
+                <span>Téléphone</span>
+              </div>
+              <a
+                href={CONTACT.phoneHref}
+                className="font-[var(--font-heading)] text-anthracite text-xl sm:text-2xl hover:text-paris-gold transition-colors inline-flex items-center gap-3"
+              >
+                <Phone size={18} />
+                {CONTACT.phoneDisplay}
+              </a>
+            </div>
+
+            <div className="h-px bg-paris-stone" />
+
+            <div>
+              <div className="paris-label mb-3 text-paris-gold">
+                <span>Email</span>
+              </div>
+              <a
+                href={CONTACT.emailHref}
+                className="font-[var(--font-heading)] text-anthracite text-xl sm:text-2xl hover:text-paris-gold transition-colors inline-flex items-center gap-3"
+              >
+                <Mail size={18} />
+                {CONTACT.email}
+              </a>
+            </div>
+
+            <div className="h-px bg-paris-stone" />
+
+            <div>
+              <div className="paris-label mb-3 text-paris-gold">
+                <span>Horaires</span>
+              </div>
+              <p className="font-[var(--font-body)] text-anthracite/80 inline-flex items-center gap-3">
+                <Clock size={16} />
+                {CONTACT.openingHours}
+              </p>
+            </div>
+
+            {/* CTA */}
             <a
               href={CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-green-accent text-white font-semibold px-6 py-4 rounded-xl hover:bg-green-dark transition-colors"
+              className="inline-flex items-center justify-center gap-3 bg-anthracite text-paris-cream px-10 py-4 hover:bg-paris-gold transition-colors text-sm uppercase tracking-[0.2em] font-medium w-full"
             >
-              <MessageCircle size={18} />
+              <MessageCircle size={16} />
               Discuter sur WhatsApp
             </a>
           </div>

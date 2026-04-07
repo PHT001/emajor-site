@@ -1,172 +1,130 @@
-import { PenTool, Zap, Monitor, Wind, MessageCircle } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
+
+const services = [
+  {
+    num: "I",
+    title: "Maîtrise d'œuvre",
+    description:
+      "Études techniques, conception et pilotage de chantiers complets, du dossier APD à la livraison.",
+    keywords: ["Études", "Conception", "Pilotage"],
+    image: "/assets/img/schema-horizontal.jpg",
+  },
+  {
+    num: "II",
+    title: "Électricité",
+    description:
+      "Courant fort, courant faible, éclairage architectural — installations conformes NF C 15-100 et certifications hôtelières.",
+    keywords: ["Courant fort", "Courant faible", "Éclairage"],
+    image: "/assets/img/tableau-tert.jpg",
+  },
+  {
+    num: "III",
+    title: "CVC",
+    description:
+      "Climatisation, ventilation et traitement d'air pour des locaux confortables en toutes saisons.",
+    keywords: ["Traitement d'air", "Climatisation"],
+    image: "/assets/img/cvc.jpg",
+  },
+  {
+    num: "IV",
+    title: "Supervision",
+    description:
+      "Automatisme, infrastructures réseaux et GMAO pour une maintenance préventive maîtrisée.",
+    keywords: ["Automatisme", "Réseaux", "GMAO"],
+    image: "/assets/img/infra.jpg",
+  },
+];
 
 export default function Services() {
   return (
-    <section id="tertiaire" className="relative bg-[#111111] overflow-hidden">
-      {/* Warm light sources */}
-      <div className="absolute top-20 left-1/4 w-96 h-96 bg-[#D4A44A]/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#C48A3F]/10 rounded-full blur-[120px] pointer-events-none" />
-
-      {/* Section header */}
-      <div className="relative z-10 max-w-2xl mx-auto text-center pt-24 sm:pt-32 pb-16 px-6">
-        <div className="paris-separator mb-4">
-          <span className="paris-separator-label">Tertiaire</span>
+    <section id="tertiaire" className="py-24 sm:py-32 bg-paris-cream">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10">
+        {/* Editorial header */}
+        <div className="max-w-2xl mb-20">
+          <div className="paris-label mb-6">
+            <span>Tertiaire</span>
+          </div>
+          <h2 className="font-[var(--font-heading)] text-anthracite text-4xl sm:text-5xl md:text-6xl leading-[1.05]">
+            Pour les commerces,
+            <br />
+            <span className="italic font-light">hôtels</span> et théâtres
+            <span className="text-paris-gold">.</span>
+          </h2>
+          <p className="font-[var(--font-body)] text-anthracite/70 mt-8 text-lg leading-relaxed max-w-xl">
+            E-Major intervient sur les plateaux de bureaux, les cafés-hôtels-restaurants
+            et les salles de spectacle. Quatre métiers, une seule signature.
+          </p>
         </div>
-        <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
-          Nos domaines
-          <br />
-          <span className="font-[var(--font-display)] italic font-medium">d&apos;expertise</span>
-        </h2>
-        <p className="text-white/50 mt-6 text-lg leading-relaxed max-w-xl mx-auto">
-          Commerces, plateaux de bureaux, cafés-hôtels-restaurants (CHR),
-          théâtres — nous intervenons sur tous types de locaux professionnels.
-        </p>
-      </div>
 
-      {/* Bento Grid — full width */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-2 px-2">
-
-        {/* Maîtrise d'œuvre — 2 colonnes */}
-        <div className="group md:col-span-2 relative h-72 sm:h-80 rounded-2xl overflow-hidden bg-[#1A1A1A]">
-          <div
-            className="absolute inset-0 bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-[800ms] ease-out will-change-transform"
-            style={{ backgroundImage: "url('/assets/img/schema-horizontal.jpg')" }}
-          />
-          <div className="absolute inset-0 bg-black/50" />
-          {/* Glass overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-8">
-            <div
-              className="bg-white/[0.08] backdrop-blur-xl border border-white/10 rounded-2xl p-6"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1)" }}
+        {/* Editorial grid — alternating left/right with image + text */}
+        <div className="space-y-24">
+          {services.map((s, i) => (
+            <article
+              key={s.title}
+              className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center ${
+                i % 2 === 1 ? "lg:[&>:first-child]:order-2" : ""
+              }`}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-green-accent/20 flex items-center justify-center">
-                  <PenTool size={20} className="text-green-accent" />
+              {/* Image */}
+              <div className="lg:col-span-7 relative">
+                <div className="aspect-[4/3] overflow-hidden bg-paris-stone">
+                  <div
+                    className="w-full h-full bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url('${s.image}')`,
+                      filter: "grayscale(0.4) contrast(1.05)",
+                    }}
+                  />
                 </div>
-                <h3 className="font-[var(--font-heading)] text-2xl font-bold text-white">
-                  Maîtrise d&apos;œuvre
-                </h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {["Études", "Conception", "Pilotage"].map((item) => (
-                  <span key={item} className="px-4 py-1.5 rounded-full bg-white/[0.08] border border-white/10 text-white/70 text-sm">
-                    {item}
+                {/* Numbered tag */}
+                <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 bg-anthracite text-paris-cream px-5 py-3">
+                  <span className="font-[var(--font-heading)] italic text-2xl">
+                    {s.num}
                   </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Électricité — 1 colonne */}
-        <div className="group relative h-72 sm:h-80 rounded-2xl overflow-hidden bg-[#1A1A1A]">
-          <div
-            className="absolute inset-0 bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-[800ms] ease-out will-change-transform"
-            style={{ backgroundImage: "url('/assets/img/tableau-tert.jpg')" }}
-          />
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute bottom-0 left-0 right-0 p-6">
-            <div
-              className="bg-white/[0.08] backdrop-blur-xl border border-white/10 rounded-2xl p-5"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1)" }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-green-accent/20 flex items-center justify-center">
-                  <Zap size={20} className="text-green-accent" />
                 </div>
-                <h3 className="font-[var(--font-heading)] text-xl font-bold text-white">
-                  Électricité
-                </h3>
               </div>
-              <ul className="space-y-2">
-                {["Courant fort", "Courant faible", "Éclairage"].map((item) => (
-                  <li key={item} className="text-white/60 text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-accent shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
 
-        {/* CVC — 1 colonne */}
-        <div className="group relative h-72 sm:h-80 rounded-2xl overflow-hidden bg-[#1A1A1A]">
-          <div
-            className="absolute inset-0 bg-cover group-hover:scale-[1.03] transition-transform duration-[800ms] ease-out will-change-transform"
-            style={{ backgroundImage: "url('/assets/img/cvc.jpg')", backgroundPosition: "center 48%" }}
-          />
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute bottom-0 left-0 right-0 p-6">
-            <div
-              className="bg-white/[0.08] backdrop-blur-xl border border-white/10 rounded-2xl p-5"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1)" }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-green-accent/20 flex items-center justify-center">
-                  <Wind size={20} className="text-green-accent" />
+              {/* Text */}
+              <div className="lg:col-span-5">
+                <div className="paris-label mb-4">
+                  <span>Service {s.num}</span>
                 </div>
-                <h3 className="font-[var(--font-heading)] text-xl font-bold text-white">
-                  CVC
+                <h3 className="font-[var(--font-heading)] text-anthracite text-3xl sm:text-4xl md:text-5xl leading-[1.05] mb-6">
+                  {s.title}
+                  <span className="text-paris-gold">.</span>
                 </h3>
+                <p className="text-anthracite/70 leading-relaxed mb-6">
+                  {s.description}
+                </p>
+                <ul className="flex flex-wrap gap-x-6 gap-y-2 mb-2">
+                  {s.keywords.map((k) => (
+                    <li
+                      key={k}
+                      className="text-xs uppercase tracking-[0.15em] text-paris-gold-dark"
+                    >
+                      — {k}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-2">
-                {["Traitement d'air", "Climatisation"].map((item) => (
-                  <li key={item} className="text-white/60 text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-accent shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
 
-        {/* Supervision — 2 colonnes */}
-        <div className="group md:col-span-2 relative h-72 sm:h-80 rounded-2xl overflow-hidden bg-[#1A1A1A]">
-          <div
-            className="absolute inset-0 bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-[800ms] ease-out will-change-transform"
-            style={{ backgroundImage: "url('/assets/img/infra.jpg')" }}
-          />
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute bottom-0 left-0 right-0 p-8">
-            <div
-              className="bg-white/[0.08] backdrop-blur-xl border border-white/10 rounded-2xl p-6"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1)" }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-green-accent/20 flex items-center justify-center">
-                  <Monitor size={20} className="text-green-accent" />
-                </div>
-                <h3 className="font-[var(--font-heading)] text-2xl font-bold text-white">
-                  Supervision
-                </h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {["Automatisme", "Infrastructure Réseaux", "GMAO"].map((item) => (
-                  <span key={item} className="px-4 py-1.5 rounded-full bg-white/[0.08] border border-white/10 text-white/70 text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+        {/* CTA */}
+        <div className="mt-24 pt-16 border-t border-paris-stone text-center">
+          <p className="font-[var(--font-display)] italic text-anthracite/60 text-xl mb-6">
+            Une question, un projet ?
+          </p>
+          <a
+            href={CONTACT.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-anthracite text-paris-cream px-10 py-4 hover:bg-paris-gold transition-colors text-sm uppercase tracking-[0.2em] font-medium"
+          >
+            Parlons de votre projet
+          </a>
         </div>
-
-      </div>
-
-      {/* CTA */}
-      <div className="relative z-10 py-16 text-center">
-        <a
-          href={CONTACT.whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-green-accent hover:bg-green-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors"
-        >
-          <MessageCircle size={20} />
-          Parlons de votre projet
-        </a>
       </div>
     </section>
   );

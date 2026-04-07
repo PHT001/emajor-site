@@ -1,23 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  --color-green-accent: #2D8C4E;
-  --color-green-light: #E8F5EE;
-  --color-green-dark: #1A5C32;
-  --color-dark: #1A1A1A;
-  --color-gray-text: #4A4A4A;
-  --color-gray-light: #F5F5F5;
-
-  /* Parisian palette */
-  --color-paris-gold: #C9A66B;
-  --color-paris-gold-light: #F5EBD7;
-  --color-paris-gold-dark: #8E6F3D;
+  /* Sober Parisian editorial palette */
+  --color-anthracite: #1B1B1F;
+  --color-anthracite-soft: #2C2C32;
+  --color-paris-gold: #B08D48;
+  --color-paris-gold-light: #D4B57E;
+  --color-paris-gold-dark: #876A2F;
   --color-paris-cream: #FBF8F2;
   --color-paris-stone: #E8DFD0;
+  --color-paris-ivory: #F5F1E8;
 
-  --font-heading: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  /* Legacy aliases (kept to avoid breakage during transition) */
+  --color-green-accent: #B08D48;
+  --color-green-light: #F5F1E8;
+  --color-green-dark: #876A2F;
+  --color-dark: #1B1B1F;
+  --color-gray-text: #4A4A4A;
+  --color-gray-light: #FBF8F2;
+
+  --font-heading: "Playfair Display", "Cormorant Garamond", Georgia, serif;
   --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "Space Grotesk", sans-serif;
 }
 
 html {
@@ -26,29 +31,36 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--color-dark);
+  color: var(--color-anthracite);
+  background: var(--color-paris-cream);
 }
 
-/* Parisian ornamental separator — fine gold line with diamond center */
-.paris-separator {
-  display: flex;
+/* Editorial label — small caps gold with thin rule */
+.paris-label {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+  gap: 0.875rem;
   color: var(--color-paris-gold);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
 }
-.paris-separator::before,
-.paris-separator::after {
+.paris-label::before {
   content: "";
   display: block;
-  width: 3rem;
+  width: 2.5rem;
   height: 1px;
   background: currentColor;
 }
-.paris-separator-label {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+.paris-label-centered {
+  justify-content: center;
+}
+.paris-label-centered::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: currentColor;
 }

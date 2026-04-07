@@ -9,19 +9,19 @@ export default function Icon() {
       <div
         style={{
           fontSize: 22,
-          background: "#1A1A1A",
+          background: "#1B1B1F",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#fff",
-          fontWeight: 700,
-          fontFamily: "sans-serif",
+          color: "#FBF8F2",
+          fontWeight: 600,
+          fontFamily: "serif",
         }}
       >
-        <span>e</span>
-        <span style={{ color: "#2D8C4E" }}>o</span>
+        <span>E</span>
+        <span style={{ color: "#B08D48" }}>.</span>
       </div>
     ),
     { ...size },

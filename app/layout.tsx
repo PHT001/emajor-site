@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, Cormorant_Garamond } from "next/font/google";
+import { Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { COMPANY, CONTACT, SITE } from "@/lib/constants";
 
-const spaceGrotesk = Space_Grotesk({
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["italic", "normal"],
   variable: "--font-heading",
   display: "swap",
 });
@@ -65,7 +67,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1A1A1A",
+  themeColor: "#1B1B1F",
   width: "device-width",
   initialScale: 1,
 };
@@ -111,8 +113,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${spaceGrotesk.variable} ${inter.variable} ${cormorant.variable}`}>
-      <body className="bg-white antialiased">
+    <html lang="fr" className={`${playfair.variable} ${inter.variable} ${cormorant.variable}`}>
+      <body className="bg-paris-cream antialiased">
         {children}
         <Script
           id="ld-json-localbusiness"
