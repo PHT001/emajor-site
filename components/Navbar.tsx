@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, MessageCircle, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const navItems = [
   { label: "Particuliers", href: "#particuliers" },
@@ -58,15 +59,17 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href={CONTACT.phoneHref}
-            className={`inline-flex items-center gap-2 text-sm font-semibold transition-colors ${
+            href={CONTACT.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Nous contacter sur WhatsApp"
+            className={`inline-flex items-center justify-center w-10 h-10 rounded-full transition-colors ${
               scrolled
-                ? "text-ink hover:text-accent"
-                : "text-paper hover:text-accent"
+                ? "bg-ink/5 hover:bg-[#25D366] text-ink hover:text-white"
+                : "bg-paper/10 hover:bg-[#25D366] text-paper hover:text-white"
             }`}
           >
-            <Phone size={14} strokeWidth={2.5} />
-            {CONTACT.phoneDisplay}
+            <WhatsAppIcon size={18} />
           </a>
           <a
             href={CONTACT.whatsappUrl}
@@ -104,19 +107,12 @@ export default function Navbar() {
           ))}
           <div className="mt-6 flex flex-col gap-3">
             <a
-              href={CONTACT.phoneHref}
-              className="inline-flex items-center justify-center gap-2 bg-paper-2 text-ink font-semibold px-6 py-4 rounded-full"
-            >
-              <Phone size={16} strokeWidth={2.5} />
-              {CONTACT.phoneDisplay}
-            </a>
-            <a
               href={CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-accent text-ink font-semibold px-6 py-4 rounded-full"
             >
-              <MessageCircle size={16} strokeWidth={2.5} />
+              <WhatsAppIcon size={18} />
               Devis WhatsApp
             </a>
           </div>

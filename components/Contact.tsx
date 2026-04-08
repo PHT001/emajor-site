@@ -1,5 +1,6 @@
-import { Clock, Mail, MessageCircle, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Clock, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { CONTACT, COMPANY, MAPS } from "@/lib/constants";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 export default function Contact() {
   return (
@@ -65,15 +66,20 @@ export default function Contact() {
 
             <div className="h-px bg-line" />
 
-            {/* Phone */}
-            <a href={CONTACT.phoneHref} className="block group">
+            {/* WhatsApp */}
+            <a
+              href={CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-paper-2 group-hover:bg-accent-soft flex items-center justify-center shrink-0 transition-colors">
-                  <Phone size={20} className="text-ink group-hover:text-accent transition-colors" strokeWidth={2.2} />
+                <div className="w-12 h-12 rounded-2xl bg-paper-2 group-hover:bg-[#25D366] flex items-center justify-center shrink-0 transition-colors">
+                  <WhatsAppIcon size={20} className="text-ink group-hover:text-white transition-colors" />
                 </div>
                 <div className="flex-1">
-                  <div className="text-xs text-ink-faint mb-1 font-medium">Téléphone</div>
-                  <div className="text-ink font-semibold">{CONTACT.phoneDisplay}</div>
+                  <div className="text-xs text-ink-faint mb-1 font-medium">WhatsApp</div>
+                  <div className="text-ink font-semibold">Écrire maintenant</div>
                 </div>
                 <ArrowUpRight size={18} className="text-ink-faint group-hover:text-accent transition-colors mt-2" />
               </div>
@@ -115,7 +121,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-dark text-ink px-7 py-4 rounded-full font-semibold transition-colors mt-2"
             >
-              <MessageCircle size={18} strokeWidth={2.5} />
+              <WhatsAppIcon size={18} />
               Écrire sur WhatsApp
               <ArrowUpRight size={18} strokeWidth={2.5} className="group-hover:rotate-45 transition-transform" />
             </a>

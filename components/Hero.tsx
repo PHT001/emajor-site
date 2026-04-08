@@ -1,5 +1,6 @@
-import { Phone, MessageCircle, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 export default function Hero() {
   return (
@@ -56,17 +57,19 @@ export default function Hero() {
               className="group inline-flex items-center justify-between gap-6 bg-accent hover:bg-accent-dark text-ink px-7 py-5 rounded-full transition-all hover:scale-[1.02]"
             >
               <span className="inline-flex items-center gap-3">
-                <MessageCircle size={20} strokeWidth={2.5} />
+                <WhatsAppIcon size={20} />
                 <span className="font-semibold text-base">Devis WhatsApp</span>
               </span>
               <ArrowUpRight size={20} strokeWidth={2.5} className="group-hover:rotate-45 transition-transform" />
             </a>
             <a
-              href={CONTACT.phoneHref}
-              className="group inline-flex items-center gap-3 bg-paper/5 hover:bg-paper/10 backdrop-blur-sm border border-paper/15 hover:border-paper/30 text-paper px-7 py-5 rounded-full transition-colors"
+              href={CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Écrire sur WhatsApp"
+              className="group inline-flex items-center justify-center w-[64px] h-[64px] bg-[#25D366] hover:bg-[#1ebe5d] text-white rounded-full transition-all hover:scale-[1.05]"
             >
-              <Phone size={20} strokeWidth={2.5} />
-              <span className="font-semibold text-base">{CONTACT.phoneDisplay}</span>
+              <WhatsAppIcon size={28} />
             </a>
           </div>
 

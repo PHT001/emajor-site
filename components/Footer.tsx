@@ -1,4 +1,5 @@
 import { CONTACT, COMPANY } from "@/lib/constants";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 export default function Footer() {
   return (
@@ -55,8 +56,14 @@ export default function Footer() {
               <li>149, av. du Maine</li>
               <li>75014 Paris</li>
               <li>
-                <a href={CONTACT.phoneHref} className="hover:text-accent transition-colors">
-                  {CONTACT.phoneDisplay}
+                <a
+                  href={CONTACT.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-accent transition-colors"
+                >
+                  <WhatsAppIcon size={14} />
+                  WhatsApp
                 </a>
               </li>
               <li>
