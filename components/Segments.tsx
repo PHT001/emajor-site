@@ -7,7 +7,7 @@ const segments = [
     description:
       "Appartements, maisons, hôtels particuliers. Rénovation complète, mise aux normes, dépannage urgent.",
     href: "#particuliers",
-    image: "/assets/img/particuliers.jpg",
+    image: "/assets/img/facade-haussmann-angle.jpg",
     tags: ["Électricité", "Plomberie", "Dépannage"],
   },
   {

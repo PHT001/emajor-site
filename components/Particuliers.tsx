@@ -13,7 +13,7 @@ const blocks = [
       "Prises, interrupteurs, éclairage",
       "Dépannage & recherche de panne",
     ],
-    images: ["/assets/img/haussmann-facade.jpg", "/assets/img/part-2.jpg", "/assets/img/part-3.jpg"],
+    images: ["/assets/img/salon-haussmann-led.jpg", "/assets/img/entree-haussmann-spots.jpg", "/assets/img/facade-haussmann.jpg"],
   },
   {
     idx: "02",
@@ -26,7 +26,7 @@ const blocks = [
       "Chauffe-eau & ballon d'eau chaude",
       "Dépannage & fuites",
     ],
-    images: ["/assets/img/haussmann-hall.jpg", "/assets/img/plomb-1.jpg", "/assets/img/plomb-3.jpeg"],
+    images: ["/assets/img/sdb-haussmann.jpg", "/assets/img/facade-haussmann-angle.jpg", "/assets/img/salon-haussmann-led.jpg"],
   },
 ];
 
