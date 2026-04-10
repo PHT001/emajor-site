@@ -48,8 +48,8 @@ const blocks = [
     ],
     images: [
       "/assets/img/sdb-haussmann.jpg",
-      "/assets/img/facade-haussmann-angle.jpg",
-      "/assets/img/salon-haussmann-led.jpg",
+      "/assets/img/plomb-2.jpeg",
+      "/assets/img/plomb-3.jpeg",
     ],
   },
 ];
