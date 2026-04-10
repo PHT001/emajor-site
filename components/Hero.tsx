@@ -42,8 +42,8 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p className="text-paper/60 text-lg sm:text-xl md:text-2xl mt-8 max-w-2xl leading-relaxed font-light">
-          Maison artisanale fondée dans le 14ᵉ. Interventions sur Paris
-          intra-muros et toute l&apos;Île-de-France, 7&nbsp;jours&nbsp;sur&nbsp;7.
+          Entreprise d&apos;électricité et de plomberie sur Paris et proche
+          couronne. Votre logement mis en valeur par une installation soignée.
         </p>
 
         {/* Bottom row — CTAs and stats */}
@@ -82,7 +82,7 @@ export default function Hero() {
             <div className="w-px h-12 bg-paper/15" />
             <div>
               <dt className="text-xs text-paper/40 font-mono mb-1">Disponibilité</dt>
-              <dd className="text-3xl sm:text-4xl font-semibold tracking-tight">7/7</dd>
+              <dd className="text-3xl sm:text-4xl font-semibold tracking-tight">6/7</dd>
             </div>
             <div className="w-px h-12 bg-paper/15 hidden sm:block" />
             <div className="hidden sm:block">

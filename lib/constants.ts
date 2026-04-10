@@ -18,7 +18,7 @@ export const CONTACT = {
   emailHref: "mailto:contact@emajor.fr",
   whatsappNumber: "33661864303",
   whatsappUrl: "https://wa.me/33661864303",
-  openingHours: "Lun – Ven : 7h30 – 12h30 / 13h30 – 17h30",
+  openingHours: "Lun – Sam : 7h30 – 12h30 / 13h30 – 17h30",
 } as const;
 
 export const MAPS = {

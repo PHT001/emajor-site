@@ -12,8 +12,7 @@ export default function Footer() {
               E-Major<span className="text-accent">.</span>
             </div>
             <p className="text-paper/60 mt-6 text-base leading-relaxed max-w-sm">
-              Maison artisanale d&apos;électricité et de plomberie, fondée au cœur
-              du 14ᵉ arrondissement de Paris.
+              Entreprise d&apos;électricité et de plomberie sur Paris et proche couronne.
             </p>
             <div className="inline-flex items-center gap-2 mt-6 px-4 py-2 rounded-full border border-accent/30">
               <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />

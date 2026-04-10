@@ -93,7 +93,7 @@ export const FAQ: FaqCategory[] = [
         id: "urgence",
         question: "Quel délai pour une urgence ?",
         answer:
-          "Pour les urgences sur Paris intra-muros (fuite, coupure, panne bloquante), nous nous engageons à intervenir sous 2 heures en journée et sous 4 heures en soirée. Nous travaillons 7j/7 pour les urgences avérées.",
+          "Pour les urgences sur Paris intra-muros (fuite, coupure, panne bloquante), nous nous engageons à intervenir sous 2 heures en journée et sous 4 heures en soirée. Nous travaillons 6j/7 pour les urgences avérées.",
         cta: { label: "Appeler en urgence", href: "tel:+33661864303", external: false },
       },
       {

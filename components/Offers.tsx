@@ -18,7 +18,7 @@ const offers = [
     icon: Wrench,
     title: "Dépannage",
     description:
-      "Intervention rapide 7j/7 pour rétablir le fonctionnement de vos installations.",
+      "Intervention rapide 6j/7 pour rétablir le fonctionnement de vos installations.",
     items: [
       "Coupures de courant, pannes urgentes",
       "Levée de réserves ERP/ERT après commission",

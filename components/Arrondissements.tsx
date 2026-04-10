@@ -1,11 +1,12 @@
 const arrondissements = [
-  { num: "01", name: "Louvre" },
-  { num: "04", name: "Le Marais" },
   { num: "06", name: "Saint-Germain" },
   { num: "07", name: "Invalides" },
   { num: "08", name: "Champs-Élysées" },
-  { num: "09", name: "Opéra" },
+  { num: "11", name: "Bastille" },
+  { num: "12", name: "Reuilly" },
+  { num: "13", name: "Gobelins" },
   { num: "14", name: "Montparnasse" },
+  { num: "15", name: "Vaugirard" },
   { num: "16", name: "Passy" },
   { num: "17", name: "Batignolles" },
 ];
@@ -26,8 +27,8 @@ export default function Arrondissements() {
           </h2>
         </div>
 
-        {/* Modern grid — sharp borders, no rounded */}
-        <ul className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-9 gap-2">
+        {/* Modern grid */}
+        <ul className="grid grid-cols-2 sm:grid-cols-5 gap-2">
           {arrondissements.map((a) => (
             <li
               key={a.num}
@@ -43,7 +44,10 @@ export default function Arrondissements() {
           ))}
         </ul>
 
-        <p className="mt-10 text-center text-sm text-ink-faint">
+        <p className="mt-8 text-center text-sm text-ink-mute font-medium">
+          + Boulogne, Montrouge, Vanves, Issy-les-Moulineaux, Gentilly
+        </p>
+        <p className="mt-2 text-center text-sm text-ink-faint">
           + toute l&apos;Île-de-France pour les chantiers tertiaires
         </p>
       </div>
