@@ -6,7 +6,7 @@ import { CONTACT } from "@/lib/constants";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const navItems = [
-  { label: "Particuliers", href: "#particuliers" },
+  { label: "Résidentiel", href: "#particuliers" },
   { label: "Tertiaire", href: "#tertiaire" },
   { label: "Offres", href: "#offres" },
   { label: "Contact", href: "#contact" },

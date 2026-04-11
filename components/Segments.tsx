@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 const segments = [
   {
     idx: "01",
-    title: "Particuliers",
+    title: "Résidentiel",
     description:
       "Appartements, maisons, hôtels particuliers. Rénovation complète, mise aux normes, dépannage urgent.",
     href: "#particuliers",

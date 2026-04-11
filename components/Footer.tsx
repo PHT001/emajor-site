@@ -30,7 +30,7 @@ export default function Footer() {
             </div>
             <ul className="space-y-3">
               {[
-                { label: "Particuliers", href: "#particuliers" },
+                { label: "Résidentiel", href: "#particuliers" },
                 { label: "Tertiaire", href: "#tertiaire" },
                 { label: "Nos Offres", href: "#offres" },
                 { label: "Contact", href: "#contact" },

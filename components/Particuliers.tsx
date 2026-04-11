@@ -181,7 +181,7 @@ export default function Particuliers() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
           <div>
             <div className="eyebrow mb-4">
-              <span>Particuliers</span>
+              <span>Résidentiel</span>
             </div>
             <h2 className="text-ink text-5xl sm:text-6xl md:text-7xl font-semibold tracking-[-0.04em] leading-[0.95]">
               Votre logement,
@@ -190,7 +190,7 @@ export default function Particuliers() {
             </h2>
           </div>
           <p className="text-ink-mute text-base lg:text-lg max-w-md leading-relaxed">
-            Nous intervenons sur Paris et proche couronne pour les particuliers
+            Nous intervenons sur Paris et proche couronne pour les résidences
             et les cabinets de gestion. Devis gratuit sous 24h.
           </p>
         </div>
