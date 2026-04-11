@@ -20,14 +20,27 @@ const blocks = [
     idx: "01",
     icon: Zap,
     title: "Électricité",
-    items: [
-      "Rénovation électrique complète",
-      "Mise aux normes NF C 15-100",
-      "Tableau électrique",
-      "Prises, interrupteurs, éclairage",
-      "Courant faible : alarme, interphone, vidéophone",
-      "Domotique & automatismes",
-      "Dépannage & recherche de panne",
+    subsections: [
+      {
+        label: "Courant fort",
+        items: [
+          "Rénovation électrique complète",
+          "Mise aux normes NF C 15-100",
+          "Tableau électrique & disjoncteurs",
+          "Prises, interrupteurs, éclairage",
+          "Dépannage & recherche de panne",
+        ],
+      },
+      {
+        label: "Courant faible",
+        items: [
+          "Alarme & détection incendie",
+          "Interphone & vidéophone",
+          "Réseau informatique & prises RJ45",
+          "Domotique & automatismes",
+          "Contrôle d'accès",
+        ],
+      },
     ],
     images: [
       "/assets/img/salon-haussmann-led.jpg",
@@ -39,12 +52,17 @@ const blocks = [
     idx: "02",
     icon: Droplets,
     title: "Plomberie",
-    items: [
-      "Installation sanitaire",
-      "Rénovation salle de bain",
-      "Robinetterie & mitigeurs",
-      "Chauffe-eau & ballon d'eau chaude",
-      "Dépannage & fuites",
+    subsections: [
+      {
+        label: null,
+        items: [
+          "Installation sanitaire complète",
+          "Rénovation salle de bain",
+          "Robinetterie & mitigeurs",
+          "Chauffe-eau & ballon d'eau chaude",
+          "Dépannage & fuites",
+        ],
+      },
     ],
     images: [
       "/assets/img/sdb-haussmann.jpg",
@@ -202,17 +220,28 @@ export default function Particuliers() {
                 <h3 className="text-ink text-3xl sm:text-4xl font-semibold tracking-[-0.03em] mb-6">
                   {b.title}
                 </h3>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {b.items.map((item) => (
-                    <li
-                      key={item}
-                      className="text-ink-mute text-sm leading-relaxed flex items-start gap-3"
-                    >
-                      <span className="text-accent mt-1.5 shrink-0">▸</span>
-                      {item}
-                    </li>
+                <div className="space-y-5 mb-8 flex-1">
+                  {b.subsections.map((sub) => (
+                    <div key={sub.label ?? "default"}>
+                      {sub.label && (
+                        <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">
+                          {sub.label}
+                        </div>
+                      )}
+                      <ul className="space-y-2">
+                        {sub.items.map((item) => (
+                          <li
+                            key={item}
+                            className="text-ink-mute text-sm leading-relaxed flex items-start gap-3"
+                          >
+                            <span className="text-accent mt-1.5 shrink-0">▸</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </article>
           ))}
