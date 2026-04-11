@@ -1,3 +1,4 @@
+import { Leaf } from "lucide-react";
 import { CONTACT, COMPANY } from "@/lib/constants";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
@@ -91,6 +92,14 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Engagement environnemental */}
+        <div className="mb-12 flex items-center gap-4 px-6 py-4 rounded-2xl border border-paper/10">
+          <Leaf size={20} className="text-accent shrink-0" strokeWidth={2.2} />
+          <p className="text-paper/60 text-sm">
+            Chaque chantier est évalué selon son impact énergétique et écologique.
+          </p>
         </div>
 
         {/* Bottom bar */}

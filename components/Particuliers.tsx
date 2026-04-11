@@ -343,19 +343,13 @@ export default function Particuliers() {
       {/* ── Triptych animation styles ─────────────────────────────── */}
       <style jsx global>{`
         .triptych-panel {
-          opacity: 0;
-          transform: translateX(-30px);
-          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .triptych-panel:nth-child(3) {
-          transform: translateX(30px);
-        }
-        .triptych-panel:nth-child(2) {
-          transform: translateY(20px);
+          opacity: 0.85;
+          transform: scale(0.97);
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .triptych-visible .triptych-panel {
           opacity: 1;
-          transform: translateX(0) translateY(0);
+          transform: scale(1);
         }
       `}</style>
     </section>

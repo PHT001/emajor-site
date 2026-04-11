@@ -104,3 +104,24 @@ body {
 .paris-label-centered {
   justify-content: center;
 }
+
+/* ── Scroll-driven fade-in for sections ──────────────────────── */
+@supports (animation-timeline: view()) {
+  section,
+  article {
+    animation: fadeInUp 1s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0.6;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
