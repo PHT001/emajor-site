@@ -1,41 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  /* Modern monochrome palette with single sharp accent */
-  --color-ink: #0A0A0B;
-  --color-ink-soft: #18181B;
-  --color-ink-mute: #3F3F46;
-  --color-ink-faint: #71717A;
-  --color-line: #E4E4E7;
-  --color-line-soft: #F4F4F5;
-  --color-paper: #FAFAFA;
-  --color-paper-2: #F4F4F5;
+  /* Brand palette — green primary + gold accent */
+  --color-brand: #2d8c4e;
+  --color-brand-dark: #1a5c32;
+  --color-brand-light: #e8f5ee;
+  --color-brand-pale: #f0faf4;
+  --color-dark: #1a1a1a;
+  --color-gold: #d4a44a;
+  --color-gray-bg: #f7f7f7;
+  --color-gray-mid: #777777;
+  --color-gray-text: #4a4a4a;
 
-  /* Single accent — electric copper, modern + warm + premium */
-  --color-accent: #FF6A2C;
-  --color-accent-soft: #FFE3D5;
-  --color-accent-dark: #D54E10;
+  /* Legacy aliases so older components still compile */
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #262626;
+  --color-ink-mute: #4a4a4a;
+  --color-ink-faint: #777777;
+  --color-line: #e4e4e7;
+  --color-line-soft: #f4f4f5;
+  --color-paper: #ffffff;
+  --color-paper-2: #f7f7f7;
+  --color-accent: #2d8c4e;
+  --color-accent-soft: #e8f5ee;
+  --color-accent-dark: #1a5c32;
 
-  /* Legacy aliases (kept so unedited components don't crash) */
-  --color-anthracite: #0A0A0B;
-  --color-anthracite-soft: #18181B;
-  --color-paris-gold: #FF6A2C;
-  --color-paris-gold-light: #FFE3D5;
-  --color-paris-gold-dark: #D54E10;
-  --color-paris-cream: #FAFAFA;
-  --color-paris-stone: #E4E4E7;
-  --color-paris-ivory: #F4F4F5;
-  --color-green-accent: #FF6A2C;
-  --color-green-light: #FFE3D5;
-  --color-green-dark: #D54E10;
-  --color-dark: #0A0A0B;
-  --color-gray-text: #3F3F46;
-  --color-gray-light: #FAFAFA;
-
-  --font-heading: "Inter", "Inter Tight", system-ui, sans-serif;
-  --font-display: "Inter", "Inter Tight", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
 html {
@@ -45,83 +39,86 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
-  color: var(--color-ink);
-  background: var(--color-paper);
-  font-feature-settings: "ss01", "cv11", "calt";
+  font-family: var(--font-sans);
+  color: var(--color-dark);
+  background: #ffffff;
 }
 
-/* Modern utility — small mono index tag (01, 02, 03 …) */
-.idx-tag {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--color-ink-faint);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }
 
-/* Modern eyebrow label */
+/* Legacy utilities kept minimal */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--color-accent);
+  font-weight: 600;
+  color: var(--color-brand);
   letter-spacing: 0.02em;
 }
-.eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: currentColor;
-  border-radius: 9999px;
-}
 
-/* Legacy label classes redirected to eyebrow look */
-.paris-label,
-.paris-label-centered {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--color-accent);
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: none;
-}
-.paris-label::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: currentColor;
-  border-radius: 9999px;
-}
-.paris-label-centered {
-  justify-content: center;
-}
-
-/* ── Scroll-driven fade-in for sections ──────────────────────── */
-@supports (animation-timeline: view()) {
-  section,
-  article {
-    animation: fadeInUp 1s ease both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 30%;
-  }
-}
-
-@keyframes fadeInUp {
+/* Chatbot animations */
+@keyframes fade-in-up {
   from {
-    opacity: 0.6;
-    transform: translateY(24px);
+    opacity: 0;
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+@keyframes chat-open {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes typing-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.3s ease-out both;
+}
+.animate-chat-open {
+  animation: chat-open 0.25s ease-out both;
+}
+.animate-spin-slow {
+  animation: spin-slow 1.2s linear infinite;
+}
+.animate-typing-dot {
+  animation: typing-dot 1.4s infinite ease-in-out;
+}
+.animate-typing-dot-delay-1 {
+  animation: typing-dot 1.4s infinite ease-in-out 0.2s;
+}
+.animate-typing-dot-delay-2 {
+  animation: typing-dot 1.4s infinite ease-in-out 0.4s;
 }

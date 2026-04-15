@@ -1,58 +1,37 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
-import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const navItems = [
   { label: "Particuliers", href: "/particuliers" },
   { label: "Professionnels", href: "/professionnels" },
-  { label: "Services", href: "/#services" },
+  { label: "Nos Offres", href: "/#services" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? "bg-paper/90 backdrop-blur-xl border-b border-line"
-          : "bg-transparent border-b border-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between h-20">
+    <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200/60">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <Link
           href="/"
           aria-label="E-Major — accueil"
-          className={`font-bold tracking-tight text-xl transition-colors ${
-            scrolled ? "text-ink" : "text-paper"
-          }`}
+          className="font-heading font-bold tracking-tight text-[20px] text-dark"
         >
-          E-Major<span className="text-accent">.</span>
+          e-majr
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-7">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition-colors ${
-                scrolled
-                  ? "text-ink/70 hover:text-ink"
-                  : "text-paper/80 hover:text-paper"
-              }`}
+              className="text-[14px] font-medium text-gray-text hover:text-brand transition-colors"
             >
               {item.label}
             </Link>
@@ -61,70 +40,41 @@ export default function Navbar() {
             href={CONTACT.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Nous contacter sur WhatsApp"
-            className={`inline-flex items-center justify-center w-10 h-10 rounded-full transition-colors ${
-              scrolled
-                ? "bg-ink/5 hover:bg-[#25D366] text-ink hover:text-white"
-                : "bg-paper/10 hover:bg-[#25D366] text-paper hover:text-white"
-            }`}
+            className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white text-[14px] font-semibold px-5 py-2.5 rounded-full transition-colors"
           >
-            <WhatsAppIcon size={18} />
+            Nous contacter
           </a>
-          <Link
-            href="/assistant"
-            className="group inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-ink text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
-          >
-            Lancer l&apos;assistant
-            <ArrowUpRight
-              size={14}
-              strokeWidth={2.5}
-              className="group-hover:rotate-45 transition-transform"
-            />
-          </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
-          className={`md:hidden ${scrolled ? "text-ink" : "text-paper"}`}
+          className="md:hidden text-dark"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
-          {open ? <X size={26} /> : <Menu size={26} />}
+          {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-paper border-t border-line px-6 pb-8 pt-2">
+        <div className="md:hidden bg-white border-t border-gray-200/60 py-4 px-4 space-y-3">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block py-4 text-ink text-base font-medium border-b border-line"
+              className="block py-2 text-gray-text hover:text-brand font-medium text-[14px]"
             >
               {item.label}
             </Link>
           ))}
-          <div className="mt-6 flex flex-col gap-3">
-            <Link
-              href="/assistant"
-              onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center gap-2 bg-accent text-ink font-semibold px-6 py-4 rounded-full"
-            >
-              Lancer l&apos;assistant
-              <ArrowUpRight size={16} strokeWidth={2.5} />
-            </Link>
-            <a
-              href={CONTACT.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-paper-2 text-ink font-semibold px-6 py-4 rounded-full"
-            >
-              <WhatsAppIcon size={18} />
-              WhatsApp
-            </a>
-          </div>
+          <a
+            href={CONTACT.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-center bg-brand hover:bg-brand-dark text-white font-semibold py-3 rounded-full text-[14px] transition-colors mt-2"
+          >
+            Nous contacter
+          </a>
         </div>
       )}
     </nav>

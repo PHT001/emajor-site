@@ -1,13 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Univers from "@/components/Univers";
-import ServicesHome from "@/components/ServicesHome";
-import Offers from "@/components/Offers";
-import Confiance from "@/components/Confiance";
-import Arrondissements from "@/components/Arrondissements";
-import Contact from "@/components/Contact";
+import ExpertiseDomains from "@/components/ExpertiseDomains";
+import Installations from "@/components/Installations";
+import Process from "@/components/Process";
+import WhyChoose from "@/components/WhyChoose";
+import Testimonials from "@/components/Testimonials";
+import { HomeCTA } from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import ChatbotFAQ from "@/components/ChatbotFAQ";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   return (
@@ -15,15 +15,15 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Univers />
-        <ServicesHome />
-        <Offers />
-        <Confiance />
-        <Arrondissements />
-        <Contact />
+        <ExpertiseDomains />
+        <Installations />
+        <Process />
+        <WhyChoose />
+        <Testimonials />
+        <HomeCTA />
       </main>
       <Footer />
-      <ChatbotFAQ />
+      <ChatWidget />
     </>
   );
 }

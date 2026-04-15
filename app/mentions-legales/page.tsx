@@ -31,9 +31,9 @@ export default function MentionsLegales() {
                 <br />
                 SIRET : {COMPANY.siret}
                 <br />
-                Téléphone : <a href={CONTACT.phoneHref} className="text-green-accent hover:underline">{CONTACT.phoneDisplay}</a>
+                Téléphone : <a href={CONTACT.phoneHref} className="text-brand hover:underline">{CONTACT.phoneDisplay}</a>
                 <br />
-                Email : <a href={CONTACT.emailHref} className="text-green-accent hover:underline">{CONTACT.email}</a>
+                Email : <a href={CONTACT.emailHref} className="text-brand hover:underline">{CONTACT.email}</a>
               </p>
             </div>
 
@@ -53,7 +53,7 @@ export default function MentionsLegales() {
                 <br />
                 340 S Lemon Ave #4133, Walnut, CA 91789, USA
                 <br />
-                <a href="https://vercel.com" className="text-green-accent hover:underline">vercel.com</a>
+                <a href="https://vercel.com" className="text-brand hover:underline">vercel.com</a>
               </p>
             </div>
 

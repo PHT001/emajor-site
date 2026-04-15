@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { COMPANY, CONTACT, SITE } from "@/lib/constants";
@@ -7,7 +7,14 @@ import { COMPANY, CONTACT, SITE } from "@/lib/constants";
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-body",
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-heading",
   display: "swap",
 });
 
@@ -52,7 +59,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A0B",
+  themeColor: "#1a1a1a",
   width: "device-width",
   initialScale: 1,
 };
@@ -76,14 +83,6 @@ const jsonLd = {
     addressCountry: "FR",
   },
   geo: { "@type": "GeoCoordinates", latitude: 48.8357, longitude: 2.3257 },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "07:30",
-      closes: "17:30",
-    },
-  ],
   priceRange: "€€",
   areaServed: [
     { "@type": "City", name: "Paris" },
@@ -98,8 +97,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={inter.variable}>
-      <body className="bg-paper antialiased">
+    <html
+      lang="fr"
+      className={`${inter.variable} ${spaceGrotesk.variable}`}
+    >
+      <body className="bg-white antialiased">
         {children}
         <Script
           id="ld-json-localbusiness"

@@ -1,71 +1,67 @@
 import Link from "next/link";
-import { Radio, Zap, Droplets, Wind, ArrowUpRight } from "lucide-react";
+import { Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ServiceBlock from "@/components/ServiceBlock";
+import ChatWidget from "@/components/ChatWidget";
 
 export const metadata = {
   title: "Professionnels — E-Major | Tertiaire CHR, Bureaux, Hôtels",
   description:
-    "Maîtrise d'œuvre, courant fort / faible, plomberie, CVC et supervision pour bureaux, hôtels, restaurants et théâtres à Paris.",
+    "Infrastructure électrique, réseau structuré, plomberie tertiaire, CVC et supervision. E-Major accompagne les commerces, bureaux, hôtels et théâtres.",
 };
 
 const blocks = [
   {
-    idx: "01",
-    icon: Radio,
     title: "Courant Faible",
     description:
-      "VDI, contrôle d'accès, vidéosurveillance, sonorisation, IoT. Déploiement clé en main avec recette technique.",
+      "Infrastructure réseau et sécurité pour vos locaux professionnels.",
     items: [
-      "VDI catégorie 6/6a",
-      "Contrôle d'accès & badges",
-      "Vidéosurveillance IP",
-      "Sonorisation & affichage",
+      "Systèmes multi-zones et câblage structuré",
+      "Accès biométrique et contrôle d'accès",
+      "Vidéosurveillance IP professionnelle",
+      "Alarme intrusion et incendie",
+      "Baies de brassage et fibre optique",
+      "GTB (Gestion Technique du Bâtiment)",
     ],
-    image: "/assets/img/infra.jpg",
   },
   {
-    idx: "02",
-    icon: Zap,
     title: "Courant Fort",
     description:
-      "TGBT, distribution, éclairages techniques, secours. Dossiers ERP/ERT traités de bout en bout, levée de réserves incluse.",
+      "Distribution électrique et éclairage professionnel.",
     items: [
-      "TGBT & distribution",
-      "Éclairage de sécurité",
-      "Mise aux normes ERP",
-      "Levée de réserves commission",
+      "Armoires électriques et TGBT",
+      "Éclairage LED professionnel",
+      "Chemins de câbles et goulottes",
+      "Mise en conformité NF C 15-100",
+      "Alimentation triphasée et monophasée",
+      "Disjoncteurs et parafoudres",
     ],
-    image: "/assets/img/tableau-tert.jpg",
   },
   {
-    idx: "03",
-    icon: Droplets,
     title: "Plomberie",
     description:
-      "Réseaux, sanitaires collectifs, cuisines pro CHR, surpresseurs, adoucisseurs. Maintenance préventive et curative.",
+      "Réseaux d'eau et d'évacuation pour locaux professionnels.",
     items: [
-      "Sanitaires collectifs",
-      "Cuisines professionnelles",
-      "Surpresseurs & adoucisseurs",
-      "Maintenance préventive",
+      "Eau chaude collective et chaudières",
+      "Sanitaires collectifs et accessibilité PMR",
+      "Réseaux d'alimentation en cuivre et PER",
+      "Évacuation et assainissement",
+      "Pompes de relevage et bacs à graisse",
+      "Contrats de maintenance préventive",
     ],
-    image: "/assets/img/plomb-1.jpg",
   },
   {
-    idx: "04",
-    icon: Wind,
     title: "CVC & Supervision",
     description:
-      "Climatisation, VMC, traitement d'air. Automatisme, GTB/GTC et GMAO pour piloter vos installations à distance.",
+      "Chauffage, ventilation, climatisation et automatisation.",
     items: [
-      "Climatisation & VMC",
-      "Traitement d'air",
-      "GTB / GTC (KNX, BACnet)",
-      "GMAO & astreinte 24/7",
+      "HVAC : installation et maintenance",
+      "Automatisation des systèmes CVC",
+      "Pilotage à distance et supervision",
+      "Armoires de commande CTA",
+      "Éclairage de sécurité automatisé",
+      "Stores et volets automatiques",
     ],
-    image: "/assets/img/cvc.jpg",
   },
 ];
 
@@ -74,64 +70,92 @@ export default function ProfessionnelsPage() {
     <>
       <Navbar />
       <main>
-        <section className="relative pt-40 pb-24 sm:pt-48 sm:pb-32 bg-ink overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 sm:px-10 relative">
-            <div className="eyebrow text-accent mb-6">
-              <span>Professionnels</span>
-            </div>
-            <h1 className="text-paper text-5xl sm:text-7xl md:text-8xl font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl">
-              Pour les pros
-              <br />
-              qui ne tolèrent pas
-              <br />
-              <span className="text-accent">l&apos;à-peu-près.</span>
+        {/* Hero */}
+        <section className="bg-gradient-to-br from-dark to-brand-dark text-white py-20 sm:py-24 relative overflow-hidden">
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none"
+            style={{ background: "rgba(45, 140, 78, 0.1)" }}
+          />
+          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
+            <span className="inline-flex items-center gap-2 bg-brand/20 text-brand px-3 py-1 rounded-full text-[13px] font-medium mb-6">
+              Professionnels
+            </span>
+            <h1 className="font-heading text-[40px] sm:text-[56px] md:text-[64px] font-bold tracking-[-0.02em] leading-[1.05] max-w-3xl mb-6">
+              Solutions pour professionnels
             </h1>
-            <p className="text-paper/60 text-lg sm:text-xl mt-10 max-w-2xl leading-relaxed">
-              Bureaux, hôtels, restaurants, boutiques, théâtres. Quatre
-              métiers, une seule signature, des engagements tenus — de la
-              maîtrise d&apos;œuvre à la GMAO.
+            <p className="text-white/75 text-[16px] sm:text-[18px] max-w-2xl leading-relaxed mb-8">
+              Infrastructure électrique, réseau structuré, plomberie tertiaire.
+              E-Major accompagne les commerces, plateaux de bureaux et locaux
+              industriels.
             </p>
+            <Link
+              href="/assistant"
+              className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-7 py-4 rounded-[30px] text-[15px] transition-colors"
+            >
+              Lancer l&apos;assistant
+            </Link>
           </div>
         </section>
 
-        <section className="py-24 sm:py-32 bg-paper">
-          <div className="max-w-7xl mx-auto px-6 sm:px-10 space-y-24 sm:space-y-32">
-            {blocks.map((b, i) => (
-              <ServiceBlock key={b.title} {...b} reverse={i % 2 === 1} />
-            ))}
+        {/* 4 service cards */}
+        <section className="py-20 sm:py-24 bg-white">
+          <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {blocks.map((b) => (
+                <article
+                  key={b.title}
+                  className="bg-gray-bg border border-gray-200/60 rounded-2xl p-8 hover:border-brand/40 hover:-translate-y-0.5 transition-all"
+                >
+                  <h3 className="font-heading text-dark text-[24px] sm:text-[26px] font-bold mb-3">
+                    {b.title}
+                  </h3>
+                  <p className="text-gray-text text-[14px] leading-relaxed mb-6">
+                    {b.description}
+                  </p>
+                  <ul className="space-y-3">
+                    {b.items.map((it) => (
+                      <li
+                        key={it}
+                        className="flex items-start gap-3 text-[14px] text-gray-text"
+                      >
+                        <Check
+                          size={16}
+                          className="text-brand shrink-0 mt-0.5"
+                          strokeWidth={3}
+                        />
+                        {it}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="pb-24 sm:pb-32 bg-paper">
-          <div className="max-w-7xl mx-auto px-6 sm:px-10">
-            <div className="bg-ink rounded-3xl p-10 sm:p-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
-              <div>
-                <div className="text-paper text-3xl sm:text-5xl font-semibold tracking-[-0.03em] leading-tight">
-                  Cadrons votre projet
-                  <br />
-                  en 30 secondes.
-                </div>
-                <p className="text-paper/60 text-sm sm:text-base mt-4 max-w-md">
-                  L&apos;assistant qualifie votre besoin et route votre demande
-                  — urgence ou RDV planifié.
-                </p>
-              </div>
+        {/* CTA */}
+        <section className="py-20 sm:py-24 bg-white">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+            <div className="bg-gradient-to-br from-brand to-brand-dark rounded-3xl p-10 sm:p-14 text-center text-white">
+              <h2 className="font-heading text-[28px] sm:text-[40px] font-bold tracking-[-0.02em] leading-tight mb-4">
+                Un projet professionnel ?
+              </h2>
+              <p className="text-white/85 text-[16px] max-w-xl mx-auto mb-8 leading-relaxed">
+                Décrivez votre besoin via notre assistant et recevez un devis
+                détaillé sous 24h.
+              </p>
               <Link
                 href="/assistant"
-                className="group inline-flex items-center gap-3 bg-accent hover:bg-accent-dark text-ink px-8 py-5 rounded-full font-semibold transition-colors shrink-0"
+                className="inline-flex items-center gap-2 bg-white hover:bg-white/90 text-brand font-semibold px-7 py-4 rounded-[30px] text-[15px] transition-colors"
               >
                 Lancer l&apos;assistant
-                <ArrowUpRight
-                  size={20}
-                  strokeWidth={2.5}
-                  className="group-hover:rotate-45 transition-transform"
-                />
               </Link>
             </div>
           </div>
         </section>
       </main>
       <Footer />
+      <ChatWidget />
     </>
   );
 }

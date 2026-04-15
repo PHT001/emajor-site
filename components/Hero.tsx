@@ -1,100 +1,84 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { CONTACT } from "@/lib/constants";
-import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-end pt-32 pb-16 sm:pb-20 bg-ink overflow-hidden">
-      {/* Background — full bleed photo with strong grade */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/assets/img/header-1.jpeg')",
-            filter: "grayscale(0.85) brightness(0.45) contrast(1.1)",
-          }}
-        />
-        <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-ink via-ink/85 to-transparent" />
-      </div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-dark to-brand-dark text-white">
+      {/* Radial blur */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none"
+        style={{ background: "rgba(45, 140, 78, 0.1)" }}
+      />
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10">
-        <div className="flex items-center justify-between mb-12 sm:mb-16">
-          <div className="eyebrow text-accent">
-            <span>Disponible aujourd&apos;hui</span>
-          </div>
-          <div className="hidden sm:flex items-center gap-2 text-xs text-paper/50 font-mono">
-            <span className="idx-tag text-paper/40">PARIS / IDF</span>
-            <span className="text-paper/30">·</span>
-            <span className="idx-tag text-paper/40">EST. 2024</span>
-          </div>
-        </div>
+      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-24 sm:pt-28 sm:pb-32 text-center">
+        <span className="inline-flex items-center gap-2 bg-brand/20 text-brand px-3 py-1 rounded-full text-[13px] font-medium mb-8">
+          Paris &amp; Île-de-France
+        </span>
 
-        <h1 className="text-paper text-[clamp(2.75rem,9vw,9rem)] font-semibold leading-[0.9] tracking-[-0.04em] max-w-6xl">
-          Électricité,
+        <h1 className="font-heading text-[40px] sm:text-[56px] md:text-[72px] font-bold tracking-[-0.02em] leading-[1.05] max-w-4xl mx-auto">
+          Électricité &amp; Plomberie
           <br />
-          plomberie
-          <br />
-          <span className="text-accent">à&nbsp;Paris.</span>
+          de qualité,{" "}
+          <span className="text-brand">à votre service</span>
         </h1>
 
-        <p className="text-paper/60 text-lg sm:text-xl md:text-2xl mt-8 max-w-2xl leading-relaxed font-light">
-          Entreprise d&apos;électricité et de plomberie sur Paris et proche
-          couronne. Votre logement mis en valeur par une installation soignée.
+        <p className="text-white/70 text-[16px] sm:text-[18px] mt-6 max-w-2xl mx-auto leading-relaxed">
+          Dépannage, installation et rénovation pour particuliers et
+          professionnels. Intervention rapide sur Paris et l&apos;Île-de-France.
         </p>
 
-        <div className="mt-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/assistant"
-              className="group inline-flex items-center justify-between gap-6 bg-accent hover:bg-accent-dark text-ink px-7 py-5 rounded-full transition-all hover:scale-[1.02]"
-            >
-              <span className="font-semibold text-base">
-                Lancer l&apos;assistant
+        {/* Two audience cards */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+          <Link
+            href="/particuliers"
+            className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand rounded-2xl p-6 transition-all text-left"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <span className="font-heading text-white text-[22px] font-semibold">
+                Particuliers
               </span>
-              <ArrowUpRight
+              <ArrowRight
                 size={20}
-                strokeWidth={2.5}
-                className="group-hover:rotate-45 transition-transform"
+                className="text-white/50 group-hover:text-brand group-hover:translate-x-1 transition-all"
               />
-            </Link>
-            <a
-              href={CONTACT.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Écrire sur WhatsApp"
-              className="group inline-flex items-center justify-center w-[64px] h-[64px] bg-[#25D366] hover:bg-[#1ebe5d] text-white rounded-full transition-all hover:scale-[1.05]"
-            >
-              <WhatsAppIcon size={28} />
-            </a>
-          </div>
+            </div>
+            <p className="text-white/60 text-[14px] leading-relaxed">
+              Dépannage et rénovation pour votre logement.
+            </p>
+          </Link>
 
-          <dl className="flex items-end gap-10 text-paper">
-            <div>
-              <dt className="text-xs text-paper/40 font-mono mb-1">
-                Réponse moyenne
-              </dt>
-              <dd className="text-3xl sm:text-4xl font-semibold tracking-tight">
-                2&nbsp;h
-              </dd>
+          <Link
+            href="/professionnels"
+            className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand rounded-2xl p-6 transition-all text-left"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <span className="font-heading text-white text-[22px] font-semibold">
+                Professionnels
+              </span>
+              <ArrowRight
+                size={20}
+                className="text-white/50 group-hover:text-brand group-hover:translate-x-1 transition-all"
+              />
             </div>
-            <div className="w-px h-12 bg-paper/15" />
-            <div>
-              <dt className="text-xs text-paper/40 font-mono mb-1">
-                Disponibilité
-              </dt>
-              <dd className="text-3xl sm:text-4xl font-semibold tracking-tight">
-                6/7
-              </dd>
-            </div>
-            <div className="w-px h-12 bg-paper/15 hidden sm:block" />
-            <div className="hidden sm:block">
-              <dt className="text-xs text-paper/40 font-mono mb-1">Devis</dt>
-              <dd className="text-3xl sm:text-4xl font-semibold tracking-tight">
-                Gratuit
-              </dd>
-            </div>
-          </dl>
+            <p className="text-white/60 text-[14px] leading-relaxed">
+              Solutions tertiaires et maintenance.
+            </p>
+          </Link>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="mt-16 flex flex-col items-center gap-2 text-white/40">
+          <span className="text-[12px] font-medium tracking-wider">Défiler</span>
+          <ChevronDown size={18} className="animate-bounce" />
         </div>
       </div>
     </section>
