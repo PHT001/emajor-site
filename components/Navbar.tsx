@@ -1,15 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const navItems = [
-  { label: "Résidentiel", href: "#particuliers" },
-  { label: "Tertiaire", href: "#tertiaire" },
-  { label: "Offres", href: "#offres" },
-  { label: "Contact", href: "#contact" },
+  { label: "Particuliers", href: "/particuliers" },
+  { label: "Professionnels", href: "/professionnels" },
+  { label: "Services", href: "/#services" },
 ];
 
 export default function Navbar() {
@@ -32,21 +32,20 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between h-20">
-        {/* Logo wordmark */}
-        <a
-          href="#"
+        <Link
+          href="/"
           aria-label="E-Major — accueil"
           className={`font-bold tracking-tight text-xl transition-colors ${
             scrolled ? "text-ink" : "text-paper"
           }`}
         >
           E-Major<span className="text-accent">.</span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className={`text-sm font-medium transition-colors ${
@@ -56,7 +55,7 @@ export default function Navbar() {
               }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <a
             href={CONTACT.whatsappUrl}
@@ -71,15 +70,17 @@ export default function Navbar() {
           >
             <WhatsAppIcon size={18} />
           </a>
-          <a
-            href={CONTACT.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/assistant"
             className="group inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-ink text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
           >
-            Devis
-            <ArrowUpRight size={14} strokeWidth={2.5} className="group-hover:rotate-45 transition-transform" />
-          </a>
+            Lancer l&apos;assistant
+            <ArrowUpRight
+              size={14}
+              strokeWidth={2.5}
+              className="group-hover:rotate-45 transition-transform"
+            />
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -96,24 +97,32 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-paper border-t border-line px-6 pb-8 pt-2">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
               className="block py-4 text-ink text-base font-medium border-b border-line"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <div className="mt-6 flex flex-col gap-3">
+            <Link
+              href="/assistant"
+              onClick={() => setOpen(false)}
+              className="inline-flex items-center justify-center gap-2 bg-accent text-ink font-semibold px-6 py-4 rounded-full"
+            >
+              Lancer l&apos;assistant
+              <ArrowUpRight size={16} strokeWidth={2.5} />
+            </Link>
             <a
               href={CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-accent text-ink font-semibold px-6 py-4 rounded-full"
+              className="inline-flex items-center justify-center gap-2 bg-paper-2 text-ink font-semibold px-6 py-4 rounded-full"
             >
               <WhatsAppIcon size={18} />
-              Devis WhatsApp
+              WhatsApp
             </a>
           </div>
         </div>

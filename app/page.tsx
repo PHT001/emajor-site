@@ -1,13 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Segments from "@/components/Segments";
-import Particuliers from "@/components/Particuliers";
-import Services from "@/components/Services";
-import Offers from "@/components/Offers";
-import Arrondissements from "@/components/Arrondissements";
-import Contact from "@/components/Contact";
+import Univers from "@/components/Univers";
+import ServicesHome from "@/components/ServicesHome";
+import Confiance from "@/components/Confiance";
 import Footer from "@/components/Footer";
-import ChatbotFAQ from "@/components/ChatbotFAQ";
 
 export default function Home() {
   return (
@@ -15,15 +11,11 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Segments />
-        <Particuliers />
-        <Services />
-        <Offers />
-        <Arrondissements />
-        <Contact />
+        <Univers />
+        <ServicesHome />
+        <Confiance />
       </main>
       <Footer />
-      <ChatbotFAQ />
     </>
   );
 }
