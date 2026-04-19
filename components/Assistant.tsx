@@ -189,15 +189,19 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
   const isUrgentContact =
     state === "elec_urgent_contact" || state === "plomb_urgent_contact";
   const isDone = state === "done";
-  const height = compact ? "h-[380px]" : "h-[500px]";
+  // When compact (inside ChatWidget), let the parent control height via flex.
+  // When standalone (/assistant page), use a comfortable fixed height.
+  const wrapperCls = compact
+    ? "bg-white overflow-hidden flex flex-col h-full"
+    : "bg-white rounded-2xl shadow-lg border border-gray-200/60 overflow-hidden flex flex-col h-[500px] sm:h-[600px]";
+  const scrollCls = compact
+    ? "flex-1 min-h-0 overflow-y-auto p-4 sm:p-6 space-y-4 bg-gradient-to-b from-white to-gray-bg"
+    : "flex-1 min-h-0 overflow-y-auto p-5 sm:p-6 space-y-4 bg-gradient-to-b from-white to-gray-bg";
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-gray-200/60 overflow-hidden">
+    <div className={wrapperCls}>
       {/* Chat area */}
-      <div
-        ref={scrollRef}
-        className={`${height} overflow-y-auto p-5 sm:p-6 space-y-4 bg-gradient-to-b from-white to-gray-bg`}
-      >
+      <div ref={scrollRef} className={scrollCls}>
         {!started ? (
           <div className="flex flex-col items-center justify-center h-full text-center gap-5">
             <div className="w-16 h-16 rounded-full bg-brand-light flex items-center justify-center">
@@ -236,7 +240,7 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
 
       {/* Options bar */}
       {started && currentStep && (
-        <div className="border-t border-gray-200/60 p-4 bg-gray-bg/50">
+        <div className="shrink-0 border-t border-gray-200/60 p-4 bg-gray-bg/50">
           {history.length > 0 && (
             <button
               onClick={goBack}
@@ -269,7 +273,7 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
 
       {/* Done footer */}
       {isDone && (
-        <div className="border-t border-gray-200/60 p-4 bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
+        <div className="shrink-0 border-t border-gray-200/60 p-4 bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
           <a
             href={`${CONTACT.whatsappUrl}?text=${encodeURIComponent(
               "Bonjour Marc, je vous contacte via l'assistant E-Major.",
@@ -292,7 +296,7 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
 
       {/* Urgent contact footer */}
       {isUrgentContact && (
-        <div className="border-t border-gray-200/60 p-4 bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
+        <div className="shrink-0 border-t border-gray-200/60 p-4 bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
           <a
             href={`${CONTACT.whatsappUrl}?text=${encodeURIComponent(
               "Bonjour Marc, je vous contacte via l'assistant E-Major pour une urgence.",

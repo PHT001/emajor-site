@@ -1,20 +1,58 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { X, MessageSquare } from "lucide-react";
 import Assistant from "@/components/Assistant";
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
 
+  // Lock body scroll when the sheet is open on mobile
+  useEffect(() => {
+    if (!open) return;
+    if (typeof window === "undefined") return;
+    if (!window.matchMedia("(max-width: 639px)").matches) return;
+
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   return (
     <>
-      {/* Popover */}
+      {/* Backdrop — mobile only, dismisses on tap */}
       {open && (
-        <div className="fixed bottom-24 right-4 sm:right-6 z-[999] w-[calc(100%-2rem)] sm:w-[380px] max-h-[600px] animate-chat-open">
-          <div className="bg-white rounded-2xl shadow-2xl border border-gray-200/60 overflow-hidden flex flex-col max-h-[600px]">
-            <div className="flex items-center justify-between px-4 py-3 bg-brand text-white">
-              <div className="flex items-center gap-2">
+        <button
+          type="button"
+          aria-label="Fermer l'assistant"
+          onClick={() => setOpen(false)}
+          className="sm:hidden fixed inset-0 z-[998] bg-black/40 backdrop-blur-[2px] animate-fade-in-up"
+        />
+      )}
+
+      {/* Popover / bottom-sheet */}
+      {open && (
+        <div
+          className={[
+            "fixed z-[999] flex flex-col animate-chat-open",
+            // Mobile: bottom-sheet full width, rounded top corners only
+            "inset-x-0 bottom-0 max-h-[88vh]",
+            // Desktop: floating card bottom-right
+            "sm:inset-auto sm:bottom-24 sm:right-6 sm:w-[380px] sm:max-h-[600px]",
+          ].join(" ")}
+        >
+          <div
+            className={[
+              "bg-white shadow-2xl border border-gray-200/60 overflow-hidden flex flex-col",
+              // Mobile: round only the top
+              "rounded-t-2xl sm:rounded-2xl",
+              "max-h-[88vh] sm:max-h-[600px]",
+            ].join(" ")}
+          >
+            <div className="flex items-center justify-between px-4 py-3 bg-brand text-white shrink-0">
+              <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
                   <span className="text-brand font-bold text-[13px]">E</span>
                 </div>
@@ -22,7 +60,7 @@ export default function ChatWidget() {
                   <div className="font-heading font-semibold text-[14px] leading-tight">
                     Assistant E-Major
                   </div>
-                  <div className="text-[11px] text-white/70">
+                  <div className="text-[11px] text-white/75">
                     Réponse en moins de 2h
                   </div>
                 </div>
@@ -30,27 +68,34 @@ export default function ChatWidget() {
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Fermer"
-                className="w-8 h-8 rounded-full hover:bg-white/20 flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full hover:bg-white/20 active:bg-white/30 flex items-center justify-center transition-colors"
               >
                 <X size={18} />
               </button>
             </div>
-            <div className="overflow-y-auto">
+
+            {/* Scroll area inside Assistant handles its own overflow.
+                Wrap in flex-1 + min-h-0 so it shrinks properly inside the sheet. */}
+            <div className="flex-1 min-h-0 overflow-hidden">
               <Assistant compact />
             </div>
           </div>
         </div>
       )}
 
-      {/* Floating button */}
+      {/* Floating button — hidden when open */}
       {!open && (
         <button
           onClick={() => setOpen(true)}
           aria-label="Ouvrir l'assistant"
-          className="fixed bottom-6 right-6 z-[1000] w-14 h-14 rounded-full bg-brand hover:bg-brand-dark text-white shadow-xl flex items-center justify-center transition-colors"
+          className="fixed bottom-6 right-6 z-[1000] w-14 h-14 rounded-full bg-brand hover:bg-brand-dark text-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
         >
           <span className="absolute inset-0 rounded-full bg-brand animate-ping opacity-30" />
-          <MessageSquare size={24} strokeWidth={2.2} className="relative z-10" />
+          <MessageSquare
+            size={24}
+            strokeWidth={2.2}
+            className="relative z-10"
+          />
         </button>
       )}
     </>

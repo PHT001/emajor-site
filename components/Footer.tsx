@@ -5,7 +5,7 @@ import { CONTACT, COMPANY, MAPS } from "@/lib/constants";
 export default function Footer() {
   return (
     <footer id="contact" className="bg-dark text-white">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-16">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16 pb-24 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
           {/* Map + address */}
           <div className="lg:col-span-5">
