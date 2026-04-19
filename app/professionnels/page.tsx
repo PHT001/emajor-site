@@ -1,13 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
+import { SITE } from "@/lib/constants";
 
-export const metadata = {
-  title: "Professionnels — E-Major | Tertiaire CHR, Bureaux, Hôtels",
+export const metadata: Metadata = {
+  title: "Professionnels — Tertiaire CHR, Bureaux, Hôtels",
   description:
-    "Infrastructure électrique, réseau structuré, plomberie tertiaire, CVC et supervision. E-Major accompagne les commerces, bureaux, hôtels et théâtres.",
+    "Infrastructure électrique, réseau structuré, plomberie tertiaire, CVC et supervision. E-Major accompagne commerces, bureaux, hôtels et théâtres à Paris et IDF.",
+  alternates: { canonical: `${SITE.url}/professionnels` },
+  openGraph: {
+    title: "Professionnels — E-Major",
+    description:
+      "Infrastructure électrique, réseau, plomberie et CVC pour vos locaux pros.",
+    url: `${SITE.url}/professionnels`,
+    type: "website",
+  },
 };
 
 const blocks = [

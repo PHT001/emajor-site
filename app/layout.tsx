@@ -64,9 +64,9 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const jsonLd = {
+const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "Electrician", "Plumber"],
   "@id": `${SITE.url}/#business`,
   name: COMPANY.name,
   legalName: COMPANY.legalName,
@@ -74,6 +74,8 @@ const jsonLd = {
   url: SITE.url,
   telephone: CONTACT.phone,
   email: CONTACT.email,
+  image: `${SITE.url}/opengraph-image`,
+  logo: `${SITE.url}/icon`,
   address: {
     "@type": "PostalAddress",
     streetAddress: "149 Av. du Maine",
@@ -86,7 +88,14 @@ const jsonLd = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
       opens: "07:30",
       closes: "17:30",
     },
@@ -95,8 +104,68 @@ const jsonLd = {
   areaServed: [
     { "@type": "City", name: "Paris" },
     { "@type": "AdministrativeArea", name: "Île-de-France" },
+    { "@type": "AdministrativeArea", name: "Hauts-de-Seine" },
+    { "@type": "AdministrativeArea", name: "Seine-Saint-Denis" },
+    { "@type": "AdministrativeArea", name: "Val-de-Marne" },
+  ],
+  makesOffer: [
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Installation et rénovation électrique",
+        serviceType: "Électricité générale",
+        areaServed: { "@type": "City", name: "Paris" },
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Dépannage et installation plomberie",
+        serviceType: "Plomberie sanitaire",
+        areaServed: { "@type": "City", name: "Paris" },
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Mise aux normes NF C 15-100",
+        serviceType: "Mise en conformité électrique",
+        areaServed: { "@type": "AdministrativeArea", name: "Île-de-France" },
+      },
+    },
+  ],
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "certification",
+      name: "Garantie décennale",
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "certification",
+      name: "Qualification RGE",
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "certification",
+      name: "Habilitation NF C 15-100",
+    },
   ],
   identifier: COMPANY.siret,
+  sameAs: [] as string[],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE.url}/#website`,
+  url: SITE.url,
+  name: COMPANY.name,
+  inLanguage: "fr-FR",
+  publisher: { "@id": `${SITE.url}/#business` },
 };
 
 export default function RootLayout({
@@ -115,7 +184,15 @@ export default function RootLayout({
           id="ld-json-localbusiness"
           type="application/ld+json"
           strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessJsonLd),
+          }}
+        />
+        <Script
+          id="ld-json-website"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </body>
     </html>

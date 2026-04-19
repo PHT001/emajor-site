@@ -4,6 +4,7 @@ import ExpertiseDomains from "@/components/ExpertiseDomains";
 import Installations from "@/components/Installations";
 import Process from "@/components/Process";
 import WhyChoose from "@/components/WhyChoose";
+import FAQ from "@/components/FAQ";
 import { HomeCTA } from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
@@ -18,6 +19,7 @@ export default function Home() {
         <Installations />
         <Process />
         <WhyChoose />
+        <FAQ />
         <HomeCTA />
       </main>
       <Footer />

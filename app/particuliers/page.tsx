@@ -1,14 +1,24 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
+import { SITE } from "@/lib/constants";
 
-export const metadata = {
-  title: "Particuliers — E-Major | Électricien & Plombier à Paris",
+export const metadata: Metadata = {
+  title: "Particuliers — Électricien & Plombier à Paris",
   description:
-    "Dépannage, installation et rénovation pour votre logement. Prises, éclairage, chauffe-eau, fuites… on s'occupe de tout.",
+    "Dépannage, installation et rénovation pour votre logement à Paris et Île-de-France. Prises, éclairage, chauffe-eau, fuites, mise aux normes : on s'occupe de tout.",
+  alternates: { canonical: `${SITE.url}/particuliers` },
+  openGraph: {
+    title: "Particuliers — E-Major",
+    description:
+      "Dépannage, installation et rénovation pour votre logement. Devis sous 24 h.",
+    url: `${SITE.url}/particuliers`,
+    type: "website",
+  },
 };
 
 const blocks = [

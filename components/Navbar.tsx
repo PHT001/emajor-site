@@ -8,7 +8,7 @@ import { CONTACT } from "@/lib/constants";
 const navItems = [
   { label: "Particuliers", href: "/particuliers" },
   { label: "Professionnels", href: "/professionnels" },
-  { label: "Nos Offres", href: "/#services" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];
 
