@@ -6,3 +6,9 @@ out
 .vercel
 
 next-env.d.ts
+
+# Local Claude config (contains API keys / per-dev state)
+.mcp.json
+.claude/settings.local.json
+.claude/skills/
+.claude/worktrees/

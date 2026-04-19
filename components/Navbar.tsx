@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Power } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 
 const navItems = [
@@ -21,9 +21,16 @@ export default function Navbar() {
         <Link
           href="/"
           aria-label="E-Major — accueil"
-          className="font-heading font-bold tracking-tight text-[20px] text-dark"
+          className="font-heading font-bold tracking-tight text-[20px] text-dark inline-flex items-center"
         >
-          e-majr
+          <span>e-maj</span>
+          <Power
+            size={16}
+            strokeWidth={2.75}
+            className="text-brand mx-[1px] -translate-y-[1px]"
+            aria-hidden
+          />
+          <span>r</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-7">
