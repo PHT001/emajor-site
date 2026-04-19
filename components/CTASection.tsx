@@ -70,7 +70,7 @@ function PrimaryButton({
   label: string;
 }) {
   const cls =
-    "inline-flex items-center justify-center gap-2 bg-white hover:bg-white/95 text-brand font-semibold px-5 py-3.5 sm:px-7 sm:py-4 rounded-full text-[14px] sm:text-[15px] transition-all duration-200 hover:shadow-[0_10px_30px_-8px_rgba(0,0,0,0.25)] active:scale-[0.97]";
+    "btn-shine inline-flex items-center justify-center gap-2 bg-white hover:bg-white/95 text-brand font-semibold px-5 py-3.5 sm:px-7 sm:py-4 rounded-full text-[14px] sm:text-[15px] transition-all duration-200 hover:shadow-[0_10px_30px_-8px_rgba(0,0,0,0.25)] active:scale-[0.97] whitespace-nowrap";
   if (target === "_blank")
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>

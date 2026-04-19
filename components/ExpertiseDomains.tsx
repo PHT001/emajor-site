@@ -1,4 +1,5 @@
 import { Zap, Radio, Droplets } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const cards = [
   {
@@ -59,8 +60,10 @@ export default function ExpertiseDomains() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5">
           {cards.map((c, i) => (
-            <article
+            <Reveal
               key={c.title}
+              as="article"
+              delay={i * 120}
               className={[
                 "group relative bg-white border border-gray-200/70 rounded-2xl p-4 sm:p-7",
                 "hover:border-brand/40 hover:-translate-y-1",
@@ -104,7 +107,7 @@ export default function ExpertiseDomains() {
                   </li>
                 ))}
               </ul>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

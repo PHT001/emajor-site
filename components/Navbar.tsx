@@ -69,7 +69,7 @@ export default function Navbar() {
             href={CONTACT.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white text-[14px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-[0_6px_16px_-4px_rgba(45,140,78,0.45)] active:scale-[0.97]"
+            className="btn-shine inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white text-[14px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-[0_6px_16px_-4px_rgba(45,140,78,0.45)] active:scale-[0.97]"
           >
             Nous contacter
           </a>

@@ -62,7 +62,7 @@ export default function Reveal({
       ref={ref as React.RefObject<HTMLDivElement>}
       data-reveal
       data-revealed={revealed ? "true" : "false"}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+      style={delay ? { animationDelay: `${delay}ms` } : undefined}
       className={className}
     >
       {children}

@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const stats = [
   { value: "100%", label: "Assurés", color: "text-brand" },
   { value: "24h", label: "Devis", color: "text-brand" },
@@ -22,9 +24,10 @@ export default function WhyChoose() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 mb-8 sm:mb-10">
-          {stats.map((s) => (
-            <div
+          {stats.map((s, i) => (
+            <Reveal
               key={s.label}
+              delay={i * 100}
               className="group bg-white rounded-2xl p-4 sm:p-7 border border-gray-200/60 text-center hover:border-brand/40 hover:-translate-y-0.5 hover:shadow-[0_16px_32px_-20px_rgba(0,0,0,0.15)] transition-all duration-300"
             >
               <div
@@ -35,7 +38,7 @@ export default function WhyChoose() {
               <div className="text-[11px] sm:text-[13px] text-gray-text font-medium">
                 {s.label}
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 

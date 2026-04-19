@@ -20,7 +20,7 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6">
         {/* Top meta row */}
         <div className="flex items-center justify-between mb-10 sm:mb-14">
-          <span className="inline-flex items-center gap-2 bg-brand/20 text-brand px-3 py-1 rounded-full text-[13px] font-medium">
+          <span className="inline-flex items-center gap-2 bg-brand/20 text-brand px-3 py-1 rounded-full text-[13px] font-medium animate-float-soft">
             <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
             Disponible aujourd&apos;hui
           </span>
@@ -52,10 +52,13 @@ export default function Hero() {
           <div className="flex flex-row gap-2.5 sm:gap-3">
             <Link
               href="/assistant"
-              className="group flex-1 sm:flex-initial inline-flex items-center justify-between gap-3 sm:gap-6 bg-brand hover:bg-brand-dark text-white px-5 py-3.5 sm:px-7 sm:py-5 rounded-full transition-all duration-300 hover:shadow-[0_16px_40px_-10px_rgba(45,140,78,0.6)] active:scale-[0.98]"
+              className="btn-shine group flex-1 sm:flex-initial inline-flex items-center justify-center sm:justify-between gap-2.5 sm:gap-6 bg-brand hover:bg-brand-dark text-white px-4 py-3.5 sm:px-7 sm:py-5 rounded-full transition-all duration-300 hover:shadow-[0_16px_40px_-10px_rgba(45,140,78,0.6)] active:scale-[0.98] whitespace-nowrap"
             >
               <span className="font-semibold text-[14px] sm:text-[15px]">
-                Lancer l&apos;assistant
+                <span className="sm:hidden">Assistant</span>
+                <span className="hidden sm:inline">
+                  Lancer l&apos;assistant
+                </span>
               </span>
               <ArrowRight
                 size={18}
@@ -67,7 +70,7 @@ export default function Hero() {
               href={CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white px-5 py-3.5 sm:px-7 sm:py-5 rounded-full transition-all duration-200 font-semibold text-[14px] sm:text-[15px] active:scale-[0.98]"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white px-4 py-3.5 sm:px-7 sm:py-5 rounded-full transition-all duration-200 font-semibold text-[14px] sm:text-[15px] active:scale-[0.98] whitespace-nowrap"
             >
               Nous contacter
             </a>
@@ -75,7 +78,10 @@ export default function Hero() {
 
           {/* Stats strip */}
           <dl className="flex items-end gap-8 sm:gap-10 text-white">
-            <div>
+            <div
+              className="animate-stat-in"
+              style={{ animationDelay: "200ms" }}
+            >
               <dt className="text-[11px] uppercase tracking-widest text-white/40 font-mono mb-1">
                 Réponse
               </dt>
@@ -84,7 +90,10 @@ export default function Hero() {
               </dd>
             </div>
             <div className="w-px h-12 bg-white/15" />
-            <div>
+            <div
+              className="animate-stat-in"
+              style={{ animationDelay: "350ms" }}
+            >
               <dt className="text-[11px] uppercase tracking-widest text-white/40 font-mono mb-1">
                 Dispo
               </dt>
@@ -93,7 +102,10 @@ export default function Hero() {
               </dd>
             </div>
             <div className="w-px h-12 bg-white/15 hidden sm:block" />
-            <div className="hidden sm:block">
+            <div
+              className="hidden sm:block animate-stat-in"
+              style={{ animationDelay: "500ms" }}
+            >
               <dt className="text-[11px] uppercase tracking-widest text-white/40 font-mono mb-1">
                 Devis
               </dt>

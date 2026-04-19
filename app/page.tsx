@@ -16,18 +16,14 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Reveal>
-          <ExpertiseDomains />
-        </Reveal>
+        <ExpertiseDomains />
         <Reveal>
           <Installations />
         </Reveal>
         <Reveal>
           <Process />
         </Reveal>
-        <Reveal>
-          <WhyChoose />
-        </Reveal>
+        <WhyChoose />
         <Reveal>
           <FAQ />
         </Reveal>

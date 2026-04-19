@@ -101,21 +101,26 @@ h6 {
 }
 
 /* --- Scroll-reveal ------------------------------------------------------
-   Minimal IntersectionObserver-based reveal. The element starts muted and
-   translated; when `data-revealed="true"` is set by the Reveal component,
-   it eases into place over ~700ms.
+   IntersectionObserver flips `data-revealed="true"` once in view.
+   Uses a CSS animation (one-shot, `forwards`) so element-level
+   transitions (hover, etc.) aren't slowed down by a 700ms transition
+   lingering on transform/opacity after reveal.
 ------------------------------------------------------------------------- */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 [data-reveal] {
   opacity: 0;
-  transform: translateY(18px);
-  transition-property: opacity, transform;
-  transition-duration: 700ms;
-  transition-timing-function: var(--ease-out-expo);
-  will-change: opacity, transform;
 }
 [data-reveal][data-revealed="true"] {
-  opacity: 1;
-  transform: translateY(0);
+  animation: reveal-in 700ms var(--ease-out-expo) forwards;
 }
 
 /* Smooth expand/collapse for accordions (FAQ) without JS height math */
@@ -138,6 +143,85 @@ h6 {
 }
 .lift-on-hover:hover {
   transform: translateY(-2px);
+}
+
+/* --- Brand button shine -------------------------------------------------
+   A soft diagonal highlight that sweeps across primary CTAs on hover.
+   Works with any class that also has `btn-shine` set on a rounded element.
+------------------------------------------------------------------------- */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 900ms var(--ease-out-expo);
+  pointer-events: none;
+  z-index: 1;
+}
+.btn-shine:hover::before {
+  transform: translateX(120%);
+}
+.btn-shine > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Gentle float for status badges ------------------------------------- */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+.animate-float-soft {
+  animation: float-soft 3.5s ease-in-out infinite;
+}
+
+/* --- Count-up fade for Hero stats --------------------------------------- */
+@keyframes stat-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+.animate-stat-in {
+  animation: stat-in 800ms var(--ease-out-expo) both;
+}
+
+/* --- Gradient pulse under hero headline --------------------------------- */
+@keyframes hero-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+.animate-hero-glow {
+  animation: hero-glow 6s ease-in-out infinite;
 }
 
 /* Chatbot animations */
