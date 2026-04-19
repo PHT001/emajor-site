@@ -37,18 +37,19 @@ export default function ChatWidget() {
         <div
           className={[
             "fixed z-[999] flex flex-col animate-chat-open",
-            // Mobile: bottom-sheet full width, rounded top corners only
-            "inset-x-0 bottom-0 max-h-[88vh]",
+            // Mobile: bottom-sheet full width, uses dynamic viewport (dvh)
+            // so iOS Safari toolbar doesn't clip the action buttons.
+            "inset-x-0 bottom-0 h-[85dvh] max-h-[85dvh]",
             // Desktop: floating card bottom-right
-            "sm:inset-auto sm:bottom-24 sm:right-6 sm:w-[380px] sm:max-h-[600px]",
+            "sm:inset-auto sm:bottom-24 sm:right-6 sm:w-[380px] sm:h-auto sm:max-h-[600px]",
           ].join(" ")}
         >
           <div
             className={[
-              "bg-white shadow-2xl border border-gray-200/60 overflow-hidden flex flex-col",
+              "bg-white shadow-2xl border border-gray-200/60 overflow-hidden flex flex-col h-full",
               // Mobile: round only the top
               "rounded-t-2xl sm:rounded-2xl",
-              "max-h-[88vh] sm:max-h-[600px]",
+              "sm:max-h-[600px]",
             ].join(" ")}
           >
             <div className="flex items-center justify-between px-4 py-3 bg-brand text-white shrink-0">

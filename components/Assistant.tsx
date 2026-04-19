@@ -240,7 +240,7 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
 
       {/* Options bar */}
       {started && currentStep && (
-        <div className="shrink-0 border-t border-gray-200/60 p-4 bg-gray-bg/50">
+        <div className="shrink-0 border-t border-gray-200/60 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-gray-bg/50">
           {history.length > 0 && (
             <button
               onClick={goBack}
@@ -273,7 +273,7 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
 
       {/* Done footer */}
       {isDone && (
-        <div className="shrink-0 border-t border-gray-200/60 p-4 bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
+        <div className="shrink-0 border-t border-gray-200/60 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
           <a
             href={`${CONTACT.whatsappUrl}?text=${encodeURIComponent(
               "Bonjour Marc, je vous contacte via l'assistant E-Major.",
@@ -296,7 +296,7 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
 
       {/* Urgent contact footer */}
       {isUrgentContact && (
-        <div className="shrink-0 border-t border-gray-200/60 p-4 bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
+        <div className="shrink-0 border-t border-gray-200/60 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
           <a
             href={`${CONTACT.whatsappUrl}?text=${encodeURIComponent(
               "Bonjour Marc, je vous contacte via l'assistant E-Major pour une urgence.",
