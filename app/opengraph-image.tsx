@@ -11,13 +11,13 @@ export default function OpengraphImage() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#0A0A0B",
+          background: "#1a1a1a",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px",
           fontFamily: "system-ui, -apple-system, sans-serif",
-          color: "#FAFAFA",
+          color: "#ffffff",
         }}
       >
         {/* Top eyebrow */}
@@ -26,7 +26,7 @@ export default function OpengraphImage() {
             display: "flex",
             alignItems: "center",
             gap: 12,
-            color: "#FF6A2C",
+            color: "#2d8c4e",
             fontSize: 24,
             fontWeight: 500,
           }}
@@ -36,10 +36,10 @@ export default function OpengraphImage() {
               width: 10,
               height: 10,
               borderRadius: 9999,
-              background: "#FF6A2C",
+              background: "#2d8c4e",
             }}
           />
-          <span>Disponible aujourd&apos;hui</span>
+          <span>Paris &amp; Île-de-France</span>
         </div>
 
         {/* Big title */}
@@ -47,24 +47,24 @@ export default function OpengraphImage() {
           <div
             style={{
               display: "flex",
-              fontSize: 200,
+              fontSize: 160,
               lineHeight: 0.9,
               fontWeight: 700,
-              letterSpacing: -8,
+              letterSpacing: -6,
             }}
           >
             <span>E-Major</span>
-            <span style={{ color: "#FF6A2C" }}>.</span>
+            <span style={{ color: "#2d8c4e" }}>.</span>
           </div>
           <div
             style={{
               fontSize: 38,
-              color: "rgba(250, 250, 250, 0.6)",
+              color: "rgba(255, 255, 255, 0.6)",
               marginTop: 24,
               fontWeight: 400,
             }}
           >
-            Électricité & plomberie — Paris XIVᵉ
+            Électricité &amp; plomberie de qualité
           </div>
         </div>
 
@@ -74,13 +74,13 @@ export default function OpengraphImage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            color: "rgba(250, 250, 250, 0.4)",
+            color: "rgba(255, 255, 255, 0.4)",
             fontSize: 22,
             fontFamily: "ui-monospace, monospace",
           }}
         >
-          <span>149 av. du Maine — 75014</span>
-          <span>06 61 86 43 03</span>
+          <span>149 av. du Maine — 75014 Paris</span>
+          <span>contact@emajor.fr</span>
         </div>
       </div>
     ),

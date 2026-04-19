@@ -83,6 +83,14 @@ const jsonLd = {
     addressCountry: "FR",
   },
   geo: { "@type": "GeoCoordinates", latitude: 48.8357, longitude: 2.3257 },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "07:30",
+      closes: "17:30",
+    },
+  ],
   priceRange: "€€",
   areaServed: [
     { "@type": "City", name: "Paris" },

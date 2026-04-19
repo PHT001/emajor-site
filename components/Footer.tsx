@@ -52,7 +52,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-brand transition-colors"
                 >
-                  {CONTACT.phoneDisplay}
+                  WhatsApp
                 </a>
               </li>
             </ul>
@@ -61,7 +61,7 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h3 className="font-heading text-white text-[18px] font-semibold mb-5">
-              Legal
+              Légal
             </h3>
             <ul className="space-y-3 text-[14px] text-white/70">
               <li>SIRET : {COMPANY.siret}</li>
@@ -71,6 +71,14 @@ export default function Footer() {
                   className="hover:text-brand transition-colors"
                 >
                   Mentions légales
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/confidentialite"
+                  className="hover:text-brand transition-colors"
+                >
+                  Confidentialité
                 </Link>
               </li>
             </ul>
