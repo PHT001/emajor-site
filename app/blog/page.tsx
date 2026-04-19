@@ -101,7 +101,7 @@ export default function BlogIndexPage() {
                   <article className="h-full">
                     <Link
                       href={`/blog/${a.slug}`}
-                      className="block h-full rounded-2xl border border-gray-200/80 bg-white hover:border-brand/40 hover:shadow-sm transition-all p-7"
+                      className="group block h-full rounded-2xl border border-gray-200/80 bg-white hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(0,0,0,0.2)] transition-all duration-300 p-7"
                     >
                       <div className="flex items-center gap-3 text-[12px] font-semibold uppercase tracking-wider mb-4">
                         <span className="text-brand">{a.category}</span>
@@ -117,7 +117,7 @@ export default function BlogIndexPage() {
                           {a.readMinutes} min
                         </span>
                       </div>
-                      <h2 className="font-heading text-dark text-[22px] sm:text-[24px] font-bold tracking-tight leading-snug mb-3">
+                      <h2 className="font-heading text-dark text-[22px] sm:text-[24px] font-bold tracking-tight leading-snug mb-3 group-hover:text-brand transition-colors duration-300">
                         {a.title}
                       </h2>
                       <p className="text-gray-text text-[15px] leading-relaxed mb-5">
@@ -125,7 +125,12 @@ export default function BlogIndexPage() {
                       </p>
                       <span className="inline-flex items-center gap-1.5 text-brand text-[14px] font-semibold">
                         Lire l&apos;article
-                        <span aria-hidden>→</span>
+                        <span
+                          aria-hidden
+                          className="group-hover:translate-x-1 transition-transform duration-300"
+                        >
+                          →
+                        </span>
                       </span>
                     </Link>
                   </article>

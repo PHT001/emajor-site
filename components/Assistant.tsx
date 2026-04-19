@@ -302,7 +302,7 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
             className="flex-1 inline-flex items-center justify-center gap-2 text-white font-semibold px-5 py-3 rounded-xl text-[14px] transition-colors"
             style={{ backgroundColor: "#25D366" }}
           >
-            WhatsApp — Urgence
+            Contact urgence
           </a>
           <a
             href={CONTACT.phoneHref}

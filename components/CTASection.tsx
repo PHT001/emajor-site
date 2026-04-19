@@ -24,7 +24,16 @@ export default function CTASection({
   return (
     <section className="py-20 sm:py-24 bg-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        <div className="bg-gradient-to-br from-brand to-brand-dark rounded-3xl p-10 sm:p-14 text-center text-white relative overflow-hidden">
+        <div className="bg-gradient-to-br from-brand to-brand-dark rounded-3xl p-10 sm:p-14 text-center text-white relative overflow-hidden shadow-[0_24px_60px_-24px_rgba(26,92,50,0.5)]">
+          {/* Decorative glow */}
+          <div
+            aria-hidden
+            className="absolute -top-24 -right-24 w-[360px] h-[360px] rounded-full bg-white/5 blur-3xl"
+          />
+          <div
+            aria-hidden
+            className="absolute -bottom-24 -left-24 w-[300px] h-[300px] rounded-full bg-gold/15 blur-3xl"
+          />
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="font-heading text-[32px] sm:text-[44px] font-bold tracking-[-0.02em] leading-tight mb-4">
               {title}
@@ -61,7 +70,7 @@ function PrimaryButton({
   label: string;
 }) {
   const cls =
-    "inline-flex items-center gap-2 bg-white hover:bg-white/90 text-brand font-semibold px-7 py-4 rounded-[30px] text-[15px] transition-colors";
+    "inline-flex items-center gap-2 bg-white hover:bg-white/95 text-brand font-semibold px-7 py-4 rounded-[30px] text-[15px] transition-all duration-200 hover:shadow-[0_10px_30px_-8px_rgba(0,0,0,0.25)] active:scale-[0.97]";
   if (target === "_blank")
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
@@ -77,7 +86,7 @@ function PrimaryButton({
 
 function SecondaryButton({ href, label }: { href: string; label: string }) {
   const cls =
-    "inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-7 py-4 rounded-[30px] text-[15px] transition-colors";
+    "inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 hover:border-white/50 text-white font-semibold px-7 py-4 rounded-[30px] text-[15px] transition-all duration-200 active:scale-[0.97]";
   if (href.startsWith("http"))
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>

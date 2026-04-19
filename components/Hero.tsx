@@ -52,7 +52,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               href="/assistant"
-              className="group inline-flex items-center justify-between gap-6 bg-brand hover:bg-brand-dark text-white px-7 py-5 rounded-[30px] transition-all hover:scale-[1.02]"
+              className="group inline-flex items-center justify-between gap-6 bg-brand hover:bg-brand-dark text-white px-7 py-5 rounded-[30px] transition-all duration-300 hover:shadow-[0_16px_40px_-10px_rgba(45,140,78,0.6)] active:scale-[0.98]"
             >
               <span className="font-semibold text-[15px]">
                 Lancer l&apos;assistant
@@ -60,14 +60,14 @@ export default function Hero() {
               <ArrowRight
                 size={20}
                 strokeWidth={2.5}
-                className="group-hover:translate-x-1 transition-transform"
+                className="group-hover:translate-x-1 transition-transform duration-300"
               />
             </Link>
             <a
               href={CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white px-7 py-5 rounded-[30px] transition-colors font-semibold text-[15px]"
+              className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white px-7 py-5 rounded-[30px] transition-all duration-200 font-semibold text-[15px] active:scale-[0.98]"
             >
               Nous contacter
             </a>

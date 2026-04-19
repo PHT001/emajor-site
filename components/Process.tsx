@@ -41,13 +41,17 @@ export default function Process() {
           {steps.map((s) => (
             <div
               key={s.num}
-              className="relative bg-gray-bg rounded-2xl p-8 border border-gray-200/60"
+              className="group relative bg-gray-bg rounded-2xl p-8 border border-gray-200/60 hover:border-brand/40 hover:bg-white hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 transition-all duration-300"
             >
-              <div className="absolute -top-4 left-8 bg-brand text-white text-[13px] font-bold px-3 py-1 rounded-full">
+              <div className="absolute -top-4 left-8 bg-brand text-white text-[13px] font-bold px-3 py-1 rounded-full group-hover:bg-brand-dark transition-colors duration-300">
                 {s.num}
               </div>
-              <div className="w-12 h-12 rounded-xl bg-white border border-gray-200/60 flex items-center justify-center mb-5 mt-2">
-                <s.icon size={22} className="text-brand" strokeWidth={2.2} />
+              <div className="w-12 h-12 rounded-xl bg-white border border-gray-200/60 flex items-center justify-center mb-5 mt-2 group-hover:border-brand/40 transition-colors duration-300">
+                <s.icon
+                  size={22}
+                  className="text-brand group-hover:scale-110 transition-transform duration-300"
+                  strokeWidth={2.2}
+                />
               </div>
               <h3 className="font-heading text-dark text-[20px] font-semibold mb-3">
                 {s.title}

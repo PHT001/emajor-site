@@ -58,15 +58,19 @@ export default function ExpertiseDomains() {
           {cards.map((c) => (
             <article
               key={c.title}
-              className="group bg-white border border-gray-200/60 rounded-2xl p-7 hover:border-brand/40 hover:-translate-y-1 hover:shadow-2xl transition-all relative"
+              className="group bg-white border border-gray-200/60 rounded-2xl p-7 hover:border-brand/40 hover:-translate-y-1 hover:shadow-[0_20px_40px_-20px_rgba(45,140,78,0.25)] transition-all duration-300 relative"
             >
               {c.priority && (
                 <span className="absolute top-5 right-5 text-[11px] font-semibold text-brand bg-brand-light px-2.5 py-1 rounded-full">
                   Prioritaire
                 </span>
               )}
-              <div className="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center mb-5">
-                <c.icon size={22} className="text-brand" strokeWidth={2.2} />
+              <div className="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center mb-5 group-hover:scale-105 group-hover:bg-brand group-hover:text-white transition-all duration-300">
+                <c.icon
+                  size={22}
+                  className="text-brand group-hover:text-white transition-colors duration-300"
+                  strokeWidth={2.2}
+                />
               </div>
               <h3 className="font-heading text-dark text-[22px] font-semibold mb-3">
                 {c.title}

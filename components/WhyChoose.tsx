@@ -25,10 +25,10 @@ export default function WhyChoose() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="bg-white rounded-2xl p-7 border border-gray-200/60 text-center"
+              className="group bg-white rounded-2xl p-7 border border-gray-200/60 text-center hover:border-brand/40 hover:-translate-y-0.5 hover:shadow-[0_16px_32px_-20px_rgba(0,0,0,0.15)] transition-all duration-300"
             >
               <div
-                className={`font-heading text-[40px] sm:text-[48px] font-bold tracking-tight mb-2 ${s.color}`}
+                className={`font-heading text-[40px] sm:text-[48px] font-bold tracking-tight mb-2 ${s.color} group-hover:scale-[1.03] transition-transform duration-300 origin-center`}
               >
                 {s.value}
               </div>

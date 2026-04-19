@@ -120,14 +120,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href={CONTACT.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-1 bg-brand/10 hover:bg-brand/20 text-brand px-3.5 py-1.5 rounded-full transition-colors text-[13px] font-medium"
+                <Link
+                  href="/assistant"
+                  className="inline-flex items-center gap-2 mt-1 bg-brand/10 hover:bg-brand/20 text-brand px-3.5 py-1.5 rounded-full transition-all duration-200 text-[13px] font-medium"
                 >
-                  WhatsApp
-                </a>
+                  Lancer l&apos;assistant
+                </Link>
               </li>
             </ul>
           </div>

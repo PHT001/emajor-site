@@ -5,6 +5,7 @@ import Installations from "@/components/Installations";
 import Process from "@/components/Process";
 import WhyChoose from "@/components/WhyChoose";
 import FAQ from "@/components/FAQ";
+import Reveal from "@/components/Reveal";
 import { HomeCTA } from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
@@ -15,12 +16,24 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <ExpertiseDomains />
-        <Installations />
-        <Process />
-        <WhyChoose />
-        <FAQ />
-        <HomeCTA />
+        <Reveal>
+          <ExpertiseDomains />
+        </Reveal>
+        <Reveal>
+          <Installations />
+        </Reveal>
+        <Reveal>
+          <Process />
+        </Reveal>
+        <Reveal>
+          <WhyChoose />
+        </Reveal>
+        <Reveal>
+          <FAQ />
+        </Reveal>
+        <Reveal>
+          <HomeCTA />
+        </Reveal>
       </main>
       <Footer />
       <ChatWidget />

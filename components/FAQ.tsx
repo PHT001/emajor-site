@@ -93,14 +93,14 @@ export default function FAQ() {
                   aria-controls={`faq-panel-${i}`}
                   className="w-full flex items-center justify-between gap-5 py-5 sm:py-6 text-left group"
                 >
-                  <span className="font-heading text-dark text-[17px] sm:text-[18px] font-semibold leading-snug group-hover:text-brand transition-colors">
+                  <span className="font-heading text-dark text-[17px] sm:text-[18px] font-semibold leading-snug group-hover:text-brand transition-colors duration-200">
                     {f.question}
                   </span>
                   <span
                     aria-hidden
-                    className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center border transition-colors ${
+                    className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-300 ${
                       open
-                        ? "bg-brand border-brand text-white"
+                        ? "bg-brand border-brand text-white rotate-180"
                         : "border-gray-200 text-gray-text group-hover:border-brand group-hover:text-brand"
                     }`}
                   >
@@ -109,10 +109,16 @@ export default function FAQ() {
                 </button>
                 <div
                   id={`faq-panel-${i}`}
-                  hidden={!open}
-                  className="pb-6 pr-12 text-gray-text text-[15px] leading-[1.75]"
+                  className="collapse-grid"
+                  data-open={open ? "true" : "false"}
+                  role="region"
+                  aria-hidden={!open}
                 >
-                  {f.answer}
+                  <div className="collapse-inner">
+                    <p className="pb-6 pr-12 text-gray-text text-[15px] leading-[1.75]">
+                      {f.answer}
+                    </p>
+                  </div>
                 </div>
               </li>
             );
