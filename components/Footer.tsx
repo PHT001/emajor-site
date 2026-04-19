@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Mail, Phone, Clock } from "lucide-react";
+import { MapPin, Mail, Clock } from "lucide-react";
 import { CONTACT, COMPANY, MAPS } from "@/lib/constants";
 
 export default function Footer() {
@@ -101,15 +101,6 @@ export default function Footer() {
               Contact
             </h3>
             <ul className="space-y-3 text-[14px] text-white/70">
-              <li className="flex items-start gap-2.5">
-                <Phone size={16} className="text-brand mt-0.5 shrink-0" />
-                <a
-                  href={CONTACT.phoneHref}
-                  className="hover:text-brand transition-colors"
-                >
-                  {CONTACT.phoneDisplay}
-                </a>
-              </li>
               <li className="flex items-start gap-2.5">
                 <Mail size={16} className="text-brand mt-0.5 shrink-0" />
                 <a

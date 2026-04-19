@@ -64,18 +64,18 @@ export default function FAQ() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="py-20 sm:py-24 bg-white"
+      className="py-14 sm:py-20 lg:py-24 bg-white"
     >
       <div className="max-w-[900px] mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="eyebrow mb-4 justify-center">FAQ</span>
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <span className="eyebrow mb-3 sm:mb-4 justify-center">FAQ</span>
           <h2
             id="faq-heading"
-            className="font-heading text-dark text-[32px] sm:text-[44px] font-bold tracking-[-0.02em] leading-tight mb-4 mt-3"
+            className="font-heading text-dark text-[26px] sm:text-[40px] lg:text-[44px] font-bold tracking-[-0.02em] leading-tight mb-3 sm:mb-4 mt-2 sm:mt-3"
           >
             Questions fréquentes
           </h2>
-          <p className="text-gray-text text-[16px] leading-relaxed">
+          <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
             Les réponses directes aux questions qu&apos;on nous pose avant
             chaque devis.
           </p>
@@ -91,20 +91,20 @@ export default function FAQ() {
                   onClick={() => setOpenIndex(open ? null : i)}
                   aria-expanded={open}
                   aria-controls={`faq-panel-${i}`}
-                  className="w-full flex items-center justify-between gap-5 py-5 sm:py-6 text-left group"
+                  className="w-full flex items-center justify-between gap-4 sm:gap-5 py-4 sm:py-6 text-left group"
                 >
-                  <span className="font-heading text-dark text-[17px] sm:text-[18px] font-semibold leading-snug group-hover:text-brand transition-colors duration-200">
+                  <span className="font-heading text-dark text-[15px] sm:text-[18px] font-semibold leading-snug group-hover:text-brand transition-colors duration-200">
                     {f.question}
                   </span>
                   <span
                     aria-hidden
-                    className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-300 ${
+                    className={`shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border transition-all duration-300 ${
                       open
                         ? "bg-brand border-brand text-white rotate-180"
                         : "border-gray-200 text-gray-text group-hover:border-brand group-hover:text-brand"
                     }`}
                   >
-                    {open ? <Minus size={16} /> : <Plus size={16} />}
+                    {open ? <Minus size={14} /> : <Plus size={14} />}
                   </span>
                 </button>
                 <div
@@ -115,7 +115,7 @@ export default function FAQ() {
                   aria-hidden={!open}
                 >
                   <div className="collapse-inner">
-                    <p className="pb-6 pr-12 text-gray-text text-[15px] leading-[1.75]">
+                    <p className="pb-5 sm:pb-6 pr-10 sm:pr-12 text-gray-text text-[13.5px] sm:text-[15px] leading-[1.7]">
                       {f.answer}
                     </p>
                   </div>

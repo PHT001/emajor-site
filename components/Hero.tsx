@@ -4,7 +4,7 @@ import { CONTACT } from "@/lib/constants";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[88vh] flex flex-col justify-end pt-32 pb-16 sm:pb-20 bg-dark overflow-hidden">
+    <section className="relative min-h-[88vh] flex flex-col justify-end pt-24 sm:pt-32 pb-12 sm:pb-20 bg-dark overflow-hidden">
       {/* Background photo */}
       <div className="absolute inset-0">
         <div
@@ -41,24 +41,24 @@ export default function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-white/65 text-[17px] sm:text-[20px] mt-8 max-w-2xl leading-relaxed font-light">
+        <p className="text-white/65 text-[15px] sm:text-[20px] mt-5 sm:mt-8 max-w-2xl leading-relaxed font-light">
           Entreprise d&apos;électricité et de plomberie sur Paris et proche
           couronne. Dépannage, installation, rénovation — du lundi au samedi.
         </p>
 
         {/* Bottom row — CTAs left, stats right */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-end border-t border-white/10 pt-10">
+        <div className="mt-8 sm:mt-16 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 sm:gap-10 items-end border-t border-white/10 pt-6 sm:pt-10">
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-row gap-2.5 sm:gap-3">
             <Link
               href="/assistant"
-              className="group inline-flex items-center justify-between gap-6 bg-brand hover:bg-brand-dark text-white px-7 py-5 rounded-[30px] transition-all duration-300 hover:shadow-[0_16px_40px_-10px_rgba(45,140,78,0.6)] active:scale-[0.98]"
+              className="group flex-1 sm:flex-initial inline-flex items-center justify-between gap-3 sm:gap-6 bg-brand hover:bg-brand-dark text-white px-5 py-3.5 sm:px-7 sm:py-5 rounded-full transition-all duration-300 hover:shadow-[0_16px_40px_-10px_rgba(45,140,78,0.6)] active:scale-[0.98]"
             >
-              <span className="font-semibold text-[15px]">
+              <span className="font-semibold text-[14px] sm:text-[15px]">
                 Lancer l&apos;assistant
               </span>
               <ArrowRight
-                size={20}
+                size={18}
                 strokeWidth={2.5}
                 className="group-hover:translate-x-1 transition-transform duration-300"
               />
@@ -67,7 +67,7 @@ export default function Hero() {
               href={CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white px-7 py-5 rounded-[30px] transition-all duration-200 font-semibold text-[15px] active:scale-[0.98]"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white px-5 py-3.5 sm:px-7 sm:py-5 rounded-full transition-all duration-200 font-semibold text-[14px] sm:text-[15px] active:scale-[0.98]"
             >
               Nous contacter
             </a>
