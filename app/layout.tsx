@@ -78,13 +78,13 @@ const localBusinessJsonLd = {
   logo: `${SITE.url}/icon`,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "149 Av. du Maine",
+    streetAddress: "100 Rue de l'Ouest",
     addressLocality: "Paris",
     postalCode: "75014",
     addressRegion: COMPANY.region,
     addressCountry: "FR",
   },
-  geo: { "@type": "GeoCoordinates", latitude: 48.8357, longitude: 2.3257 },
+  geo: { "@type": "GeoCoordinates", latitude: 48.8357, longitude: 2.3193 },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

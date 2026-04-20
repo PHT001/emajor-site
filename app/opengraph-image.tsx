@@ -79,7 +79,7 @@ export default function OpengraphImage() {
             fontFamily: "ui-monospace, monospace",
           }}
         >
-          <span>149 av. du Maine — 75014 Paris</span>
+          <span>Atelier — 100 Rue de l&apos;Ouest, 75014 Paris</span>
           <span>contact@emajor.fr</span>
         </div>
       </div>

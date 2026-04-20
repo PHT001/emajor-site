@@ -6,6 +6,7 @@ import { CONTACT } from "@/lib/constants";
 
 type StateKey =
   | "start"
+  | "intervention_domain"
   | "elec_service"
   | "elec_building"
   | "elec_urgency"
@@ -14,6 +15,10 @@ type StateKey =
   | "plomb_specifics"
   | "plomb_urgency"
   | "plomb_urgent_contact"
+  | "devis_domain"
+  | "devis_building"
+  | "admin_service"
+  | "admin_contact"
   | "processing"
   | "done";
 
@@ -22,6 +27,7 @@ type Option = {
   emoji?: string;
   next: StateKey;
   highlight?: boolean;
+  payload?: string; // prefilled context to pass to WhatsApp
 };
 
 type Step = {
@@ -29,10 +35,31 @@ type Step = {
   options: Option[];
 };
 
-const STATES: Record<Exclude<StateKey, "processing" | "done" | "elec_urgent_contact" | "plomb_urgent_contact">, Step> = {
+// Admin endpoints that skip the chat tree and go straight to a contact screen.
+const ADMIN_STATES = new Set<StateKey>(["admin_contact"]);
+const URGENT_STATES = new Set<StateKey>([
+  "elec_urgent_contact",
+  "plomb_urgent_contact",
+]);
+
+const STATES: Record<
+  Exclude<
+    StateKey,
+    "processing" | "done" | "elec_urgent_contact" | "plomb_urgent_contact" | "admin_contact"
+  >,
+  Step
+> = {
   start: {
     botMessage:
-      "Bonjour ! Je suis l'assistant E-Major. De quoi avez-vous besoin ?",
+      "Bonjour ! Je suis l'assistant E-Major. Que souhaitez-vous faire ?",
+    options: [
+      { emoji: "🛠️", label: "Demander une intervention", next: "intervention_domain" },
+      { emoji: "📋", label: "Demander un devis", next: "devis_domain" },
+      { emoji: "🧾", label: "Administratif / pièce comptable", next: "admin_service" },
+    ],
+  },
+  intervention_domain: {
+    botMessage: "Quel corps de métier ?",
     options: [
       { emoji: "⚡", label: "Électricité", next: "elec_service" },
       { emoji: "🔧", label: "Plomberie", next: "plomb_service" },
@@ -89,6 +116,53 @@ const STATES: Record<Exclude<StateKey, "processing" | "done" | "elec_urgent_cont
       { label: "Urgent", next: "plomb_urgent_contact", highlight: true },
     ],
   },
+  devis_domain: {
+    botMessage: "Sur quoi porte le devis ?",
+    options: [
+      { emoji: "⚡", label: "Électricité", next: "devis_building" },
+      { emoji: "🔧", label: "Plomberie", next: "devis_building" },
+      { emoji: "🏗️", label: "Projet complet", next: "devis_building" },
+    ],
+  },
+  devis_building: {
+    botMessage: "Quel type de bâtiment ?",
+    options: [
+      { label: "Appartement", next: "processing" },
+      { label: "Maison", next: "processing" },
+      { label: "Local professionnel", next: "processing" },
+    ],
+  },
+  admin_service: {
+    botMessage:
+      "Quel service souhaitez-vous joindre ?",
+    options: [
+      {
+        label: "Duplicata de facture",
+        next: "admin_contact",
+        payload: "duplicata de facture",
+      },
+      {
+        label: "Virement / RIB",
+        next: "admin_contact",
+        payload: "un virement ou RIB",
+      },
+      {
+        label: "Pièce comptable",
+        next: "admin_contact",
+        payload: "une pièce comptable",
+      },
+      {
+        label: "Fournisseur",
+        next: "admin_contact",
+        payload: "un échange fournisseur",
+      },
+      {
+        label: "Autre demande administrative",
+        next: "admin_contact",
+        payload: "une demande administrative",
+      },
+    ],
+  },
 };
 
 type Message =
@@ -96,7 +170,10 @@ type Message =
   | { role: "user"; text: string };
 
 const URGENT_MESSAGE =
-  "Pour une intervention urgente, contactez-nous directement. Marc vous répondra au plus vite.";
+  "Pour une intervention urgente, contactez-nous directement. Notre chargé d'affaires vous répondra au plus vite.";
+
+const ADMIN_MESSAGE_BASE =
+  "Votre demande concernant {{topic}} est notée. Contactez directement le service administratif — réponse sous 24h ouvrées.";
 
 const PROCESSING_STEPS = [
   "Analyse de votre demande...",
@@ -112,6 +189,7 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [history, setHistory] = useState<StateKey[]>([]);
   const [processingStep, setProcessingStep] = useState(0);
+  const [adminTopic, setAdminTopic] = useState<string>("votre demande administrative");
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -146,10 +224,22 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
     setMessages((m) => [...m, { role: "user", text: label }]);
     setHistory((h) => [...h, state]);
 
-    if (opt.next === "elec_urgent_contact" || opt.next === "plomb_urgent_contact") {
+    if (URGENT_STATES.has(opt.next)) {
       setTimeout(() => {
         setMessages((m) => [...m, { role: "bot", text: URGENT_MESSAGE }]);
         setState(opt.next);
+      }, 400);
+      return;
+    }
+    if (opt.next === "admin_contact") {
+      const topic = opt.payload ?? "votre demande administrative";
+      setAdminTopic(topic);
+      setTimeout(() => {
+        setMessages((m) => [
+          ...m,
+          { role: "bot", text: ADMIN_MESSAGE_BASE.replace("{{topic}}", topic) },
+        ]);
+        setState("admin_contact");
       }, 400);
       return;
     }
@@ -181,13 +271,13 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
   const currentStep =
     state !== "processing" &&
     state !== "done" &&
-    state !== "elec_urgent_contact" &&
-    state !== "plomb_urgent_contact"
+    !URGENT_STATES.has(state) &&
+    !ADMIN_STATES.has(state)
       ? STATES[state as keyof typeof STATES]
       : null;
 
-  const isUrgentContact =
-    state === "elec_urgent_contact" || state === "plomb_urgent_contact";
+  const isUrgentContact = URGENT_STATES.has(state);
+  const isAdminContact = state === "admin_contact";
   const isDone = state === "done";
   // When compact (inside ChatWidget), let the parent control height via flex.
   // When standalone (/assistant page), use a comfortable fixed height.
@@ -214,8 +304,8 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
                 Assistant E-Major
               </h3>
               <p className="text-gray-text text-[14px] leading-relaxed">
-                Je vous pose quelques questions et je transmets votre demande à
-                Marc. Aucune saisie de clavier nécessaire.
+                Intervention, devis ou administratif — quelques clics et votre
+                demande est transmise. Aucune saisie de clavier nécessaire.
               </p>
             </div>
             <button
@@ -276,7 +366,7 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
         <div className="shrink-0 border-t border-gray-200/60 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
           <a
             href={`${CONTACT.whatsappUrl}?text=${encodeURIComponent(
-              "Bonjour Marc, je vous contacte via l'assistant E-Major.",
+              "Bonjour, je vous contacte via l'assistant E-Major.",
             )}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -299,7 +389,7 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
         <div className="shrink-0 border-t border-gray-200/60 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
           <a
             href={`${CONTACT.whatsappUrl}?text=${encodeURIComponent(
-              "Bonjour Marc, je vous contacte via l'assistant E-Major pour une urgence.",
+              "Bonjour, je vous contacte via l'assistant E-Major pour une urgence.",
             )}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -313,6 +403,30 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
             className="flex-1 inline-flex items-center justify-center bg-gray-200 hover:bg-gray-300 text-dark font-semibold px-5 py-3 rounded-xl text-[14px] transition-colors"
           >
             Appeler
+          </a>
+        </div>
+      )}
+
+      {/* Admin contact footer */}
+      {isAdminContact && (
+        <div className="shrink-0 border-t border-gray-200/60 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-gray-bg/50 flex flex-col sm:flex-row gap-2">
+          <a
+            href={`${CONTACT.whatsappUrl}?text=${encodeURIComponent(
+              `Bonjour, je souhaite contacter le service administratif E-Major concernant ${adminTopic}.`,
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-5 py-3 rounded-xl text-[14px] transition-colors"
+          >
+            Contacter le service admin
+          </a>
+          <a
+            href={`${CONTACT.emailHref}?subject=${encodeURIComponent(
+              `Demande administrative — ${adminTopic}`,
+            )}`}
+            className="flex-1 inline-flex items-center justify-center bg-white border border-gray-200 hover:border-brand text-dark font-semibold px-5 py-3 rounded-xl text-[14px] transition-colors"
+          >
+            Par e-mail
           </a>
         </div>
       )}

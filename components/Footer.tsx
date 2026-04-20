@@ -22,7 +22,7 @@ export default function Footer() {
             >
               <div className="relative aspect-[16/10] bg-white/5">
                 <iframe
-                  title="Localisation E-Major — 149 Av. du Maine, 75014 Paris"
+                  title="Localisation E-Major — Atelier 100 Rue de l'Ouest, 75014 Paris"
                   src={MAPS.embedUrl}
                   width="100%"
                   height="100%"

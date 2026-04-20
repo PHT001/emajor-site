@@ -5,7 +5,7 @@ import Assistant from "@/components/Assistant";
 export const metadata = {
   title: "Assistant — E-Major | Décrivez votre besoin en 30s",
   description:
-    "Répondez en cliquant sur les boutons, zéro saisie. Marc vous recontacte avec un devis sous 24h.",
+    "Répondez en cliquant sur les boutons, zéro saisie. Notre chargé d'affaires vous recontacte avec un devis sous 24h.",
 };
 
 export default function AssistantPage() {

@@ -104,8 +104,8 @@ export function HomeCTA() {
   return (
     <CTASection
       title="Besoin d'un électricien ou plombier ?"
-      subtitle="Contactez Marc directement pour un devis gratuit sous 24h."
-      primaryLabel="Contacter Marc"
+      subtitle="Contactez notre chargé d'affaires pour un devis gratuit sous 24h."
+      primaryLabel="Contacter le chargé d'affaires"
       primaryHref={CONTACT.whatsappUrl}
       primaryTarget="_blank"
       secondaryLabel="Voir nos services"

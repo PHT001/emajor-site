@@ -1,6 +1,6 @@
 /**
  * Clients logos strip — "Ils nous font confiance".
- * Currently uses text placeholders. Once Marc provides real SVG/PNG logos,
+ * Currently uses text placeholders. Once real SVG/PNG logos are provided,
  * replace each `<span>` with an <Image /> keeping the same monochrome
  * (grayscale) + hover reveal treatment.
  */

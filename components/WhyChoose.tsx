@@ -1,10 +1,31 @@
 import Reveal from "@/components/Reveal";
+import { Hammer, ShieldCheck, Languages, BadgeCheck } from "lucide-react";
 
-const stats = [
-  { value: "100%", label: "Assurés", color: "text-brand" },
-  { value: "24h", label: "Devis", color: "text-brand" },
-  { value: "10 ans", label: "Garantie décennale", color: "text-gold" },
-  { value: "IDF", label: "Zone couverte", color: "text-brand" },
+const pillars = [
+  {
+    icon: Hammer,
+    value: "20 ans",
+    label: "d'expérience artisan",
+    color: "text-brand",
+  },
+  {
+    icon: ShieldCheck,
+    value: "Habilités",
+    label: "Norme électrique NF C 18-510",
+    color: "text-brand",
+  },
+  {
+    icon: Languages,
+    value: "FR · PT",
+    label: "Francophone / Lusophone",
+    color: "text-gold",
+  },
+  {
+    icon: BadgeCheck,
+    value: "10 ans",
+    label: "Garantie décennale",
+    color: "text-brand",
+  },
 ];
 
 const certs = ["Décennale", "RGE", "NF C 15-100", "SIRET"];
@@ -18,25 +39,32 @@ export default function WhyChoose() {
             Pourquoi choisir E-Major&nbsp;?
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
-            Des artisans déclarés, assurés, habilités. Pas de sous-traitance
-            cachée.
+            Artisans déclarés, habilités et bilingues — nous accompagnons aussi
+            bien la clientèle francophone que lusophone à Paris.
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 mb-8 sm:mb-10">
-          {stats.map((s, i) => (
+          {pillars.map((p, i) => (
             <Reveal
-              key={s.label}
+              key={p.label}
               delay={i * 100}
               className="group bg-white rounded-2xl p-4 sm:p-7 border border-gray-200/60 text-center hover:border-brand/40 hover:-translate-y-0.5 hover:shadow-[0_16px_32px_-20px_rgba(0,0,0,0.15)] transition-all duration-300"
             >
-              <div
-                className={`font-heading text-[26px] sm:text-[44px] lg:text-[48px] font-bold tracking-tight mb-1 sm:mb-2 ${s.color} group-hover:scale-[1.03] transition-transform duration-300 origin-center`}
-              >
-                {s.value}
+              <div className="mx-auto mb-2 sm:mb-3 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-light flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <p.icon
+                  size={20}
+                  className="text-brand"
+                  strokeWidth={2.2}
+                />
               </div>
-              <div className="text-[11px] sm:text-[13px] text-gray-text font-medium">
-                {s.label}
+              <div
+                className={`font-heading text-[20px] sm:text-[28px] lg:text-[30px] font-bold tracking-tight mb-1 ${p.color}`}
+              >
+                {p.value}
+              </div>
+              <div className="text-[11px] sm:text-[13px] text-gray-text font-medium leading-snug">
+                {p.label}
               </div>
             </Reveal>
           ))}

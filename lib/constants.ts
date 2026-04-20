@@ -5,7 +5,10 @@ export const COMPANY = {
   name: "E-Major",
   legalName: "E-Major SAS",
   siret: "95103995700018",
-  address: "149 Av. du Maine, 75014 Paris, France",
+  address: "Atelier — 100 Rue de l'Ouest, 75014 Paris, France",
+  addressShort: "100 Rue de l'Ouest, 75014 Paris",
+  streetAddress: "100 Rue de l'Ouest",
+  postalCode: "75014",
   city: "Paris",
   region: "Île-de-France",
 } as const;
@@ -23,10 +26,14 @@ export const CONTACT = {
 
 export const MAPS = {
   directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-    COMPANY.address,
+    "100 Rue de l'Ouest, 75014 Paris",
   )}`,
+  // Embed generated from "100 Rue de l'Ouest, 75014 Paris" — query-based embed is
+  // forgiving and re-centers on the address on load.
   embedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.1!2d2.3257!3d48.8357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671a7c81a146d%3A0x7e2e2f1b6e1f1b1b!2s149%20Av.%20du%20Maine%2C%2075014%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr",
+    "https://www.google.com/maps?q=" +
+    encodeURIComponent("100 Rue de l'Ouest, 75014 Paris") +
+    "&z=16&output=embed",
 } as const;
 
 export const SITE = {
