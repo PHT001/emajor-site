@@ -1,5 +1,6 @@
 import { Zap, Radio, Droplets } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import PlaceholderImage from "@/components/PlaceholderImage";
 
 const cards = [
   {
@@ -74,22 +75,16 @@ export default function ExpertiseDomains() {
               ].join(" ")}
             >
               {c.priority && (
-                <span className="absolute top-3 right-3 sm:top-5 sm:right-5 text-[10px] sm:text-[11px] font-semibold text-brand bg-brand-light px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
+                <span className="absolute top-3 right-3 sm:top-5 sm:right-5 z-10 text-[10px] sm:text-[11px] font-semibold text-brand bg-brand-light px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
                   Prioritaire
                 </span>
               )}
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-light flex items-center justify-center mb-3 sm:mb-5 group-hover:scale-105 group-hover:bg-brand transition-all duration-300">
-                <c.icon
-                  size={18}
-                  className="text-brand group-hover:text-white transition-colors duration-300 sm:hidden"
-                  strokeWidth={2.2}
-                />
-                <c.icon
-                  size={22}
-                  className="text-brand group-hover:text-white transition-colors duration-300 hidden sm:block"
-                  strokeWidth={2.2}
-                />
-              </div>
+              <PlaceholderImage
+                icon={c.icon}
+                aspect={i === 2 ? "aspect-[21/9] sm:aspect-[16/10]" : "aspect-[16/10]"}
+                rounded="rounded-xl"
+                className="mb-4 sm:mb-5"
+              />
               <h3 className="font-heading text-dark text-[16px] sm:text-[22px] font-semibold mb-1.5 sm:mb-3 leading-tight">
                 {c.title}
               </h3>

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { Check, Zap, Radio, Droplets, Wind } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
+import PlaceholderImage from "@/components/PlaceholderImage";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 const blocks = [
   {
     title: "Courant Faible",
+    icon: Radio,
     description:
       "Infrastructure réseau et sécurité pour vos locaux professionnels.",
     items: [
@@ -36,6 +38,7 @@ const blocks = [
   },
   {
     title: "Courant Fort",
+    icon: Zap,
     description:
       "Distribution électrique et éclairage professionnel.",
     items: [
@@ -49,6 +52,7 @@ const blocks = [
   },
   {
     title: "Plomberie",
+    icon: Droplets,
     description:
       "Réseaux d'eau et d'évacuation pour locaux professionnels.",
     items: [
@@ -62,6 +66,7 @@ const blocks = [
   },
   {
     title: "CVC & Supervision",
+    icon: Wind,
     description:
       "Chauffage, ventilation, climatisation et automatisation.",
     items: [
@@ -114,9 +119,15 @@ export default function ProfessionnelsPage() {
               {blocks.map((b) => (
                 <article
                   key={b.title}
-                  className="bg-gray-bg border border-gray-200/60 rounded-2xl p-8 hover:border-brand/40 hover:-translate-y-0.5 transition-all"
+                  className="bg-gray-bg border border-gray-200/60 rounded-2xl p-6 sm:p-8 hover:border-brand/40 hover:-translate-y-0.5 transition-all"
                 >
-                  <h3 className="font-heading text-dark text-[24px] sm:text-[26px] font-bold mb-3">
+                  <PlaceholderImage
+                    icon={b.icon}
+                    aspect="aspect-[16/9]"
+                    rounded="rounded-xl"
+                    className="mb-5 sm:mb-6"
+                  />
+                  <h3 className="font-heading text-dark text-[22px] sm:text-[26px] font-bold mb-3">
                     {b.title}
                   </h3>
                   <p className="text-gray-text text-[14px] leading-relaxed mb-6">

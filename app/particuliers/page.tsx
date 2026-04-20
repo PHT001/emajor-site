@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Check } from "lucide-react";
+import { Check, Zap, Radio, Droplets, Wrench } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
+import PlaceholderImage from "@/components/PlaceholderImage";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
 const blocks = [
   {
     title: "Courant Faible",
+    icon: Radio,
     description:
       "Installation et maintenance de vos équipements basse tension.",
     items: [
@@ -36,6 +38,7 @@ const blocks = [
   },
   {
     title: "Courant Fort",
+    icon: Zap,
     description:
       "Tout ce qui touche à l'électricité de puissance dans votre logement.",
     items: [
@@ -48,6 +51,7 @@ const blocks = [
   },
   {
     title: "Plomberie",
+    icon: Droplets,
     badge: "Chauffe-eau prioritaire",
     description:
       "Chauffe-eau, fuites, robinetterie… on intervient vite.",
@@ -61,6 +65,7 @@ const blocks = [
   },
   {
     title: "Dépannage",
+    icon: Wrench,
     description:
       "Réparations urgentes en électricité et plomberie.",
     items: [
@@ -134,14 +139,20 @@ export default function ParticuliersPage() {
               {blocks.map((b) => (
                 <article
                   key={b.title}
-                  className="bg-gray-bg border border-gray-200/60 rounded-2xl p-8 hover:border-brand/40 hover:-translate-y-0.5 transition-all relative"
+                  className="bg-gray-bg border border-gray-200/60 rounded-2xl p-6 sm:p-8 hover:border-brand/40 hover:-translate-y-0.5 transition-all relative"
                 >
                   {b.badge && (
-                    <span className="absolute top-6 right-6 text-[11px] font-semibold text-brand bg-white px-2.5 py-1 rounded-full border border-brand/20">
+                    <span className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 text-[11px] font-semibold text-brand bg-white px-2.5 py-1 rounded-full border border-brand/20">
                       {b.badge}
                     </span>
                   )}
-                  <h2 className="font-heading text-dark text-[24px] sm:text-[28px] font-bold mb-3">
+                  <PlaceholderImage
+                    icon={b.icon}
+                    aspect="aspect-[16/9]"
+                    rounded="rounded-xl"
+                    className="mb-5 sm:mb-6"
+                  />
+                  <h2 className="font-heading text-dark text-[22px] sm:text-[28px] font-bold mb-3">
                     {b.title}
                   </h2>
                   <p className="text-gray-text text-[14px] leading-relaxed mb-6">

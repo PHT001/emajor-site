@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ClientLogos from "@/components/ClientLogos";
 import ExpertiseDomains from "@/components/ExpertiseDomains";
 import Installations from "@/components/Installations";
 import Process from "@/components/Process";
@@ -16,6 +17,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Reveal>
+          <ClientLogos />
+        </Reveal>
         <ExpertiseDomains />
         <Reveal>
           <Installations />
