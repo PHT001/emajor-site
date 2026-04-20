@@ -1,13 +1,24 @@
-import Link from "next/link";
-import { Wrench, FileText, Receipt, ArrowRight } from "lucide-react";
+"use client";
 
-const steps = [
+import { Wrench, FileText, Receipt, ArrowRight } from "lucide-react";
+import { openAssistant, type AssistantIntent } from "@/lib/chatBus";
+
+type Step = {
+  num: string;
+  icon: typeof Wrench;
+  title: string;
+  description: string;
+  intent: AssistantIntent;
+};
+
+const steps: Step[] = [
   {
     num: "01",
     icon: Wrench,
     title: "Demander une intervention",
     description:
       "Un électricien ou plombier intervient sur site, en planifié ou en urgence.",
+    intent: "intervention",
   },
   {
     num: "02",
@@ -15,6 +26,7 @@ const steps = [
     title: "Demander un devis",
     description:
       "Devis détaillé sous 24h avec RIB et attestation d'assurance. Zéro surprise.",
+    intent: "devis",
   },
   {
     num: "03",
@@ -22,6 +34,7 @@ const steps = [
     title: "Pièce comptable / Administratif",
     description:
       "Duplicata de facture, RIB, virement, fournisseur — notre service admin répond sous 24h.",
+    intent: "admin",
   },
 ];
 
@@ -35,16 +48,18 @@ export default function Process() {
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
             Trois portes d&apos;entrée, une seule équipe. Choisissez celle qui
-            correspond à votre demande.
+            correspond à votre demande — l&apos;assistant s&apos;ouvre
+            directement sur la bonne section.
           </p>
         </div>
 
         <ol className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6">
           {steps.map((s) => (
             <li key={s.num}>
-              <Link
-                href="/assistant"
-                className="group relative bg-gray-bg rounded-2xl p-5 sm:p-8 border border-gray-200/60 hover:border-brand/40 hover:bg-white hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 transition-all duration-300 flex items-start sm:block gap-4 sm:gap-0 h-full"
+              <button
+                type="button"
+                onClick={() => openAssistant(s.intent)}
+                className="group relative w-full text-left bg-gray-bg rounded-2xl p-5 sm:p-8 border border-gray-200/60 hover:border-brand/40 hover:bg-white hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 active:scale-[0.99] transition-all duration-300 flex items-start sm:block gap-4 sm:gap-0 h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
               >
                 {/* Step number — pill on desktop, inline badge on mobile */}
                 <div className="shrink-0 sm:absolute sm:-top-4 sm:left-8 bg-brand text-white text-[12px] sm:text-[13px] font-bold w-10 h-10 sm:w-auto sm:h-auto sm:px-3 sm:py-1 rounded-full sm:rounded-full flex items-center justify-center group-hover:bg-brand-dark transition-colors duration-300">
@@ -70,11 +85,11 @@ export default function Process() {
                     {s.description}
                   </p>
                   <span className="inline-flex items-center gap-1 text-brand text-[12px] sm:text-[13px] font-semibold opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-300">
-                    Lancer l&apos;assistant
+                    Ouvrir l&apos;assistant
                     <ArrowRight size={14} strokeWidth={2.4} />
                   </span>
                 </div>
-              </Link>
+              </button>
             </li>
           ))}
         </ol>

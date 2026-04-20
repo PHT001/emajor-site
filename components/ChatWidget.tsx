@@ -3,9 +3,31 @@
 import { useEffect, useState } from "react";
 import { X, MessageSquare } from "lucide-react";
 import Assistant from "@/components/Assistant";
+import {
+  CHAT_OPEN_EVENT,
+  type AssistantIntent,
+  type ChatOpenDetail,
+} from "@/lib/chatBus";
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
+  // `session` is bumped each time the widget is (re)opened via the bus so the
+  // <Assistant/> re-mounts and picks up the new `initialIntent` cleanly.
+  const [session, setSession] = useState(0);
+  const [intent, setIntent] = useState<AssistantIntent | undefined>(undefined);
+
+  // Listen for external open requests (Process cards, CTAs, etc.)
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<ChatOpenDetail>).detail;
+      setIntent(detail?.intent);
+      setSession((n) => n + 1);
+      setOpen(true);
+    };
+    window.addEventListener(CHAT_OPEN_EVENT, handler as EventListener);
+    return () =>
+      window.removeEventListener(CHAT_OPEN_EVENT, handler as EventListener);
+  }, []);
 
   // Lock body scroll when the sheet is open on mobile
   useEffect(() => {
@@ -76,9 +98,16 @@ export default function ChatWidget() {
             </div>
 
             {/* Scroll area inside Assistant handles its own overflow.
-                Wrap in flex-1 + min-h-0 so it shrinks properly inside the sheet. */}
+                Wrap in flex-1 + min-h-0 so it shrinks properly inside the sheet.
+                `key` forces a fresh Assistant mount per open-session, so
+                `initialIntent` deep-links (e.g. from Process cards) reliably
+                drive the flow even if the user reopens with a new intent. */}
             <div className="flex-1 min-h-0 overflow-hidden">
-              <Assistant compact />
+              <Assistant
+                key={`${session}-${intent ?? "none"}`}
+                compact
+                initialIntent={intent}
+              />
             </div>
           </div>
         </div>

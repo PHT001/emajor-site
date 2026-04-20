@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, Check } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
+import type { AssistantIntent } from "@/lib/chatBus";
 
 type StateKey =
   | "start"
@@ -183,7 +184,21 @@ const PROCESSING_STEPS = [
   "Demande confirmée !",
 ];
 
-export default function Assistant({ compact = false }: { compact?: boolean }) {
+// Maps a high-level intent (from Process cards / CTAs) to the first-step
+// option that triggers the corresponding sub-flow.
+const INTENT_NEXT: Record<AssistantIntent, StateKey> = {
+  intervention: "intervention_domain",
+  devis: "devis_domain",
+  admin: "admin_service",
+};
+
+export default function Assistant({
+  compact = false,
+  initialIntent,
+}: {
+  compact?: boolean;
+  initialIntent?: AssistantIntent;
+}) {
   const [started, setStarted] = useState(false);
   const [state, setState] = useState<StateKey>("start");
   const [messages, setMessages] = useState<Message[]>([]);
@@ -196,6 +211,34 @@ export default function Assistant({ compact = false }: { compact?: boolean }) {
     if (scrollRef.current)
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, state, processingStep]);
+
+  // Deep-link: when mounted with an intent, skip the welcome screen and
+  // pre-click the matching start option to land directly on the sub-flow.
+  useEffect(() => {
+    if (!initialIntent) return;
+    const targetNext = INTENT_NEXT[initialIntent];
+    const startOpt = STATES.start.options.find((o) => o.next === targetNext);
+    if (!startOpt) return;
+
+    const pickedLabel = startOpt.emoji
+      ? `${startOpt.emoji} ${startOpt.label}`
+      : startOpt.label;
+
+    setStarted(true);
+    setState("start");
+    setMessages([
+      { role: "bot", text: STATES.start.botMessage },
+      { role: "user", text: pickedLabel },
+    ]);
+    setHistory(["start"]);
+
+    const nextStep = STATES[targetNext as keyof typeof STATES];
+    const t = setTimeout(() => {
+      setMessages((m) => [...m, { role: "bot", text: nextStep.botMessage }]);
+      setState(targetNext);
+    }, 400);
+    return () => clearTimeout(t);
+  }, [initialIntent]);
 
   useEffect(() => {
     if (state !== "processing") return;
