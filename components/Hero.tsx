@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 
 export default function Hero() {
@@ -45,6 +45,33 @@ export default function Hero() {
           Entreprise d&apos;électricité et de plomberie sur Paris et proche
           couronne. Dépannage, installation, rénovation — du lundi au samedi.
         </p>
+
+        {/* Rating strip */}
+        <div
+          className="mt-5 sm:mt-6 inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full pl-2 pr-4 py-1.5 animate-stat-in"
+          style={{ animationDelay: "100ms" }}
+        >
+          <div className="flex items-center gap-[1px]">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star
+                key={i}
+                size={14}
+                strokeWidth={0}
+                className="fill-gold text-gold"
+              />
+            ))}
+          </div>
+          <span className="text-white font-semibold text-[13px] sm:text-[14px] tracking-tight">
+            4,8/5
+          </span>
+          <span
+            aria-hidden
+            className="h-3 w-px bg-white/20"
+          />
+          <span className="text-white/70 text-[12px] sm:text-[13px] font-medium">
+            +200&nbsp;avis
+          </span>
+        </div>
 
         {/* Bottom row — CTAs left, stats right */}
         <div className="mt-8 sm:mt-16 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 sm:gap-10 items-end border-t border-white/10 pt-6 sm:pt-10">
