@@ -46,7 +46,7 @@ export default function ClientLogos() {
                 alt={logo.alt}
                 width={240}
                 height={120}
-                className="max-h-full max-w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300"
+                className="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105"
                 aria-hidden={i >= LOGOS.length}
               />
             </li>
