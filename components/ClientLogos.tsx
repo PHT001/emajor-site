@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const LOGOS = Array.from({ length: 22 }, (_, i) => ({
+const LOGOS = Array.from({ length: 29 }, (_, i) => ({
   src: `/logos/clients/client-${String(i + 1).padStart(2, "0")}.jpg`,
   alt: `Client ${i + 1}`,
 }));
