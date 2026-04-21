@@ -281,3 +281,16 @@ h6 {
 .animate-typing-dot-delay-2 {
   animation: typing-dot 1.4s infinite ease-in-out 0.4s;
 }
+
+@keyframes logo-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.animate-logo-marquee {
+  animation: logo-marquee 40s linear infinite;
+  will-change: transform;
+}
