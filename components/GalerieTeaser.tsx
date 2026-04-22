@@ -51,20 +51,20 @@ export default function GalerieTeaser() {
           </Link>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
           {highlights.map((h) => (
             <li key={h.src}>
               <Link
                 href="/galerie"
-                className="group block relative overflow-hidden rounded-3xl bg-gray-bg"
+                className="group block relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gray-bg"
                 aria-label={`${h.title} — voir dans la galerie`}
               >
-                <div className="relative aspect-[4/5] sm:aspect-[4/5]">
+                <div className="relative aspect-[16/10] sm:aspect-[4/5]">
                   <Image
                     src={h.src}
                     alt={h.alt}
                     fill
-                    sizes="(min-width: 1024px) 580px, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1024px) 580px, (min-width: 640px) 50vw, 92vw"
                     className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
                     priority
                   />
@@ -72,14 +72,14 @@ export default function GalerieTeaser() {
                     className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"
                     aria-hidden
                   />
-                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-7">
+                    <span className="text-[9px] sm:text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">
                       {h.category}
                     </span>
-                    <h3 className="font-heading text-white text-[20px] sm:text-[24px] font-bold leading-tight mt-1.5">
+                    <h3 className="font-heading text-white text-[16px] sm:text-[24px] font-bold leading-tight mt-1 sm:mt-1.5">
                       {h.title}
                     </h3>
-                    <p className="text-white/85 text-[13px] sm:text-[14px] mt-1">
+                    <p className="text-white/85 text-[11px] sm:text-[14px] mt-0.5 sm:mt-1">
                       {h.location}
                     </p>
                   </div>
