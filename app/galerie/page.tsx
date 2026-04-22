@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Zap, Radio, Droplets, Wrench, Wind, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -21,15 +22,44 @@ export const metadata: Metadata = {
   },
 };
 
-const tiles = [
+type Photo = {
+  src: string;
+  alt: string;
+  category: string;
+  title: string;
+  location?: string;
+};
+
+type Tile = {
+  icon: typeof Zap;
+  category: string;
+  title: string;
+};
+
+const photos: Photo[] = [
+  {
+    src: "/galerie/ciup-fondation-lucien-paye.jpg",
+    alt: "Couloir de la Fondation Lucien Payé — Cité Internationale Universitaire de Paris, luminaires LED intégrés",
+    category: "Éclairage institutionnel",
+    title: "Fondation Lucien Payé",
+    location: "Cité Internationale Universitaire de Paris",
+  },
+  {
+    src: "/galerie/chaufferie-copropriete.jpg",
+    alt: "Chaufferie collective — tableau électrique, chaudières Schneider, tuyauterie cuivre",
+    category: "Chaufferie collective",
+    title: "Mise aux normes chaufferie",
+    location: "Copropriété — Paris",
+  },
+];
+
+const tiles: Tile[] = [
   { icon: Zap, category: "Courant Fort", title: "Tableau électrique rénové" },
   { icon: Lightbulb, category: "Éclairage", title: "Luminaires sur mesure" },
   { icon: Radio, category: "Courant Faible", title: "Réseau VDI résidentiel" },
   { icon: Droplets, category: "Plomberie", title: "Salle de bain complète" },
   { icon: Wrench, category: "Dépannage", title: "Fuite chauffe-eau résolue" },
   { icon: Wind, category: "CVC", title: "Supervision CTA tertiaire" },
-  { icon: Zap, category: "Courant Fort", title: "Mise aux normes NF C 15-100" },
-  { icon: Droplets, category: "Plomberie", title: "Remplacement chauffe-eau" },
 ];
 
 export default function GaleriePage() {
@@ -63,6 +93,32 @@ export default function GaleriePage() {
         <section className="py-12 sm:py-16 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+              {photos.map((p) => (
+                <li key={p.src} className="col-span-2 md:col-span-2 lg:col-span-2">
+                  <article className="group">
+                    <div className="relative overflow-hidden rounded-2xl aspect-[4/5] mb-3 bg-gray-bg">
+                      <Image
+                        src={p.src}
+                        alt={p.alt}
+                        fill
+                        sizes="(min-width: 1024px) 600px, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-brand">
+                      {p.category}
+                    </span>
+                    <h2 className="font-heading text-dark text-[15px] sm:text-[17px] font-semibold leading-snug mt-1">
+                      {p.title}
+                    </h2>
+                    {p.location && (
+                      <p className="text-[12px] sm:text-[13px] text-gray-mid mt-0.5">
+                        {p.location}
+                      </p>
+                    )}
+                  </article>
+                </li>
+              ))}
               {tiles.map((t, i) => (
                 <li key={`${t.title}-${i}`}>
                   <article className="group">
@@ -86,9 +142,9 @@ export default function GaleriePage() {
 
             <div className="mt-12 sm:mt-16 text-center max-w-xl mx-auto">
               <p className="text-gray-text text-[14px] leading-relaxed mb-5">
-                Les photos de nos chantiers arrivent bientôt. En attendant,
-                vous pouvez nous décrire votre besoin — on vous répond en
-                moins de 2&nbsp;h.
+                D&apos;autres photos de nos chantiers arrivent bientôt. En
+                attendant, vous pouvez nous décrire votre besoin — on vous
+                répond en moins de 2&nbsp;h.
               </p>
               <Link
                 href="/assistant"
