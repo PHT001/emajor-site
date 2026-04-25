@@ -44,6 +44,13 @@ const residentialItems: Item[] = [
     title: "Spot LED commandé par poussoir et minuterie",
     brands: ["Spot Poséidon Replique R80", "Poussoir Efapel Logus"],
   },
+  {
+    src: "/images/entree-coffret-resi9.jpg",
+    alt: "Coffret électrique 3 rangées monté-câblé Schneider Resi9 dans placard d'entrée",
+    category: "Entrée",
+    title: "Coffret 3 rangées monté-câblé",
+    brands: ["Schneider Electric Resi9", "Appareillage modulaire"],
+  },
 ];
 
 const proItems: Item[] = [
