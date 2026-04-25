@@ -42,7 +42,7 @@ const residentialItems: Item[] = [
     alt: "Spot LED commandé par poussoir et minuterie — hall d'immeuble",
     category: "Hall d'immeuble",
     title: "Spot LED commandé par poussoir et minuterie",
-    brands: ["Spot Poséidon Replique R80", "Poussoir Eppal Logus"],
+    brands: ["Spot Poséidon Replique R80", "Poussoir Efapel Logus"],
   },
 ];
 
