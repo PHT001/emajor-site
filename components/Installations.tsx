@@ -108,9 +108,15 @@ function Tile({ it }: { it: Item }) {
   );
 }
 
-function Grid({ items }: { items: Item[] }) {
+function Grid({ items, cols }: { items: Item[]; cols?: 2 | 3 }) {
+  // 3-cols variant aligns 3 items on a single desktop row.
+  // 2-cols variant pairs 4 items into 2 balanced rows.
+  const gridClass =
+    cols === 3
+      ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+      : "grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6";
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+    <div className={gridClass}>
       {items.map((it) => (
         <Tile key={it.src} it={it} />
       ))}
@@ -150,7 +156,7 @@ export default function Installations() {
             équipements professionnels — restaurants, musées, théâtres.
           </p>
         </div>
-        <Grid items={proItems} />
+        <Grid items={proItems} cols={3} />
       </div>
     </section>
   );
