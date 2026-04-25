@@ -12,7 +12,7 @@ const highlights = [
       "Linéaire LED suspendu avec éclairage direct et indirect",
   },
   {
-    src: "/galerie/chaufferie-copropriete.jpg",
+    src: "/galerie/locaux-technique-copro.jpg",
     alt: "Locaux technique — protection des circuits et des personnes",
     category: "Locaux technique",
     title: "Copropriété — Paris",
