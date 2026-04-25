@@ -44,6 +44,16 @@ const residentialItems: Item[] = [
     title: "Spot LED commandé par poussoir et minuterie",
     brands: ["Spot Poséidon Replique R80", "Poussoir Eppal Logus"],
   },
+  {
+    src: "/images/thermographie-tableau.jpg",
+    alt: "Contrôle des serrages des bornes avec caméra thermique infrarouge",
+    category: "Maintenance",
+    title: "Thermographie — maintenance préventive",
+    brands: [
+      "Caméra thermique infrarouge",
+      "Contrôle serrages des bornes",
+    ],
+  },
 ];
 
 const proItems: Item[] = [
