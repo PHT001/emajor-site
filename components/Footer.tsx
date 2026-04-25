@@ -1,68 +1,14 @@
 import Link from "next/link";
-import { MapPin, Mail, Clock } from "lucide-react";
-import { CONTACT, COMPANY, MAPS } from "@/lib/constants";
+import { Mail } from "lucide-react";
+import { CONTACT, COMPANY } from "@/lib/constants";
 
 export default function Footer() {
   return (
     <footer id="contact" className="bg-dark text-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16 pb-24 sm:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
-          {/* Map + address */}
-          <div className="lg:col-span-5">
-            <h3 className="font-heading text-white text-[18px] font-semibold mb-5">
-              Nous trouver
-            </h3>
-
-            <a
-              href={MAPS.directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ouvrir l'itinéraire vers E-Major dans Google Maps"
-              className="block rounded-2xl overflow-hidden border border-white/10 hover:border-brand/60 transition-colors group"
-            >
-              <div className="relative aspect-[16/10] bg-white/5">
-                <iframe
-                  title="Localisation E-Major — Atelier 100 Rue de l'Ouest, 75014 Paris"
-                  src={MAPS.embedUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0 w-full h-full grayscale-[30%] group-hover:grayscale-0 transition-all"
-                />
-              </div>
-            </a>
-
-            <ul className="mt-5 space-y-2.5 text-[14px] text-white/70">
-              <li className="flex items-start gap-2.5">
-                <MapPin size={16} className="text-brand mt-0.5 shrink-0" />
-                <a
-                  href={MAPS.directionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand transition-colors"
-                >
-                  {COMPANY.address.replace(", France", "")}
-                </a>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Mail size={16} className="text-brand mt-0.5 shrink-0" />
-                <span>
-                  <span className="text-white/40 mr-1">Adresse postale :</span>
-                  {COMPANY.postalAddress}
-                </span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Clock size={16} className="text-brand mt-0.5 shrink-0" />
-                <span>{CONTACT.openingHours}</span>
-              </li>
-            </ul>
-          </div>
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
           {/* Navigation */}
-          <div className="lg:col-span-2">
+          <div>
             <h3 className="font-heading text-white text-[18px] font-semibold mb-5">
               Navigation
             </h3>
@@ -111,7 +57,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="lg:col-span-3">
+          <div>
             <h3 className="font-heading text-white text-[18px] font-semibold mb-5">
               Contact
             </h3>
@@ -137,7 +83,7 @@ export default function Footer() {
           </div>
 
           {/* Legal */}
-          <div className="lg:col-span-2">
+          <div>
             <h3 className="font-heading text-white text-[18px] font-semibold mb-5">
               Légal
             </h3>
