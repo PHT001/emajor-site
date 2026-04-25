@@ -17,7 +17,7 @@ const steps: Step[] = [
     icon: Wrench,
     title: "Demander une intervention",
     description:
-      "Un électricien ou plombier intervient sur site, sur rendez-vous planifié ou en urgence.",
+      "Un électricien, un plombier intervient sur site, sur rendez-vous planifié ou en urgence.",
     intent: "intervention",
   },
   {
@@ -25,7 +25,7 @@ const steps: Step[] = [
     icon: FileText,
     title: "Demander un devis",
     description:
-      "Devis détaillé sous 24h avec RIB et attestation d'assurance — envoi de vos photos et traitement IA.",
+      "Devis détaillé sous 24h — envoi de vos photos et traitement IA.",
     intent: "devis",
   },
   {

@@ -11,30 +11,30 @@ type Item = {
 const residentialItems: Item[] = [
   {
     src: "/images/chambre-prises.jpg",
-    alt: "Prises et interrupteurs intégrés dans tête de lit en bois",
+    alt: "Prises et interrupteurs en porcelaine et bois — tête de lit",
     category: "Chambre",
-    title: "Prises et interrupteurs intégrés bois",
+    title: "Prises et interrupteurs en porcelaine et bois",
     brands: ["Fontini Garby", "AQForm Modern"],
   },
   {
     src: "/images/cuisine-chauffe-eau.jpg",
-    alt: "Chauffe-eau faible encombrement en cuisine parisienne",
+    alt: "Chauffe eau faible encombrement en cuisine parisienne",
     category: "Cuisine",
-    title: "Chauffe-eau — faible encombrement",
+    title: "Chauffe eau faible encombrement",
     brands: ["Atlantic Linéo"],
   },
   {
     src: "/assets/img/salon-haussmann-led.jpg",
-    alt: "Éclairage LED au corniche dans salon",
+    alt: "Éclairage LED sur corniche dans salon",
     category: "Salon",
-    title: "Éclairage LED au corniche",
+    title: "Éclairage LED sur corniche",
     brands: ["Eva Lighting Strip 24V"],
   },
   {
     src: "/assets/img/entree-haussmann-spots.jpg",
-    alt: "Éclairage LED dans hall d'immeuble parisien",
+    alt: "Spot LED commandé par poussoir et minuterie — hall d'immeuble",
     category: "Hall d'immeuble",
-    title: "Éclairage LED — commande de minuterie",
+    title: "Spot LED commandé par poussoir et minuterie",
     brands: ["Spot Poséidon Replique R80", "Poussoir Eppal Logus"],
   },
 ];
@@ -138,7 +138,7 @@ export default function Installations() {
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
             Des matériels fiables, une technique de pose maîtrisée, une finition
-            propre — nous modulons votre confort.
+            propre — nous œuvrons pour votre confort.
           </p>
         </div>
         <Grid items={residentialItems} />

@@ -34,7 +34,8 @@ const cards = [
     icon: Droplets,
     title: "Plomberie",
     priority: true,
-    description: "Appeler un professionnel pour éviter les fuites.",
+    description:
+      "Confiez votre installation sanitaire à un professionnel pour éviter les fuites.",
     items: [
       "Chauffe-eau",
       "Salle de bain complète",
