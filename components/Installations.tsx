@@ -68,19 +68,14 @@ const proItems: Item[] = [
   },
 ];
 
-function Tile({ it, span }: { it: Item; span?: boolean }) {
+function Tile({ it }: { it: Item }) {
   return (
-    <div
-      className={[
-        "group relative rounded-2xl overflow-hidden aspect-square bg-gray-200",
-        span ? "col-span-2 aspect-[16/9] md:aspect-square md:col-span-1" : "",
-      ].join(" ")}
-    >
+    <div className="group relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[16/10] bg-gray-200">
       <Image
         src={it.src}
         alt={it.alt}
         fill
-        sizes="(max-width: 768px) 50vw, 33vw"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
         className="object-cover group-hover:scale-105 transition-transform duration-500"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/25 to-transparent" />
@@ -115,9 +110,9 @@ function Tile({ it, span }: { it: Item; span?: boolean }) {
 
 function Grid({ items }: { items: Item[] }) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4">
-      {items.map((it, i) => (
-        <Tile key={it.src} it={it} span={i === 2} />
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+      {items.map((it) => (
+        <Tile key={it.src} it={it} />
       ))}
     </div>
   );
