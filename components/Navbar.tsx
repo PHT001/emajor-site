@@ -46,7 +46,7 @@ export default function Navbar() {
           <Power
             size={14}
             strokeWidth={2.75}
-            className="text-brand mx-[1px] translate-y-[2px]"
+            className="text-brand mx-[1px] translate-y-[1px]"
             aria-hidden
           />
           <span>r</span>
