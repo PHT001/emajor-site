@@ -17,6 +17,13 @@ const residentialItems: Item[] = [
     brands: ["Fontini Garby", "AQForm Modern"],
   },
   {
+    src: "/images/chambre-prises.jpg",
+    alt: "Applique murale en verre dépoli pour ambiance de chambre",
+    category: "Chambre",
+    title: "Applique en verre dépoli",
+    brands: ["Verre dépoli sur mesure"],
+  },
+  {
     src: "/images/cuisine-chauffe-eau.jpg",
     alt: "Chauffe eau faible encombrement en cuisine parisienne",
     category: "Cuisine",
