@@ -7,6 +7,7 @@ import GalerieTeaser from "@/components/GalerieTeaser";
 import Process from "@/components/Process";
 import WhyChoose from "@/components/WhyChoose";
 import FAQ from "@/components/FAQ";
+import TarifsDeplacement from "@/components/TarifsDeplacement";
 import Reveal from "@/components/Reveal";
 import { HomeCTA } from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -32,6 +33,9 @@ export default function Home() {
           <Process />
         </Reveal>
         <WhyChoose />
+        <Reveal>
+          <TarifsDeplacement />
+        </Reveal>
         <Reveal>
           <FAQ />
         </Reveal>
