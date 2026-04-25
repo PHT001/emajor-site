@@ -5,20 +5,26 @@ import Image from "next/image";
 const SKIP = new Set<number>([17]);
 
 // These logos render visually smaller because their source has lots of
-// whitespace. We bump their displayed size so they don't disappear in the
-// strip. Numbers are 1-based file indexes.
+// whitespace. We bump their displayed size so they don't disappear.
 const ENLARGE = new Set<number>([
   11, // Notre-Dame du Rosaire
   18, // Paroisse de l'Immaculée Conception
+]);
+
+// Even bigger slot — Marc demande explicitement Apollon "encore plus gros".
+const ENLARGE_XL = new Set<number>([
   23, // Apollon Montparnasse
 ]);
 
-const LOGOS = Array.from({ length: 29 }, (_, i) => i + 1)
+// Total clients: 34 (29 originaux + 5 nouveaux ajoutés sur demande Marc :
+// 30 Oralia, 31 Hôtel Eiffel Petit Louvre, 32 SMP, 33 EGIM, 34 Dacofim)
+const LOGOS = Array.from({ length: 34 }, (_, i) => i + 1)
   .filter((n) => !SKIP.has(n))
   .map((n) => ({
     src: `/logos/clients/client-${String(n).padStart(2, "0")}.jpg`,
     alt: `Client ${n}`,
     enlarged: ENLARGE.has(n),
+    enlargedXL: ENLARGE_XL.has(n),
   }));
 
 export default function ClientLogos() {
@@ -53,9 +59,11 @@ export default function ClientLogos() {
           aria-label="Logos de nos clients"
         >
           {strip.map((logo, i) => {
-            const sizeClasses = logo.enlarged
-              ? "h-20 sm:h-28 w-44 sm:w-56"
-              : "h-16 sm:h-20 w-32 sm:w-40";
+            const sizeClasses = logo.enlargedXL
+              ? "h-24 sm:h-32 w-52 sm:w-64"
+              : logo.enlarged
+                ? "h-20 sm:h-28 w-44 sm:w-56"
+                : "h-16 sm:h-20 w-32 sm:w-40";
             return (
               <li
                 key={`${logo.src}-${i}`}

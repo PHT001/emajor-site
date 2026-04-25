@@ -5,23 +5,18 @@ type Item = {
   alt: string;
   category: string;
   title: string;
+  subtitle?: string;
   brands: string[];
 };
 
 const residentialItems: Item[] = [
   {
     src: "/images/chambre-prises.jpg",
-    alt: "Prises et interrupteurs en porcelaine et bois — tête de lit",
+    alt: "Prises et interrupteurs en porcelaine et bois + applique en verre dépoli — chambre",
     category: "Chambre",
     title: "Prises et interrupteurs en porcelaine et bois",
-    brands: ["Fontini Garby", "AQForm Modern"],
-  },
-  {
-    src: "/images/chambre-prises.jpg",
-    alt: "Applique murale en verre dépoli pour ambiance de chambre",
-    category: "Chambre",
-    title: "Applique en verre dépoli",
-    brands: ["Verre dépoli sur mesure"],
+    subtitle: "Applique en verre dépoli",
+    brands: ["Fontini Garby", "AQForm Modern", "Verre dépoli sur mesure"],
   },
   {
     src: "/images/cuisine-chauffe-eau.jpg",
@@ -112,6 +107,11 @@ function Tile({ it }: { it: Item }) {
         <h3 className="font-heading text-[14px] sm:text-[18px] font-semibold leading-tight">
           {it.title}
         </h3>
+        {it.subtitle && (
+          <p className="font-heading text-[12px] sm:text-[15px] font-medium text-white/85 leading-tight mt-1">
+            {it.subtitle}
+          </p>
+        )}
       </div>
 
       {/* Brand tooltip — slides up on hover, tap-to-show on touch via :focus-within */}
