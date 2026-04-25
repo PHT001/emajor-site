@@ -17,7 +17,7 @@ const steps: Step[] = [
     icon: Wrench,
     title: "Demander une intervention",
     description:
-      "Un électricien ou plombier intervient sur site, en planifié ou en urgence.",
+      "Un électricien ou plombier intervient sur site, sur rendez-vous planifié ou en urgence.",
     intent: "intervention",
   },
   {
@@ -25,15 +25,15 @@ const steps: Step[] = [
     icon: FileText,
     title: "Demander un devis",
     description:
-      "Devis détaillé sous 24h avec RIB et attestation d'assurance. Zéro surprise.",
+      "Devis détaillé sous 24h avec RIB et attestation d'assurance — envoi de vos photos et traitement IA.",
     intent: "devis",
   },
   {
     num: "03",
     icon: Receipt,
-    title: "Pièce comptable / Administratif",
+    title: "Demander un document",
     description:
-      "Duplicata de facture, RIB, virement, fournisseur — notre service admin répond sous 24h.",
+      "Renvoi de devis, duplicata de facture, RIB, Kbis — traitement IA, réponse sous 2h.",
     intent: "admin",
   },
 ];
@@ -47,9 +47,8 @@ export default function Process() {
             Comment nous solliciter&nbsp;?
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
-            Trois portes d&apos;entrée, une seule équipe. Choisissez celle qui
-            correspond à votre demande — l&apos;assistant s&apos;ouvre
-            directement sur la bonne section.
+            Choisissez ce dont vous avez besoin — l&apos;assistant prend le
+            relais.
           </p>
         </div>
 

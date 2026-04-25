@@ -4,20 +4,20 @@ import { Hammer, ShieldCheck, Languages, BadgeCheck } from "lucide-react";
 const pillars = [
   {
     icon: Hammer,
-    value: "20 ans",
-    label: "d'expérience artisan",
+    value: "85 ans",
+    label: "de bâtiment cumulés des 3 dirigeants",
     color: "text-brand",
   },
   {
     icon: ShieldCheck,
-    value: "Habilités",
-    label: "Norme électrique NF C 18-510",
+    value: "Diplôme",
+    label: "Ingénierie CVC",
     color: "text-brand",
   },
   {
     icon: Languages,
-    value: "FR · PT",
-    label: "Francophone / Lusophone",
+    value: "FR · PT · EN",
+    label: "Francophone · Lusophone · Anglophone",
     color: "text-gold",
   },
   {
@@ -28,7 +28,7 @@ const pillars = [
   },
 ];
 
-const certs = ["Décennale", "RGE", "NF C 15-100", "SIRET"];
+const certs = ["Décennale", "SIRET"];
 
 export default function WhyChoose() {
   return (
@@ -39,8 +39,9 @@ export default function WhyChoose() {
             Pourquoi choisir E-Major&nbsp;?
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
-            Artisans déclarés, habilités et bilingues — nous accompagnons aussi
-            bien la clientèle francophone que lusophone à Paris.
+            Artisans expérimentés qui s&apos;associent pour un meilleur service
+            — nous accompagnons aussi bien la clientèle francophone, lusophone
+            qu&apos;anglophone à Paris.
           </p>
         </div>
 

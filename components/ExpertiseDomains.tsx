@@ -7,37 +7,40 @@ const cards = [
     icon: Zap,
     title: "Courant Fort",
     description:
-      "Tableaux, prises, éclairage, mise aux normes NF C 15-100.",
+      "Éclairer et chauffer votre bâtiment selon la norme NF C 15-100.",
     items: [
       "Tableaux électriques",
       "Prises et interrupteurs",
-      "Éclairage LED",
+      "Radiateurs électrique ou mixte",
       "Mise aux normes",
+      "Automatisme",
     ],
   },
   {
     icon: Radio,
     title: "Courant Faible",
     description:
-      "Réseaux VDI, domotique, contrôle d'accès, vidéosurveillance.",
+      "Communiquer grâce au réseau VDI selon la norme NFC 90-483.",
     items: [
       "Réseau informatique",
-      "Interphones vidéo",
-      "Alarmes et détection",
+      "Interphonie vidéo",
+      "Alarmes intrusion",
+      "Alarme incendie",
       "Domotique",
+      "Contrôle d'accès",
     ],
   },
   {
     icon: Droplets,
     title: "Plomberie",
     priority: true,
-    description:
-      "Chauffe-eau, sanitaires, fuites, robinetterie. Intervention rapide.",
+    description: "Appeler un professionnel pour éviter les fuites.",
     items: [
       "Chauffe-eau",
       "Salle de bain complète",
-      "Fuites et dépannage",
-      "Robinetterie",
+      "Recherche de fuite",
+      "Réfection des joints",
+      "Cuisine professionnelle",
     ],
   },
 ];
@@ -54,8 +57,7 @@ export default function ExpertiseDomains() {
             Nos domaines d&apos;expertise
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
-            Trois métiers, une seule équipe. On coordonne tous les corps
-            d&apos;état pour que votre chantier avance sans zone grise.
+            Trois métiers, une seule équipe travaillant en coordination.
           </p>
         </div>
 

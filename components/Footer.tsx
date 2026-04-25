@@ -48,6 +48,13 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
+                <Mail size={16} className="text-brand mt-0.5 shrink-0" />
+                <span>
+                  <span className="text-white/40 mr-1">Adresse postale :</span>
+                  {COMPANY.postalAddress}
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5">
                 <Clock size={16} className="text-brand mt-0.5 shrink-0" />
                 <span>{CONTACT.openingHours}</span>
               </li>

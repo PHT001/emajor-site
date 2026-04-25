@@ -43,7 +43,8 @@ export default function Hero() {
         {/* Subtitle */}
         <p className="text-white/65 text-[15px] sm:text-[20px] mt-5 sm:mt-8 max-w-2xl leading-relaxed font-light">
           Entreprise d&apos;électricité et de plomberie sur Paris et proche
-          couronne. Dépannage, installation, rénovation — du lundi au samedi.
+          couronne. Dépannage, maintenance des installations, rénovation — du
+          lundi au samedi.
         </p>
 
         {/* Rating strip */}

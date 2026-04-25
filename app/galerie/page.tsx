@@ -39,17 +39,18 @@ type Tile = {
 const photos: Photo[] = [
   {
     src: "/galerie/ciup-fondation-lucien-paye.jpg",
-    alt: "Couloir de la Fondation Lucien Payé — Cité Internationale Universitaire de Paris, luminaires LED intégrés",
-    category: "Éclairage institutionnel",
+    alt: "Linéaire LED suspendu avec éclairage direct et indirect — Fondation Lucien Payé",
+    category: "Dégagement",
     title: "Fondation Lucien Payé",
-    location: "Cité Internationale Universitaire de Paris",
+    location: "Linéaire LED suspendu — éclairage direct et indirect",
   },
   {
     src: "/galerie/chaufferie-copropriete.jpg",
-    alt: "Chaufferie collective — tableau électrique, chaudières Schneider, tuyauterie cuivre",
-    category: "Chaufferie collective",
-    title: "Mise aux normes chaufferie",
-    location: "Copropriété — Paris",
+    alt: "Locaux technique — protection des circuits et des personnes",
+    category: "Locaux technique",
+    title: "Copropriété — Paris",
+    location:
+      "Disposants différentiels pour protection des circuits et des personnes",
   },
 ];
 
@@ -59,7 +60,7 @@ const tiles: Tile[] = [
   { icon: Radio, category: "Courant Faible", title: "Réseau VDI résidentiel" },
   { icon: Droplets, category: "Plomberie", title: "Salle de bain complète" },
   { icon: Wrench, category: "Dépannage", title: "Fuite chauffe-eau résolue" },
-  { icon: Wind, category: "CVC", title: "Supervision CTA tertiaire" },
+  { icon: Wind, category: "CVC & GTB", title: "Supervision CTA tertiaire" },
 ];
 
 export default function GaleriePage() {

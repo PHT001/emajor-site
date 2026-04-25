@@ -11,48 +11,60 @@ type Item = {
 const residentialItems: Item[] = [
   {
     src: "/images/chambre-prises.jpg",
-    alt: "Prises intégrées dans tête de lit en bois",
+    alt: "Prises et interrupteurs intégrés dans tête de lit en bois",
     category: "Chambre",
-    title: "Prises intégrées bois",
-    brands: ["Legrand Céliane", "Schneider Odace"],
+    title: "Prises et interrupteurs intégrés bois",
+    brands: ["Fontini Garby", "AQForm Modern"],
   },
   {
     src: "/images/cuisine-chauffe-eau.jpg",
-    alt: "Chauffe-eau dans cuisine parisienne",
-    category: "Plomberie",
-    title: "Chauffe-eau en cuisine",
-    brands: ["Atlantic", "De Dietrich", "Thermor"],
+    alt: "Chauffe-eau faible encombrement en cuisine parisienne",
+    category: "Cuisine",
+    title: "Chauffe-eau — faible encombrement",
+    brands: ["Atlantic Linéo"],
   },
   {
     src: "/assets/img/salon-haussmann-led.jpg",
-    alt: "Éclairage LED encastré dans salon haussmannien",
+    alt: "Éclairage LED au corniche dans salon",
     category: "Salon",
-    title: "Éclairage LED haussmannien",
-    brands: ["Aric", "Erco", "Fontini"],
+    title: "Éclairage LED au corniche",
+    brands: ["Eva Lighting Strip 24V"],
+  },
+  {
+    src: "/assets/img/entree-haussmann-spots.jpg",
+    alt: "Éclairage LED dans hall d'immeuble parisien",
+    category: "Hall d'immeuble",
+    title: "Éclairage LED — commande de minuterie",
+    brands: ["Spot Poséidon Replique R80", "Poussoir Eppal Logus"],
   },
 ];
 
 const proItems: Item[] = [
   {
     src: "/assets/img/tableau-tert.jpg",
-    alt: "Tableau électrique tertiaire modulaire",
+    alt: "Tableau divisionnaire tertiaire",
     category: "Tertiaire",
-    title: "Tableau TGBT tertiaire",
-    brands: ["Schneider Acti9", "Hager", "Legrand XL³"],
-  },
-  {
-    src: "/assets/img/entree-haussmann-spots.jpg",
-    alt: "Hall d'entrée haussmannien avec spots encastrés",
-    category: "Hall d'immeuble",
-    title: "Éclairage hall pro",
-    brands: ["Erco", "iGuzzini", "Aric"],
+    title: "Tableau divisionnaire",
+    brands: ["Legrand Drivia"],
   },
   {
     src: "/assets/img/cvc.jpg",
-    alt: "Installation CVC dans local professionnel",
-    category: "CVC",
-    title: "CVC tertiaire",
+    alt: "Installation CVC et GTB en local professionnel",
+    category: "CVC & GTB",
+    title: "CVC & GTB",
     brands: ["Daikin", "Atlantic", "Mitsubishi"],
+  },
+  {
+    src: "/assets/img/scene-concert.jpg",
+    alt: "Installation électrique pour équipement scénique de concert",
+    category: "Équipement scénique",
+    title: "Installation Équipement Scénique",
+    brands: [
+      "Passage de câble en goulotte",
+      "Coffrets d'alimentation",
+      "Électricien en régie",
+      "Fontaine à eau",
+    ],
   },
 ];
 
@@ -124,8 +136,8 @@ export default function Installations() {
             Des installations soignées
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
-            Finitions propres, matériel de qualité. Survolez chaque image pour
-            voir les marques utilisées.
+            Des matériels fiables, une technique de pose maîtrisée, une finition
+            propre — nous modulons votre confort.
           </p>
         </div>
         <Grid items={residentialItems} />
@@ -133,14 +145,14 @@ export default function Installations() {
         {/* Professionnel */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 mt-14 sm:mt-24">
           <span className="inline-block text-[11px] font-semibold tracking-wider uppercase text-gold bg-gold/10 px-2.5 py-1 rounded-full mb-3">
-            Tertiaire &amp; Professionnel
+            Tertiaire
           </span>
           <h2 className="font-heading text-dark text-[26px] sm:text-[40px] lg:text-[44px] font-bold tracking-[-0.02em] leading-tight mb-3 sm:mb-4">
             Installations professionnelles
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
-            Bureaux, commerces, hôtels, halls d&apos;immeubles. Matériel
-            professionnel, coordination tous corps d&apos;état.
+            Bureaux, commerces, hôtels, halls d&apos;immeubles. Dépannage des
+            équipements professionnels — restaurants, musées, théâtres.
           </p>
         </div>
         <Grid items={proItems} />

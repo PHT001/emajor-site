@@ -5,17 +5,19 @@ import { ArrowRight } from "lucide-react";
 const highlights = [
   {
     src: "/galerie/ciup-fondation-lucien-paye.jpg",
-    alt: "Éclairage institutionnel — Fondation Lucien Payé, CIUP",
-    category: "Éclairage institutionnel",
+    alt: "Linéaire LED suspendu — Fondation Lucien Payé",
+    category: "Dégagement",
     title: "Fondation Lucien Payé",
-    location: "Cité Internationale Universitaire de Paris",
+    location:
+      "Linéaire LED suspendu avec éclairage direct et indirect",
   },
   {
     src: "/galerie/chaufferie-copropriete.jpg",
-    alt: "Chaufferie collective — tableau électrique & chaudières",
-    category: "Chaufferie collective",
-    title: "Mise aux normes chaufferie",
-    location: "Copropriété — Paris",
+    alt: "Locaux technique — protection des circuits et des personnes",
+    category: "Locaux technique",
+    title: "Copropriété — Paris",
+    location:
+      "Disposants différentiels pour protection des circuits et des personnes",
   },
 ];
 
