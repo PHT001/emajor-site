@@ -44,9 +44,9 @@ export default function Navbar() {
         >
           <span>e-maj</span>
           <Power
-            size={16}
+            size={14}
             strokeWidth={2.75}
-            className="text-brand mx-[1px] -translate-y-[1px]"
+            className="text-brand mx-[1px] translate-y-[2px]"
             aria-hidden
           />
           <span>r</span>
