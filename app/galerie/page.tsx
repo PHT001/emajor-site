@@ -5,7 +5,6 @@ import { Zap, Radio, Droplets, Wrench, Wind, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
-import PlaceholderImage from "@/components/PlaceholderImage";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -34,6 +33,8 @@ type Tile = {
   icon: typeof Zap;
   category: string;
   title: string;
+  image: string;
+  alt: string;
 };
 
 const photos: Photo[] = [
@@ -55,12 +56,48 @@ const photos: Photo[] = [
 ];
 
 const tiles: Tile[] = [
-  { icon: Zap, category: "Courant Fort", title: "Tableau électrique rénové" },
-  { icon: Lightbulb, category: "Éclairage", title: "Luminaires sur mesure" },
-  { icon: Radio, category: "Courant Faible", title: "Réseau VDI résidentiel" },
-  { icon: Droplets, category: "Plomberie", title: "Salle de bain complète" },
-  { icon: Wrench, category: "Dépannage", title: "Fuite chauffe-eau résolue" },
-  { icon: Wind, category: "CVC & GTB", title: "Supervision CTA tertiaire" },
+  {
+    icon: Zap,
+    category: "Courant Fort",
+    title: "Tableau électrique rénové",
+    image: "/images/tableau-renove.jpg",
+    alt: "Tableau électrique modulaire rénové avec rangées de disjoncteurs",
+  },
+  {
+    icon: Lightbulb,
+    category: "Éclairage",
+    title: "Luminaires sur mesure",
+    image: "/images/luminaires-led.jpg",
+    alt: "Luminaire LED suspendu design dans intérieur contemporain",
+  },
+  {
+    icon: Radio,
+    category: "Courant Faible",
+    title: "Réseau VDI résidentiel",
+    image: "/images/vdi-residentiel.jpg",
+    alt: "Câbles ethernet RJ45 colorés branchés sur switch réseau résidentiel",
+  },
+  {
+    icon: Droplets,
+    category: "Plomberie",
+    title: "Salle de bain complète",
+    image: "/images/salle-de-bain.jpg",
+    alt: "Salle de bain moderne entièrement rénovée avec douche et vasque design",
+  },
+  {
+    icon: Wrench,
+    category: "Dépannage",
+    title: "Fuite chauffe-eau résolue",
+    image: "/images/depannage-plomberie.jpg",
+    alt: "Plombier en intervention sur tuyauterie, dépannage avec outils en main",
+  },
+  {
+    icon: Wind,
+    category: "CVC & GTB",
+    title: "Supervision CTA tertiaire",
+    image: "/images/cvc-supervision.jpg",
+    alt: "Gaines de ventilation et conduits CVC en plafond technique tertiaire",
+  },
 ];
 
 export default function GaleriePage() {
@@ -120,25 +157,33 @@ export default function GaleriePage() {
                   </article>
                 </li>
               ))}
-              {tiles.map((t, i) => (
-                <li key={`${t.title}-${i}`}>
-                  <article className="group">
-                    <PlaceholderImage
-                      icon={t.icon}
-                      aspect="aspect-[4/5]"
-                      rounded="rounded-2xl"
-                      label={false}
-                      className="mb-3"
-                    />
-                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-brand">
-                      {t.category}
-                    </span>
-                    <h2 className="font-heading text-dark text-[14px] sm:text-[16px] font-semibold leading-snug mt-1">
-                      {t.title}
-                    </h2>
-                  </article>
-                </li>
-              ))}
+              {tiles.map((t, i) => {
+                const Icon = t.icon;
+                return (
+                  <li key={`${t.title}-${i}`}>
+                    <article className="group">
+                      <div className="relative overflow-hidden rounded-2xl aspect-[4/5] mb-3 bg-gray-bg">
+                        <Image
+                          src={t.image}
+                          alt={t.alt}
+                          fill
+                          sizes="(min-width: 1024px) 290px, (min-width: 768px) 33vw, 50vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
+                        <div className="absolute top-3 left-3 inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-md">
+                          <Icon className="w-4 h-4 text-brand" />
+                        </div>
+                      </div>
+                      <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-brand">
+                        {t.category}
+                      </span>
+                      <h2 className="font-heading text-dark text-[14px] sm:text-[16px] font-semibold leading-snug mt-1">
+                        {t.title}
+                      </h2>
+                    </article>
+                  </li>
+                );
+              })}
             </ul>
 
             <div className="mt-12 sm:mt-16 text-center max-w-xl mx-auto">

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Check, Zap, Radio, Droplets, Wind } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
-import PlaceholderImage from "@/components/PlaceholderImage";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -25,6 +25,8 @@ const blocks = [
   {
     title: "Courant Faible",
     icon: Radio,
+    image: "/images/reseau-pro.jpg",
+    alt: "Baie de brassage serveur avec câblage structuré bleu organisé",
     description:
       "Infrastructure réseau et sécurité pour vos locaux professionnels.",
     items: [
@@ -39,6 +41,8 @@ const blocks = [
   {
     title: "Courant Fort",
     icon: Zap,
+    image: "/images/tgbt-pro.jpg",
+    alt: "Armoire électrique TGBT avec câblage organisé et disjoncteurs de puissance",
     description:
       "Distribution électrique et éclairage professionnel.",
     items: [
@@ -53,6 +57,8 @@ const blocks = [
   {
     title: "Plomberie",
     icon: Droplets,
+    image: "/images/plomberie-pro.jpg",
+    alt: "Réseau de tuyauterie collective en sous-sol d'immeuble — plomberie tertiaire",
     description:
       "Réseaux d'eau et d'évacuation pour locaux professionnels.",
     items: [
@@ -67,6 +73,8 @@ const blocks = [
   {
     title: "CVC & Supervision",
     icon: Wind,
+    image: "/images/cvc-supervision.jpg",
+    alt: "Gaines de ventilation et conduits CVC en plafond technique tertiaire",
     description:
       "Chauffage, ventilation, climatisation et automatisation.",
     items: [
@@ -116,17 +124,25 @@ export default function ProfessionnelsPage() {
         <section className="py-20 sm:py-24 bg-white">
           <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {blocks.map((b) => (
+              {blocks.map((b) => {
+                const Icon = b.icon;
+                return (
                 <article
                   key={b.title}
-                  className="bg-gray-bg border border-gray-200/60 rounded-2xl p-6 sm:p-8 hover:border-brand/40 hover:-translate-y-0.5 transition-all"
+                  className="bg-gray-bg border border-gray-200/60 rounded-2xl p-6 sm:p-8 hover:border-brand/40 hover:-translate-y-0.5 transition-all group"
                 >
-                  <PlaceholderImage
-                    icon={b.icon}
-                    aspect="aspect-[16/9]"
-                    rounded="rounded-xl"
-                    className="mb-5 sm:mb-6"
-                  />
+                  <div className="relative overflow-hidden rounded-xl aspect-[16/9] mb-5 sm:mb-6 bg-gray-100">
+                    <Image
+                      src={b.image}
+                      alt={b.alt}
+                      fill
+                      sizes="(min-width: 768px) 480px, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute top-3 left-3 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-md">
+                      <Icon className="w-5 h-5 text-brand" />
+                    </div>
+                  </div>
                   <h3 className="font-heading text-dark text-[22px] sm:text-[26px] font-bold mb-3">
                     {b.title}
                   </h3>
@@ -149,7 +165,8 @@ export default function ProfessionnelsPage() {
                     ))}
                   </ul>
                 </article>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

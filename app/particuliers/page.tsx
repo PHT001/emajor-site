@@ -5,7 +5,6 @@ import { Check, Zap, Radio, Droplets, Wrench } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
-import PlaceholderImage from "@/components/PlaceholderImage";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -26,6 +25,8 @@ const blocks = [
   {
     title: "Courant Faible",
     icon: Radio,
+    image: "/images/vdi-residentiel.jpg",
+    alt: "Câbles ethernet RJ45 colorés branchés sur switch réseau résidentiel",
     description:
       "Installation et maintenance de vos équipements basse tension.",
     items: [
@@ -39,6 +40,8 @@ const blocks = [
   {
     title: "Courant Fort",
     icon: Zap,
+    image: "/images/courant-fort.jpg",
+    alt: "Tableau électrique modulaire blanc avec rangées de disjoncteurs",
     description:
       "Tout ce qui touche à l'électricité de puissance dans votre logement.",
     items: [
@@ -52,6 +55,8 @@ const blocks = [
   {
     title: "Plomberie",
     icon: Droplets,
+    image: "/images/plomberie.jpg",
+    alt: "Intervention plomberie sur installation sanitaire",
     badge: "Chauffe-eau prioritaire",
     description:
       "Chauffe-eau, fuites, robinetterie… on intervient vite.",
@@ -66,6 +71,8 @@ const blocks = [
   {
     title: "Dépannage",
     icon: Wrench,
+    image: "/images/depannage-elec.jpg",
+    alt: "Électricien en intervention sur prise murale avec multimètre",
     description:
       "Réparations urgentes en électricité et plomberie.",
     items: [
@@ -136,22 +143,30 @@ export default function ParticuliersPage() {
         <section className="py-20 sm:py-24 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {blocks.map((b) => (
+              {blocks.map((b) => {
+                const Icon = b.icon;
+                return (
                 <article
                   key={b.title}
-                  className="bg-gray-bg border border-gray-200/60 rounded-2xl p-6 sm:p-8 hover:border-brand/40 hover:-translate-y-0.5 transition-all relative"
+                  className="bg-gray-bg border border-gray-200/60 rounded-2xl p-6 sm:p-8 hover:border-brand/40 hover:-translate-y-0.5 transition-all relative group"
                 >
                   {b.badge && (
-                    <span className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 text-[11px] font-semibold text-brand bg-white px-2.5 py-1 rounded-full border border-brand/20">
+                    <span className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 text-[11px] font-semibold text-brand bg-white px-2.5 py-1 rounded-full border border-brand/20">
                       {b.badge}
                     </span>
                   )}
-                  <PlaceholderImage
-                    icon={b.icon}
-                    aspect="aspect-[16/9]"
-                    rounded="rounded-xl"
-                    className="mb-5 sm:mb-6"
-                  />
+                  <div className="relative overflow-hidden rounded-xl aspect-[16/9] mb-5 sm:mb-6 bg-gray-100">
+                    <Image
+                      src={b.image}
+                      alt={b.alt}
+                      fill
+                      sizes="(min-width: 768px) 560px, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute top-3 left-3 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-md">
+                      <Icon className="w-5 h-5 text-brand" />
+                    </div>
+                  </div>
                   <h2 className="font-heading text-dark text-[22px] sm:text-[28px] font-bold mb-3">
                     {b.title}
                   </h2>
@@ -174,7 +189,8 @@ export default function ParticuliersPage() {
                     ))}
                   </ul>
                 </article>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
