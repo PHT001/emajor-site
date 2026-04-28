@@ -26,7 +26,7 @@ const cards: Card[] = [
       "Automatisme",
     ],
     image: "/images/courant-fort.jpg",
-    alt: "Tableau électrique modulaire avec disjoncteurs et câblage soigné — installation conforme NF C 15-100",
+    alt: "Tableau électrique modulaire blanc avec rangées de disjoncteurs — installation résidentielle conforme NF C 15-100",
   },
   {
     icon: Radio,
@@ -42,7 +42,7 @@ const cards: Card[] = [
       "Contrôle d'accès",
     ],
     image: "/images/courant-faible.jpg",
-    alt: "Baie de brassage et rack réseau — installation VDI tertiaire",
+    alt: "Thermostat connecté mural — domotique et installation VDI",
   },
   {
     icon: Droplets,
