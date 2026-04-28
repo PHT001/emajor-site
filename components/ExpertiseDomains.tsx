@@ -1,8 +1,18 @@
-import { Zap, Radio, Droplets } from "lucide-react";
+import Image from "next/image";
+import { Zap, Radio, Droplets, type LucideIcon } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import PlaceholderImage from "@/components/PlaceholderImage";
 
-const cards = [
+type Card = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  items: string[];
+  image: string;
+  alt: string;
+  priority?: boolean;
+};
+
+const cards: Card[] = [
   {
     icon: Zap,
     title: "Courant Fort",
@@ -15,6 +25,8 @@ const cards = [
       "Mise aux normes",
       "Automatisme",
     ],
+    image: "/images/courant-fort.jpg",
+    alt: "Tableau électrique modulaire avec disjoncteurs et câblage soigné — installation conforme NF C 15-100",
   },
   {
     icon: Radio,
@@ -29,6 +41,8 @@ const cards = [
       "Domotique",
       "Contrôle d'accès",
     ],
+    image: "/images/courant-faible.jpg",
+    alt: "Baie de brassage et rack réseau — installation VDI tertiaire",
   },
   {
     icon: Droplets,
@@ -43,6 +57,8 @@ const cards = [
       "Réfection des joints",
       "Cuisine professionnelle",
     ],
+    image: "/images/plomberie.jpg",
+    alt: "Intervention plomberie sur installation sanitaire",
   },
 ];
 
@@ -63,50 +79,65 @@ export default function ExpertiseDomains() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5">
-          {cards.map((c, i) => (
-            <Reveal
-              key={c.title}
-              as="article"
-              delay={i * 120}
-              className={[
-                "group relative bg-white border border-gray-200/70 rounded-2xl p-4 sm:p-7",
-                "hover:border-brand/40 hover:-translate-y-1",
-                "hover:shadow-[0_20px_40px_-20px_rgba(45,140,78,0.25)]",
-                "transition-all duration-300",
-                // The 3rd card takes full width on mobile (odd one out)
-                i === 2 ? "col-span-2 md:col-span-1" : "",
-              ].join(" ")}
-            >
-              {c.priority && (
-                <span className="absolute top-3 right-3 sm:top-5 sm:right-5 z-10 text-[10px] sm:text-[11px] font-semibold text-brand bg-brand-light px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
-                  Prioritaire
-                </span>
-              )}
-              <PlaceholderImage
-                icon={c.icon}
-                aspect={i === 2 ? "aspect-[21/9] sm:aspect-[16/10]" : "aspect-[16/10]"}
-                rounded="rounded-xl"
-                className="mb-4 sm:mb-5"
-              />
-              <h3 className="font-heading text-dark text-[16px] sm:text-[22px] font-semibold mb-1.5 sm:mb-3 leading-tight">
-                {c.title}
-              </h3>
-              <p className="text-gray-text text-[12.5px] sm:text-[14px] leading-relaxed mb-3 sm:mb-5">
-                {c.description}
-              </p>
-              <ul className="space-y-1.5 sm:space-y-2">
-                {c.items.map((it) => (
-                  <li
-                    key={it}
-                    className="flex items-start gap-2 text-[12px] sm:text-[13px] text-gray-text"
-                  >
-                    <span className="mt-1.5 shrink-0 w-1 h-1 rounded-full bg-brand" />
-                    {it}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
+          {cards.map((c, i) => {
+            const Icon = c.icon;
+            return (
+              <Reveal
+                key={c.title}
+                as="article"
+                delay={i * 120}
+                className={[
+                  "group relative bg-white border border-gray-200/70 rounded-2xl p-4 sm:p-7",
+                  "hover:border-brand/40 hover:-translate-y-1",
+                  "hover:shadow-[0_20px_40px_-20px_rgba(45,140,78,0.25)]",
+                  "transition-all duration-300",
+                  i === 2 ? "col-span-2 md:col-span-1" : "",
+                ].join(" ")}
+              >
+                {c.priority && (
+                  <span className="absolute top-3 right-3 sm:top-5 sm:right-5 z-10 text-[10px] sm:text-[11px] font-semibold text-brand bg-brand-light px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
+                    Prioritaire
+                  </span>
+                )}
+                <div
+                  className={[
+                    "relative overflow-hidden mb-4 sm:mb-5 rounded-xl bg-gray-100",
+                    i === 2
+                      ? "aspect-[21/9] sm:aspect-[16/10]"
+                      : "aspect-[16/10]",
+                  ].join(" ")}
+                >
+                  <Image
+                    src={c.image}
+                    alt={c.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-md">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-brand" />
+                  </div>
+                </div>
+                <h3 className="font-heading text-dark text-[16px] sm:text-[22px] font-semibold mb-1.5 sm:mb-3 leading-tight">
+                  {c.title}
+                </h3>
+                <p className="text-gray-text text-[12.5px] sm:text-[14px] leading-relaxed mb-3 sm:mb-5">
+                  {c.description}
+                </p>
+                <ul className="space-y-1.5 sm:space-y-2">
+                  {c.items.map((it) => (
+                    <li
+                      key={it}
+                      className="flex items-start gap-2 text-[12px] sm:text-[13px] text-gray-text"
+                    >
+                      <span className="mt-1.5 shrink-0 w-1 h-1 rounded-full bg-brand" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
