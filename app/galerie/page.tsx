@@ -53,6 +53,13 @@ const photos: Photo[] = [
     location:
       "Dispositifs différentiels pour protection des circuits et des personnes",
   },
+  {
+    src: "/galerie/locaux-exception.jpg",
+    alt: "Intervention sur plafonds peints et dorures dans hôtel particulier — restauration de luminaires patrimoniaux",
+    category: "Locaux d'exception",
+    title: "Bureau de représentation gouvernementale",
+    location: "Strip LED 24V en corniche — intervention sur ouvrage patrimonial",
+  },
 ];
 
 const tiles: Tile[] = [
