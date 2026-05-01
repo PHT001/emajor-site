@@ -195,7 +195,11 @@ export default function Installations() {
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
             Bureaux, commerces, hôtels, halls d&apos;immeubles. Dépannage des
-            équipements professionnels — restaurants, musées, théâtres.
+            équipements professionnels — restaurants, musées, théâtres, cinémas.
+          </p>
+          <p className="mt-4 sm:mt-5 text-dark text-[14px] sm:text-[17px] leading-relaxed font-medium italic">
+            Vos murs sont votre principal outil de production : les entretenir,
+            c&apos;est assurer la qualité d&apos;accueil de vos clients.
           </p>
         </div>
         <Grid items={proItems} />
