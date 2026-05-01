@@ -50,11 +50,12 @@ const residentialItems: Item[] = [
 
 const proItems: Item[] = [
   {
-    src: "/assets/img/tableau-tert.jpg",
-    alt: "Tableau divisionnaire tertiaire",
-    category: "Tertiaire",
-    title: "Tableau divisionnaire",
-    brands: ["Legrand Drivia"],
+    src: "/images/maintenance-hoteliere.jpg",
+    alt: "Façade d'hôtel parisien — maintenance multi-technique en régie",
+    category: "Maintenance hôtelière",
+    title: "Maintenance hôtelière en régie",
+    subtitle: "Mise à disposition de techniciens qualifiés",
+    brands: ["Techniciens E-Major", "Régie temps plein", "Multi-technique"],
   },
   {
     src: "/images/gtb-clim-smart.jpg",
@@ -72,14 +73,6 @@ const proItems: Item[] = [
     title: "Éclairage bureaux",
     subtitle: "Personnalisation des panels LED avec flocage de votre logo",
     brands: ["Panels LED sur-mesure", "Flocage logo", "Éclairage tertiaire"],
-  },
-  {
-    src: "/images/maintenance-hoteliere.jpg",
-    alt: "Façade d'hôtel parisien — maintenance multi-technique en régie",
-    category: "Maintenance hôtelière",
-    title: "Maintenance hôtelière en régie",
-    subtitle: "Mise à disposition de techniciens qualifiés",
-    brands: ["Techniciens E-Major", "Régie temps plein", "Multi-technique"],
   },
   {
     src: "/assets/img/scene-concert.jpg",
