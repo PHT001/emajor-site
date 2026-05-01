@@ -19,9 +19,9 @@ const cards: Card[] = [
     description:
       "Éclairer et chauffer votre bâtiment selon la norme NF C 15-100.",
     items: [
-      "Tableaux électriques",
-      "Prises et interrupteurs",
-      "Radiateurs électrique ou mixte",
+      "Tableau électrique",
+      "Prise et interrupteur",
+      "Radiateur électrique ou mixte",
       "Éclairage",
       "Mise aux normes",
       "Automatisme",
@@ -38,7 +38,7 @@ const cards: Card[] = [
       "Réseau informatique",
       "Interphonie vidéo",
       "Vidéoprotection",
-      "Alarmes intrusion",
+      "Alarme intrusion",
       "Alarme incendie",
       "Domotique",
       "Contrôle d'accès",
