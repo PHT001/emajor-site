@@ -126,7 +126,7 @@ function Tile({ it }: { it: Item }) {
           {it.title}
         </h3>
         {it.subtitle && (
-          <p className="font-heading text-[12px] sm:text-[15px] font-medium text-white/85 leading-tight mt-1">
+          <p className="font-heading text-[14px] sm:text-[18px] font-semibold leading-tight mt-1">
             {it.subtitle}
           </p>
         )}
