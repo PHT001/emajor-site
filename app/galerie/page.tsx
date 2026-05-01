@@ -40,9 +40,9 @@ type Tile = {
 const photos: Photo[] = [
   {
     src: "/galerie/ciup-fondation-lucien-paye.jpg",
-    alt: "Linéaire LED suspendu avec éclairage direct et indirect — Fondation Lucien Payé, résidence étudiante",
+    alt: "Linéaire LED suspendu avec éclairage direct et indirect — résidence étudiante",
     category: "Dégagement",
-    title: "Fondation Lucien Payé — Résidence Étudiante",
+    title: "Résidence Étudiante",
     location: "Linéaire LED suspendu — éclairage direct et indirect",
   },
   {
