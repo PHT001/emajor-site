@@ -44,7 +44,7 @@ const cards: Card[] = [
       "Contrôle d'accès",
     ],
     image: "/images/courant-faible.jpg",
-    alt: "Caméras de vidéoprotection sur façade tertiaire — installation VDI",
+    alt: "Caméra dôme de vidéoprotection en boutique avec écran de supervision multi-caméras",
   },
   {
     icon: Droplets,
