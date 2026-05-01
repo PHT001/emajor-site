@@ -180,7 +180,9 @@ export default function Installations() {
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
             Des matériels fiables, une technique de pose maîtrisée, une finition
-            propre — nous œuvrons pour votre confort.
+            propre —{" "}
+            <span className="whitespace-nowrap">nous œuvrons</span> pour votre
+            confort.
           </p>
         </div>
         <Grid items={residentialItems} />
