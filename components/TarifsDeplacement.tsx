@@ -11,13 +11,13 @@ type Row = {
 const deplacement: Row[] = [
   {
     icon: MapPin,
-    kind: "Zone",
+    kind: "Zone Paris",
     label: "Paris & proche couronne",
     price: "70 €",
   },
   {
     icon: Truck,
-    kind: "Zone",
+    kind: "Zone IDF",
     label: "Hors zone (+ 10 km de Paris)",
     price: "85 €",
   },
@@ -103,7 +103,7 @@ export default function TarifsDeplacement() {
         {/* Horaire */}
         <div>
           <h3 className="font-heading text-dark text-[16px] sm:text-[18px] font-semibold mb-4 sm:mb-5">
-            Tarif horaire — fixe pour les 3 métiers
+            Main d&apos;œuvre — fixe pour les 3 métiers
           </h3>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
             {horaire.map((r) => (

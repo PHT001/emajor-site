@@ -13,12 +13,7 @@ const pillars: Pillar[] = [
   {
     icon: Hammer,
     value: "55 ans",
-    label: (
-      <>
-        <span className="text-brand font-semibold">d&apos;expérience</span>{" "}
-        de bâtiment cumulés des 2 dirigeants
-      </>
-    ),
+    label: "Expérience cumulée des 2 dirigeants",
     color: "text-brand",
   },
   {
@@ -40,8 +35,6 @@ const pillars: Pillar[] = [
     color: "text-brand",
   },
 ];
-
-const certs = ["Décennale", "SIRET"];
 
 export default function WhyChoose() {
   return (
@@ -82,17 +75,6 @@ export default function WhyChoose() {
           ))}
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-          {certs.map((c) => (
-            <span
-              key={c}
-              className="inline-flex items-center gap-2 bg-white border border-gray-200/60 text-gray-text text-[12px] sm:text-[13px] font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand" />
-              {c}
-            </span>
-          ))}
-        </div>
       </div>
     </section>
   );
