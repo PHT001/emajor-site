@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ClientLogos from "@/components/ClientLogos";
 import ExpertiseDomains from "@/components/ExpertiseDomains";
 import Installations from "@/components/Installations";
+import MissionsQuotidiennes from "@/components/MissionsQuotidiennes";
 import GalerieTeaser from "@/components/GalerieTeaser";
 import Process from "@/components/Process";
 import WhyChoose from "@/components/WhyChoose";
@@ -25,6 +26,9 @@ export default function Home() {
         <ExpertiseDomains />
         <Reveal>
           <Installations />
+        </Reveal>
+        <Reveal>
+          <MissionsQuotidiennes />
         </Reveal>
         <Reveal>
           <GalerieTeaser />
