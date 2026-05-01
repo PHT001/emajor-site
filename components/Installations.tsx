@@ -57,11 +57,29 @@ const proItems: Item[] = [
     brands: ["Legrand Drivia"],
   },
   {
-    src: "/assets/img/cvc.jpg",
-    alt: "Installation CVC et GTB en local professionnel",
+    src: "/images/gtb-clim-smart.jpg",
+    alt: "Gestion Technique du Bâtiment — climatisation et thermostat connecté pilotés à distance",
     category: "CVC & GTB",
-    title: "CVC & GTB",
-    brands: ["Daikin", "Atlantic", "Mitsubishi"],
+    title: "Gestion Technique du Bâtiment",
+    subtitle:
+      "Contrôle, Mesure et Automatisation des équipements de Chauffage, Ventilation, Climatisation et Éclairage",
+    brands: ["Daikin", "Atlantic", "Mitsubishi", "KNX", "Loxone"],
+  },
+  {
+    src: "/images/eclairage-bureaux.jpg",
+    alt: "Plateau de bureaux open-space avec panels LED suspendus personnalisés au logo E-Major",
+    category: "Éclairage bureaux",
+    title: "Éclairage bureaux",
+    subtitle: "Personnalisation des panels LED avec flocage de votre logo",
+    brands: ["Panels LED sur-mesure", "Flocage logo", "Éclairage tertiaire"],
+  },
+  {
+    src: "/images/maintenance-hoteliere.jpg",
+    alt: "Façade d'hôtel parisien — maintenance multi-technique en régie",
+    category: "Maintenance hôtelière",
+    title: "Maintenance hôtelière en régie",
+    subtitle: "Mise à disposition de techniciens qualifiés",
+    brands: ["Techniciens E-Major", "Régie temps plein", "Multi-technique"],
   },
   {
     src: "/assets/img/scene-concert.jpg",
