@@ -9,6 +9,7 @@ const SKIP = new Set<number>([17]);
 const ENLARGE = new Set<number>([
   11, // Notre-Dame du Rosaire
   18, // Paroisse de l'Immaculée Conception
+  35, // Tikibou Jouets
 ]);
 
 // Even bigger slot — Marc demande explicitement Apollon "encore plus gros".
@@ -16,9 +17,9 @@ const ENLARGE_XL = new Set<number>([
   23, // Apollon Montparnasse
 ]);
 
-// Total clients: 34 (29 originaux + 5 nouveaux ajoutés sur demande Marc :
-// 30 Oralia, 31 Hôtel Eiffel Petit Louvre, 32 SMP, 33 EGIM, 34 Dacofim)
-const LOGOS = Array.from({ length: 34 }, (_, i) => i + 1)
+// Total clients: 35 (29 originaux + 6 nouveaux ajoutés sur demande Marc :
+// 30 Oralia, 31 Hôtel Eiffel Petit Louvre, 32 SMP, 33 EGIM, 34 Dacofim, 35 Tikibou Jouets)
+const LOGOS = Array.from({ length: 35 }, (_, i) => i + 1)
   .filter((n) => !SKIP.has(n))
   .map((n) => ({
     src: `/logos/clients/client-${String(n).padStart(2, "0")}.jpg`,
