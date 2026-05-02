@@ -10,6 +10,7 @@ const highlights = [
     title: "Résidence Étudiante",
     location:
       "Linéaire LED suspendu avec éclairage direct et indirect",
+    aspect: "3/4",
   },
   {
     src: "/galerie/locaux-technique-copro.jpg",
@@ -18,6 +19,15 @@ const highlights = [
     title: "Siège social — Maison d'édition",
     location:
       "Dispositifs différentiels pour protection des personnes",
+    aspect: "3/4",
+  },
+  {
+    src: "/galerie/locaux-exception.jpg",
+    alt: "Intervention sur plafonds peints et dorures dans hôtel particulier — remplacement de réglette fluorescente par ruban LED",
+    category: "Locaux d'exception",
+    title: "Bureau de représentation gouvernementale",
+    location: "Remplacement de réglette fluorescente par ruban LED 24V 2700K",
+    aspect: "7/5",
   },
 ];
 
@@ -53,7 +63,7 @@ export default function GalerieTeaser() {
           </Link>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {highlights.map((h) => (
             <li key={h.src}>
               <Link
@@ -61,7 +71,10 @@ export default function GalerieTeaser() {
                 className="group block relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gray-bg"
                 aria-label={`${h.title} — voir dans la galerie`}
               >
-                <div className="relative aspect-[3/4]">
+                <div
+                  className="relative"
+                  style={{ aspectRatio: h.aspect }}
+                >
                   <Image
                     src={h.src}
                     alt={h.alt}
