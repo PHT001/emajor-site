@@ -90,7 +90,7 @@ const proItems: Item[] = [
     title: "Coffret d'extraction d'air du parking",
     subtitle: "Contacteur Moteur Eaton",
     brands: ["Eaton", "Contacteur moteur", "Automatisme parking"],
-    aspect: "4/3",
+    aspect: "7/8",
   },
   {
     src: "/assets/img/scene-concert.jpg",
