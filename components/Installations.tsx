@@ -99,9 +99,9 @@ const proItems: Item[] = [
   },
   {
     src: "/assets/img/scene-concert.jpg",
-    alt: "Installation électrique pour événementiel — concert",
+    alt: "Installation électrique pour équipement scénique — concert",
     category: "Événementiel",
-    title: "Installation événementiel",
+    title: "Installation équipement scénique",
     brands: [
       "Goulotte de sol Efapel",
       "Coffret d'alimentation Famatel",
