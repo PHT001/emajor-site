@@ -67,7 +67,7 @@ const proItems: Item[] = [
   {
     src: "/images/gtb-clim-smart.jpg",
     alt: "Gestion Technique du Bâtiment — climatisation et thermostat connecté pilotés à distance",
-    category: "CVC & GTB",
+    category: "CVC",
     title: "Gestion Technique du Bâtiment",
     subtitle:
       "Contrôle, Mesure et Automatisation des équipements de Chauffage, Ventilation, Climatisation et Éclairage",
