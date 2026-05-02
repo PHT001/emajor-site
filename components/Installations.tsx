@@ -78,7 +78,7 @@ const proItems: Item[] = [
     alt: "Plateau de bureaux open-space avec panels LED suspendus personnalisés au logo E-Major",
     category: "Éclairage bureaux",
     title: "Personnalisation des panels LED",
-    brands: ["Panels LED sur-mesure", "Flocage logo", "Éclairage tertiaire"],
+    brands: ["Eva Lighting", "Flocage logo", "Éclairage tertiaire"],
     aspect: "20/9",
   },
   {
