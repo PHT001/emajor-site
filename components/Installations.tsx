@@ -71,7 +71,7 @@ const proItems: Item[] = [
     title: "Gestion Technique du Bâtiment",
     subtitle:
       "Contrôle, Mesure et Automatisation des équipements de Chauffage, Ventilation, Climatisation et Éclairage",
-    brands: ["Daikin", "Atlantic", "Mitsubishi", "KNX", "Loxone"],
+    brands: ["Daikin", "Atlantic", "Mitsubishi", "KNX", "Carlo Gavazzi"],
     aspect: "16/9",
   },
   {
