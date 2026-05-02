@@ -69,8 +69,9 @@ function PriceRow({ r }: { r: Row }) {
 export default function TarifsDeplacement() {
   return (
     <section
+      id="tarifs"
       aria-labelledby="tarifs-heading"
-      className="py-14 sm:py-20 bg-gray-bg"
+      className="py-14 sm:py-20 bg-gray-bg scroll-mt-20"
     >
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">

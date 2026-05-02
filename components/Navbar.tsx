@@ -10,7 +10,7 @@ const navItems = [
   { label: "Professionnels", href: "/professionnels" },
   { label: "Galerie", href: "/galerie" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Tarifs", href: "/#tarifs" },
 ];
 
 export default function Navbar() {
