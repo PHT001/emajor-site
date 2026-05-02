@@ -52,6 +52,14 @@ const residentialItems: Item[] = [
     brands: ["Schneider Electric Resi9", "Appareillage modulaire"],
     aspect: "3/4",
   },
+  {
+    src: "/images/salle-de-bain.jpg",
+    alt: "Salle de bain complète moderne — rénovation plomberie sanitaire",
+    category: "Salle de bain",
+    title: "Salle de bain complète",
+    brands: ["Plomberie sanitaire", "Robinetterie", "Faïence"],
+    aspect: "3/2",
+  },
 ];
 
 const proItems: Item[] = [
