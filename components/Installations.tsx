@@ -91,9 +91,9 @@ const proItems: Item[] = [
   },
   {
     src: "/assets/img/scene-concert.jpg",
-    alt: "Installation électrique pour équipement scénique de concert",
-    category: "Équipement scénique",
-    title: "Installation Équipement Scénique",
+    alt: "Installation électrique pour événementiel — concert",
+    category: "Événementiel",
+    title: "Installation événementiel",
     brands: [
       "Passage de câble en goulotte",
       "Coffrets d'alimentation",
