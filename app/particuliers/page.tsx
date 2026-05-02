@@ -114,8 +114,8 @@ export default function ParticuliersPage() {
               Intervention pour particuliers
             </h1>
             <p className="text-white/75 text-[16px] sm:text-[18px] max-w-2xl leading-relaxed mb-8">
-              Dépannage, installation et rénovation pour votre logement.
-              Prises, éclairage, chauffe-eau, fuites… on s&apos;occupe de tout.
+              Dépannage, installation et rénovation pour votre logement. Prise,
+              éclairage, chauffe-eau, fuite.
             </p>
             <Link
               href="/assistant"
