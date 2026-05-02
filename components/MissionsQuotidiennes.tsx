@@ -6,6 +6,8 @@ import {
   DoorOpen,
   ClipboardCheck,
   ShieldAlert,
+  Hotel,
+  Bath,
   type LucideIcon,
 } from "lucide-react";
 import Reveal from "@/components/Reveal";
@@ -48,6 +50,14 @@ const missions: Mission[] = [
   {
     icon: ShieldAlert,
     title: "Remplacement des blocs de secours",
+  },
+  {
+    icon: Hotel,
+    title: "Réfection des joints silicone pour chambre d'hôtel",
+  },
+  {
+    icon: Bath,
+    title: "Pose d'un WC suspendu",
   },
 ];
 
