@@ -95,6 +95,8 @@ const proItems: Item[] = [
     category: "Événementiel",
     title: "Installation événementiel",
     brands: [
+      "Goulotte de sol Efapel",
+      "Coffret d'alimentation Famatel",
       "Passage de câble en goulotte",
       "Coffrets d'alimentation",
       "Électricien en régie",
