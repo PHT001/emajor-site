@@ -5,9 +5,9 @@ import { ArrowRight } from "lucide-react";
 const highlights = [
   {
     src: "/galerie/ciup-fondation-lucien-paye.jpg",
-    alt: "Linéaire LED suspendu — Fondation Lucien Payé",
+    alt: "Linéaire LED suspendu — résidence étudiante",
     category: "Dégagement",
-    title: "Fondation Lucien Payé",
+    title: "Résidence Étudiante",
     location:
       "Linéaire LED suspendu avec éclairage direct et indirect",
   },
@@ -17,7 +17,7 @@ const highlights = [
     category: "Locaux technique",
     title: "Copropriété — Paris",
     location:
-      "Disposants différentiels pour protection des circuits et des personnes",
+      "Dispositifs différentiels pour protection des circuits et des personnes",
   },
 ];
 
@@ -37,11 +37,11 @@ export default function GalerieTeaser() {
               id="galerie-teaser-heading"
               className="font-heading text-dark text-[28px] sm:text-[40px] lg:text-[48px] font-bold tracking-[-0.02em] leading-[1.05] mt-3"
             >
-              Voir ce qu&apos;on livre,<br className="hidden sm:block" /> pas juste ce qu&apos;on dit.
+              Voir ce que nous livrons.
             </h2>
             <p className="text-gray-text text-[15px] sm:text-[17px] leading-relaxed max-w-xl mt-4">
-              Chantiers récents à Paris et en Île-de-France — institutionnel,
-              copropriétés, résidentiel.
+              Chantiers récents à Paris et Île-de-France — Institutionnels,
+              Copropriétés, Appartements, Commerces…
             </p>
           </div>
           <Link

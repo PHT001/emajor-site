@@ -55,10 +55,10 @@ const photos: Photo[] = [
   },
   {
     src: "/galerie/locaux-exception.jpg",
-    alt: "Intervention sur plafonds peints et dorures dans hôtel particulier — restauration de luminaires patrimoniaux",
+    alt: "Intervention sur plafonds peints et dorures dans hôtel particulier — remplacement de réglette fluorescente par ruban LED",
     category: "Locaux d'exception",
     title: "Bureau de représentation gouvernementale",
-    location: "Strip LED 24V en corniche — intervention sur ouvrage patrimonial",
+    location: "Remplacement de réglette fluorescente par ruban LED 24V 2700K",
   },
 ];
 

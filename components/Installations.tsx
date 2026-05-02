@@ -75,6 +75,14 @@ const proItems: Item[] = [
     brands: ["Panels LED sur-mesure", "Flocage logo", "Éclairage tertiaire"],
   },
   {
+    src: "/images/coffret-extraction-parking.jpg",
+    alt: "Coffret électrique d'automatisme avec contacteurs Eaton — extraction d'air parking",
+    category: "Automatisme",
+    title: "Coffret d'extraction d'air du parking",
+    subtitle: "Contacteur Moteur Eaton",
+    brands: ["Eaton", "Contacteur moteur", "Automatisme parking"],
+  },
+  {
     src: "/assets/img/scene-concert.jpg",
     alt: "Installation électrique pour équipement scénique de concert",
     category: "Équipement scénique",
