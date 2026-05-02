@@ -115,7 +115,7 @@ export default function ParticuliersPage() {
             </h1>
             <p className="text-white/75 text-[16px] sm:text-[18px] max-w-2xl leading-relaxed mb-8">
               Dépannage, installation et rénovation pour votre logement. Prise,
-              éclairage, chauffe-eau, fuite.
+              éclairage, chauffe-eau, robinet.
             </p>
             <Link
               href="/assistant"
