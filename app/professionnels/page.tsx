@@ -37,6 +37,7 @@ const blocks = [
       "Baies de brassage et fibre optique",
       "GTB (Gestion Technique du Bâtiment)",
     ],
+    aspect: "16/9",
   },
   {
     title: "Courant Fort",
@@ -53,12 +54,13 @@ const blocks = [
       "Alimentation triphasée et monophasée",
       "Disjoncteurs et parafoudres",
     ],
+    aspect: "3/2",
   },
   {
     title: "Plomberie",
     icon: Droplets,
-    image: "/images/plomberie-pro.jpg",
-    alt: "Réseau de tuyauterie collective en sous-sol d'immeuble — plomberie tertiaire",
+    image: "/images/plomberie.jpg",
+    alt: "Intervention plomberie sur installation sanitaire",
     description:
       "Réseaux d'eau et d'évacuation pour locaux professionnels.",
     items: [
@@ -69,6 +71,7 @@ const blocks = [
       "Pompes de relevage et bacs à graisse",
       "Contrats de maintenance préventive",
     ],
+    aspect: "3/2",
   },
   {
     title: "CVC & Supervision",
@@ -85,6 +88,7 @@ const blocks = [
       "Éclairage de sécurité automatisé",
       "Stores et volets automatiques",
     ],
+    aspect: "3/2",
   },
 ];
 
@@ -131,7 +135,10 @@ export default function ProfessionnelsPage() {
                   key={b.title}
                   className="bg-gray-bg border border-gray-200/60 rounded-2xl p-6 sm:p-8 hover:border-brand/40 hover:-translate-y-0.5 transition-all group"
                 >
-                  <div className="relative overflow-hidden rounded-xl aspect-[16/9] mb-5 sm:mb-6 bg-gray-100">
+                  <div
+                    className="relative overflow-hidden rounded-xl mb-5 sm:mb-6 bg-gray-100"
+                    style={{ aspectRatio: b.aspect }}
+                  >
                     <Image
                       src={b.image}
                       alt={b.alt}

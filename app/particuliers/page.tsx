@@ -36,6 +36,7 @@ const blocks = [
       "Détection de fumée et alarmes",
       "Prises RJ45 et réseau domestique",
     ],
+    aspect: "3/2",
   },
   {
     title: "Courant Fort",
@@ -51,6 +52,7 @@ const blocks = [
       "Mise aux normes NF C 15-100",
       "Rénovation électrique complète",
     ],
+    aspect: "4/3",
   },
   {
     title: "Plomberie",
@@ -67,6 +69,7 @@ const blocks = [
       "Robinetterie et raccordements",
       "Évacuation et débouchage",
     ],
+    aspect: "3/2",
   },
   {
     title: "Dépannage",
@@ -82,6 +85,7 @@ const blocks = [
       "Chauffe-eau en panne",
       "Intervention rapide sur Paris et IdF",
     ],
+    aspect: "3/2",
   },
 ];
 
@@ -155,7 +159,10 @@ export default function ParticuliersPage() {
                       {b.badge}
                     </span>
                   )}
-                  <div className="relative overflow-hidden rounded-xl aspect-[16/9] mb-5 sm:mb-6 bg-gray-100">
+                  <div
+                    className="relative overflow-hidden rounded-xl mb-5 sm:mb-6 bg-gray-100"
+                    style={{ aspectRatio: b.aspect }}
+                  >
                     <Image
                       src={b.image}
                       alt={b.alt}
