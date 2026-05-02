@@ -57,9 +57,9 @@ const residentialItems: Item[] = [
 const proItems: Item[] = [
   {
     src: "/images/maintenance-hoteliere.jpg",
-    alt: "Façade d'hôtel parisien — maintenance multi-technique en régie",
-    category: "Maintenance hôtelière",
-    title: "Maintenance hôtelière en régie",
+    alt: "Façade d'hôtel parisien — maintenances planifiées en régie",
+    category: "Maintenances planifiées",
+    title: "Maintenances planifiées en régie",
     subtitle: "Mise à disposition de techniciens qualifiés",
     brands: ["Techniciens E-Major", "Régie temps plein", "Multi-technique"],
     aspect: "1/1",
