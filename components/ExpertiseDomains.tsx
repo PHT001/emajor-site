@@ -9,6 +9,7 @@ type Card = {
   items: string[];
   image: string;
   alt: string;
+  aspect: string;
   priority?: boolean;
 };
 
@@ -28,6 +29,7 @@ const cards: Card[] = [
     ],
     image: "/images/courant-fort.jpg",
     alt: "Tableau électrique modulaire blanc avec rangées de disjoncteurs — installation résidentielle conforme NF C 15-100",
+    aspect: "4/3",
   },
   {
     icon: Radio,
@@ -45,6 +47,7 @@ const cards: Card[] = [
     ],
     image: "/images/courant-faible.jpg",
     alt: "Caméra dôme de vidéoprotection en boutique avec écran de supervision multi-caméras",
+    aspect: "1/1",
   },
   {
     icon: Droplets,
@@ -54,13 +57,16 @@ const cards: Card[] = [
       "Confiez votre installation sanitaire à un professionnel pour éviter les fuites.",
     items: [
       "Chauffe-eau",
+      "Remplacement robinetterie",
       "Salle de bain complète",
+      "Débouchage des réseaux",
       "Recherche de fuite",
-      "Réfection des joints (mastic)",
-      "Cuisine professionnelle",
+      "Réfection des joints mastic",
+      "Installation de cuisine professionnelle",
     ],
     image: "/images/plomberie.jpg",
     alt: "Intervention plomberie sur installation sanitaire",
+    aspect: "3/2",
   },
 ];
 
@@ -102,12 +108,8 @@ export default function ExpertiseDomains() {
                   </span>
                 )}
                 <div
-                  className={[
-                    "relative overflow-hidden mb-4 sm:mb-5 rounded-xl bg-gray-100",
-                    i === 2
-                      ? "aspect-[21/9] sm:aspect-[16/10]"
-                      : "aspect-[16/10]",
-                  ].join(" ")}
+                  className="relative overflow-hidden mb-4 sm:mb-5 rounded-xl bg-gray-100"
+                  style={{ aspectRatio: c.aspect }}
                 >
                   <Image
                     src={c.image}

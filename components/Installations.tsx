@@ -7,6 +7,7 @@ type Item = {
   title: string;
   subtitle?: string;
   brands: string[];
+  aspect: string;
 };
 
 const residentialItems: Item[] = [
@@ -17,6 +18,7 @@ const residentialItems: Item[] = [
     title: "Prises et interrupteurs en porcelaine et bois",
     subtitle: "Applique en verre dépoli",
     brands: ["Fontini Garby", "AQForm Modern", "Verre dépoli sur mesure"],
+    aspect: "1/1",
   },
   {
     src: "/images/cuisine-chauffe-eau.jpg",
@@ -24,6 +26,7 @@ const residentialItems: Item[] = [
     category: "Cuisine",
     title: "Chauffe eau faible encombrement",
     brands: ["Atlantic Linéo"],
+    aspect: "3/4",
   },
   {
     src: "/assets/img/salon-haussmann-led.jpg",
@@ -31,6 +34,7 @@ const residentialItems: Item[] = [
     category: "Salon",
     title: "Éclairage LED sur corniche",
     brands: ["Eva Lighting Strip 24V"],
+    aspect: "4/3",
   },
   {
     src: "/assets/img/entree-haussmann-spots.jpg",
@@ -38,6 +42,7 @@ const residentialItems: Item[] = [
     category: "Hall d'immeuble",
     title: "Spot LED commandé par poussoir et minuterie",
     brands: ["Spot Poséidon Replique R80", "Poussoir Efapel Logus"],
+    aspect: "4/3",
   },
   {
     src: "/images/entree-coffret-resi9.jpg",
@@ -45,6 +50,7 @@ const residentialItems: Item[] = [
     category: "Entrée",
     title: "Coffret 3 rangées monté-câblé",
     brands: ["Schneider Electric Resi9", "Appareillage modulaire"],
+    aspect: "3/4",
   },
 ];
 
@@ -56,6 +62,7 @@ const proItems: Item[] = [
     title: "Maintenance hôtelière en régie",
     subtitle: "Mise à disposition de techniciens qualifiés",
     brands: ["Techniciens E-Major", "Régie temps plein", "Multi-technique"],
+    aspect: "1/1",
   },
   {
     src: "/images/gtb-clim-smart.jpg",
@@ -65,6 +72,7 @@ const proItems: Item[] = [
     subtitle:
       "Contrôle, Mesure et Automatisation des équipements de Chauffage, Ventilation, Climatisation et Éclairage",
     brands: ["Daikin", "Atlantic", "Mitsubishi", "KNX", "Loxone"],
+    aspect: "16/9",
   },
   {
     src: "/images/eclairage-bureaux.jpg",
@@ -73,6 +81,7 @@ const proItems: Item[] = [
     title: "Éclairage bureaux",
     subtitle: "Personnalisation des panels LED avec flocage de votre logo",
     brands: ["Panels LED sur-mesure", "Flocage logo", "Éclairage tertiaire"],
+    aspect: "20/9",
   },
   {
     src: "/images/coffret-extraction-parking.jpg",
@@ -81,6 +90,7 @@ const proItems: Item[] = [
     title: "Coffret d'extraction d'air du parking",
     subtitle: "Contacteur Moteur Eaton",
     brands: ["Eaton", "Contacteur moteur", "Automatisme parking"],
+    aspect: "4/3",
   },
   {
     src: "/assets/img/scene-concert.jpg",
@@ -93,6 +103,7 @@ const proItems: Item[] = [
       "Électricien en régie",
       "Fontaine à eau",
     ],
+    aspect: "1/1",
   },
   {
     src: "/images/thermographie-tableau.jpg",
@@ -103,12 +114,16 @@ const proItems: Item[] = [
       "Caméra thermique infrarouge",
       "Contrôle serrages des bornes",
     ],
+    aspect: "16/9",
   },
 ];
 
 function Tile({ it }: { it: Item }) {
   return (
-    <div className="group relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[16/10] bg-gray-200">
+    <div
+      className="group relative rounded-2xl overflow-hidden bg-gray-200"
+      style={{ aspectRatio: it.aspect }}
+    >
       <Image
         src={it.src}
         alt={it.alt}

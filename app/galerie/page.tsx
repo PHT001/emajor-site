@@ -27,6 +27,7 @@ type Photo = {
   category: string;
   title: string;
   location?: string;
+  aspect: string;
 };
 
 type Tile = {
@@ -35,6 +36,7 @@ type Tile = {
   title: string;
   image: string;
   alt: string;
+  aspect: string;
 };
 
 const photos: Photo[] = [
@@ -44,6 +46,7 @@ const photos: Photo[] = [
     category: "Dégagement",
     title: "Résidence Étudiante",
     location: "Linéaire LED suspendu — éclairage direct et indirect",
+    aspect: "3/4",
   },
   {
     src: "/galerie/locaux-technique-copro.jpg",
@@ -52,6 +55,7 @@ const photos: Photo[] = [
     title: "Copropriété — Paris",
     location:
       "Dispositifs différentiels pour protection des circuits et des personnes",
+    aspect: "3/4",
   },
   {
     src: "/galerie/locaux-exception.jpg",
@@ -59,6 +63,7 @@ const photos: Photo[] = [
     category: "Locaux d'exception",
     title: "Bureau de représentation gouvernementale",
     location: "Remplacement de réglette fluorescente par ruban LED 24V 2700K",
+    aspect: "7/5",
   },
 ];
 
@@ -69,6 +74,7 @@ const tiles: Tile[] = [
     title: "Tableau électrique rénové",
     image: "/images/tableau-renove.jpg",
     alt: "Tableau électrique modulaire rénové avec rangées de disjoncteurs",
+    aspect: "3/2",
   },
   {
     icon: Lightbulb,
@@ -76,6 +82,7 @@ const tiles: Tile[] = [
     title: "Luminaires sur mesure",
     image: "/images/luminaires-led.jpg",
     alt: "Luminaire LED suspendu design dans intérieur contemporain",
+    aspect: "3/4",
   },
   {
     icon: Radio,
@@ -83,6 +90,7 @@ const tiles: Tile[] = [
     title: "Réseau VDI résidentiel",
     image: "/images/vdi-residentiel.jpg",
     alt: "Câbles ethernet RJ45 colorés branchés sur switch réseau résidentiel",
+    aspect: "3/2",
   },
   {
     icon: Droplets,
@@ -90,6 +98,7 @@ const tiles: Tile[] = [
     title: "Salle de bain complète",
     image: "/images/salle-de-bain.jpg",
     alt: "Salle de bain moderne entièrement rénovée avec douche et vasque design",
+    aspect: "3/2",
   },
   {
     icon: Wrench,
@@ -97,6 +106,7 @@ const tiles: Tile[] = [
     title: "Fuite chauffe-eau résolue",
     image: "/images/depannage-plomberie.jpg",
     alt: "Plombier en intervention sur tuyauterie, dépannage avec outils en main",
+    aspect: "3/2",
   },
   {
     icon: Wind,
@@ -104,6 +114,7 @@ const tiles: Tile[] = [
     title: "Supervision CTA tertiaire",
     image: "/images/cvc-supervision.jpg",
     alt: "Gaines de ventilation et conduits CVC en plafond technique tertiaire",
+    aspect: "3/2",
   },
 ];
 
@@ -141,7 +152,10 @@ export default function GaleriePage() {
               {photos.map((p) => (
                 <li key={p.src} className="col-span-2 md:col-span-2 lg:col-span-2">
                   <article className="group">
-                    <div className="relative overflow-hidden rounded-2xl aspect-[4/5] mb-3 bg-gray-bg">
+                    <div
+                      className="relative overflow-hidden rounded-2xl mb-3 bg-gray-bg"
+                      style={{ aspectRatio: p.aspect }}
+                    >
                       <Image
                         src={p.src}
                         alt={p.alt}
@@ -169,7 +183,10 @@ export default function GaleriePage() {
                 return (
                   <li key={`${t.title}-${i}`}>
                     <article className="group">
-                      <div className="relative overflow-hidden rounded-2xl aspect-[4/5] mb-3 bg-gray-bg">
+                      <div
+                        className="relative overflow-hidden rounded-2xl mb-3 bg-gray-bg"
+                        style={{ aspectRatio: t.aspect }}
+                      >
                         <Image
                           src={t.image}
                           alt={t.alt}

@@ -61,7 +61,7 @@ export default function GalerieTeaser() {
                 className="group block relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gray-bg"
                 aria-label={`${h.title} — voir dans la galerie`}
               >
-                <div className="relative aspect-[16/10] sm:aspect-[4/5]">
+                <div className="relative aspect-[3/4]">
                   <Image
                     src={h.src}
                     alt={h.alt}
