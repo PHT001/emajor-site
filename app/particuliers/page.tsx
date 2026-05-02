@@ -207,7 +207,7 @@ export default function ParticuliersPage() {
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="bg-gradient-to-br from-brand to-brand-dark rounded-3xl p-10 sm:p-14 text-center text-white">
               <h2 className="font-heading text-[28px] sm:text-[40px] font-bold tracking-[-0.02em] leading-tight mb-4">
-                Un souci électrique ou de plomberie ?
+                Un défaut électrique ou un dégât des eaux ?
               </h2>
               <p className="text-white/85 text-[16px] max-w-xl mx-auto mb-8 leading-relaxed">
                 Notre assistant vous guide pas à pas. Aucun jargon technique,
