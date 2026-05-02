@@ -99,8 +99,6 @@ const proItems: Item[] = [
       "Coffret d'alimentation Famatel",
       "Passage de câble en goulotte",
       "Coffrets d'alimentation",
-      "Électricien en régie",
-      "Fontaine à eau",
     ],
     aspect: "1/1",
   },
