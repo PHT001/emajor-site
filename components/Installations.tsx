@@ -114,7 +114,7 @@ const proItems: Item[] = [
     src: "/images/thermographie-tableau.jpg",
     alt: "Contrôle des serrages des bornes avec caméra thermique infrarouge",
     category: "Maintenance préventive",
-    title: "Thermographie — maintenance préventive",
+    title: "Thermographie",
     brands: [
       "Caméra thermique infrarouge",
       "Contrôle serrages des bornes",
@@ -172,16 +172,20 @@ function Tile({ it }: { it: Item }) {
 }
 
 function Grid({ items, cols }: { items: Item[]; cols?: 2 | 3 }) {
-  // 3-cols variant aligns 3 items on a single desktop row.
-  // 2-cols variant pairs 4 items into 2 balanced rows.
-  const gridClass =
+  // Masonry-style via CSS columns so cards of different aspect ratios
+  // pack tightly without leaving blank rows underneath shorter tiles.
+  const colsClass =
     cols === 3
-      ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-      : "grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6";
+      ? "columns-1 sm:columns-2 lg:columns-3"
+      : "columns-1 sm:columns-2";
   return (
-    <div className={gridClass}>
+    <div
+      className={`${colsClass} gap-4 sm:gap-6 [column-fill:_balance]`}
+    >
       {items.map((it) => (
-        <Tile key={it.src} it={it} />
+        <div key={it.src} className="mb-4 sm:mb-6 break-inside-avoid">
+          <Tile it={it} />
+        </div>
       ))}
     </div>
   );
