@@ -37,6 +37,7 @@ type Tile = {
   image: string;
   alt: string;
   aspect: string;
+  description?: string;
 };
 
 const photos: Photo[] = [
@@ -50,9 +51,9 @@ const photos: Photo[] = [
   },
   {
     src: "/galerie/locaux-technique-copro.jpg",
-    alt: "Locaux technique — protection des circuits et des personnes",
+    alt: "Locaux technique — chaufferie de siège social maison d'édition",
     category: "Locaux technique",
-    title: "Copropriété — Paris",
+    title: "Siège social — Maison d'édition",
     location:
       "Dispositifs différentiels pour protection des circuits et des personnes",
     aspect: "3/4",
@@ -83,6 +84,7 @@ const tiles: Tile[] = [
     image: "/images/luminaires-led.jpg",
     alt: "Luminaire LED suspendu design dans intérieur contemporain",
     aspect: "3/4",
+    description: "Design et fabriqué en Pologne",
   },
   {
     icon: Radio,
@@ -151,29 +153,35 @@ export default function GaleriePage() {
             <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
               {photos.map((p) => (
                 <li key={p.src} className="col-span-2 md:col-span-2 lg:col-span-2">
-                  <article className="group">
+                  <article
+                    className="group relative overflow-hidden rounded-2xl bg-gray-bg"
+                    style={{ aspectRatio: p.aspect }}
+                  >
+                    <Image
+                      src={p.src}
+                      alt={p.alt}
+                      fill
+                      sizes="(min-width: 1024px) 600px, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
                     <div
-                      className="relative overflow-hidden rounded-2xl mb-3 bg-gray-bg"
-                      style={{ aspectRatio: p.aspect }}
-                    >
-                      <Image
-                        src={p.src}
-                        alt={p.alt}
-                        fill
-                        sizes="(min-width: 1024px) 600px, (min-width: 768px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      />
+                      className="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/25 to-transparent"
+                      aria-hidden
+                    />
+                    <div className="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 text-white transition-all duration-300 group-hover:-translate-y-1">
+                      <span className="inline-block text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase bg-brand/90 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full mb-1.5 sm:mb-2">
+                        {p.category}
+                      </span>
+                      <h2 className="font-heading text-[14px] sm:text-[18px] font-semibold leading-tight">
+                        {p.title}
+                      </h2>
                     </div>
-                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-brand">
-                      {p.category}
-                    </span>
-                    <h2 className="font-heading text-dark text-[15px] sm:text-[17px] font-semibold leading-snug mt-1">
-                      {p.title}
-                    </h2>
                     {p.location && (
-                      <p className="text-[12px] sm:text-[13px] text-gray-mid mt-0.5">
-                        {p.location}
-                      </p>
+                      <div className="pointer-events-none absolute inset-x-3 bottom-3 sm:inset-x-5 sm:bottom-5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-75">
+                        <p className="text-white text-[11px] sm:text-[13px] font-medium leading-snug bg-white/10 backdrop-blur-sm rounded-lg px-2.5 py-1.5">
+                          {p.location}
+                        </p>
+                      </div>
                     )}
                   </article>
                 </li>
@@ -182,28 +190,39 @@ export default function GaleriePage() {
                 const Icon = t.icon;
                 return (
                   <li key={`${t.title}-${i}`}>
-                    <article className="group">
+                    <article
+                      className="group relative overflow-hidden rounded-2xl bg-gray-bg"
+                      style={{ aspectRatio: t.aspect }}
+                    >
+                      <Image
+                        src={t.image}
+                        alt={t.alt}
+                        fill
+                        sizes="(min-width: 1024px) 290px, (min-width: 768px) 33vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
                       <div
-                        className="relative overflow-hidden rounded-2xl mb-3 bg-gray-bg"
-                        style={{ aspectRatio: t.aspect }}
-                      >
-                        <Image
-                          src={t.image}
-                          alt={t.alt}
-                          fill
-                          sizes="(min-width: 1024px) 290px, (min-width: 768px) 33vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        />
-                        <div className="absolute top-3 left-3 inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-md">
-                          <Icon className="w-4 h-4 text-brand" />
-                        </div>
+                        className="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/25 to-transparent"
+                        aria-hidden
+                      />
+                      <div className="absolute top-3 left-3 inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-md">
+                        <Icon className="w-4 h-4 text-brand" />
                       </div>
-                      <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-brand">
-                        {t.category}
-                      </span>
-                      <h2 className="font-heading text-dark text-[14px] sm:text-[16px] font-semibold leading-snug mt-1">
-                        {t.title}
-                      </h2>
+                      <div className="absolute bottom-3 left-3 right-3 text-white transition-all duration-300 group-hover:-translate-y-1">
+                        <span className="inline-block text-[10px] font-semibold tracking-wider uppercase bg-brand/90 px-2 py-0.5 rounded-full mb-1.5">
+                          {t.category}
+                        </span>
+                        <h2 className="font-heading text-[13px] sm:text-[15px] font-semibold leading-tight">
+                          {t.title}
+                        </h2>
+                      </div>
+                      {t.description && (
+                        <div className="pointer-events-none absolute inset-x-3 bottom-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-75">
+                          <p className="text-white text-[11px] font-medium leading-snug bg-white/10 backdrop-blur-sm rounded-lg px-2.5 py-1.5">
+                            {t.description}
+                          </p>
+                        </div>
+                      )}
                     </article>
                   </li>
                 );

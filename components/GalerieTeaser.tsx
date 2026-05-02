@@ -13,9 +13,9 @@ const highlights = [
   },
   {
     src: "/galerie/locaux-technique-copro.jpg",
-    alt: "Locaux technique — protection des circuits et des personnes",
+    alt: "Locaux technique — chaufferie de siège social maison d'édition",
     category: "Locaux technique",
-    title: "Copropriété — Paris",
+    title: "Siège social — Maison d'édition",
     location:
       "Dispositifs différentiels pour protection des circuits et des personnes",
   },
