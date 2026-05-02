@@ -52,7 +52,6 @@ const cards: Card[] = [
   {
     icon: Droplets,
     title: "Plomberie",
-    priority: true,
     description:
       "Confiez votre installation sanitaire à un professionnel pour éviter les fuites.",
     items: [
