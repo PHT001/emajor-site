@@ -26,7 +26,7 @@ const cards: Card[] = [
       "Éclairage",
       "Automatisme",
       "Mise aux normes",
-      "Démarche contestation Consuel",
+      "Attestation Consuel",
     ],
     image: "/images/courant-fort.jpg",
     alt: "Tableau électrique modulaire blanc avec rangées de disjoncteurs — installation résidentielle conforme NF C 15-100",
