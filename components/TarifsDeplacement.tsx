@@ -18,7 +18,7 @@ const deplacement: Row[] = [
   {
     icon: Truck,
     kind: "Zone IDF",
-    label: "Hors zone (+ 10 km de Paris)",
+    label: "Paris grande couronne",
     price: "85 €",
   },
 ];
