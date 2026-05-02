@@ -1,5 +1,5 @@
 import Reveal from "@/components/Reveal";
-import { Hammer, ShieldCheck, Languages, BadgeCheck } from "lucide-react";
+import { Hammer, ShieldCheck, Languages, BadgeCheck, BadgePercent } from "lucide-react";
 import type { ReactNode } from "react";
 
 type Pillar = {
@@ -34,6 +34,12 @@ const pillars: Pillar[] = [
     label: "Garantie décennale",
     color: "text-brand",
   },
+  {
+    icon: BadgePercent,
+    value: "TVA 10%",
+    label: "Pour les particuliers",
+    color: "text-brand",
+  },
 ];
 
 export default function WhyChoose() {
@@ -49,7 +55,7 @@ export default function WhyChoose() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 mb-8 sm:mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5 mb-8 sm:mb-10">
           {pillars.map((p, i) => (
             <Reveal
               key={p.value}
