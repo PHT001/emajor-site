@@ -111,8 +111,8 @@ export default function ProfessionnelsPage() {
               Solutions pour professionnels
             </h1>
             <p className="text-white/75 text-[16px] sm:text-[18px] max-w-2xl leading-relaxed mb-8">
-              Infrastructure électrique, réseau structuré, plomberie tertiaire.
-              E-Major accompagne les commerces, plateaux de bureaux et locaux
+              Infrastructure électrique, réseau informatique, plomberie. E-Major
+              accompagne les commerces, plateaux de bureaux et locaux
               industriels.
             </p>
             <Link
