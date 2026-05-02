@@ -55,7 +55,7 @@ const photos: Photo[] = [
     category: "Locaux technique",
     title: "Siège social — Maison d'édition",
     location:
-      "Dispositifs différentiels pour protection des circuits et des personnes",
+      "Dispositifs différentiels pour protection des personnes",
     aspect: "3/4",
   },
   {
