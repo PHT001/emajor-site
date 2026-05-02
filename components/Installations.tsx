@@ -212,8 +212,7 @@ export default function Installations() {
             Installations professionnelles
           </h2>
           <p className="text-gray-text text-[14px] sm:text-[16px] leading-relaxed">
-            Bureaux, commerces, hôtels, halls d&apos;immeubles. Dépannage des
-            équipements professionnels — restaurants, musées, théâtres, cinémas.
+            Bureaux, commerces, hôtels — restaurants, musées, théâtres, cinémas.
           </p>
           <p className="mt-4 sm:mt-5 text-dark text-[14px] sm:text-[17px] leading-relaxed font-medium italic">
             Vos murs sont votre principal outil de production : les entretenir,
