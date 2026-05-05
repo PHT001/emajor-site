@@ -459,7 +459,8 @@ export default function Assistant({
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-5 py-3 rounded-xl text-[14px] transition-colors"
+            className="flex-1 inline-flex items-center justify-center gap-2 text-white font-semibold px-5 py-3 rounded-xl text-[14px] transition-colors"
+            style={{ backgroundColor: "#25D366" }}
           >
             Contacter le service admin
           </a>
