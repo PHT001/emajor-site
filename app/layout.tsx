@@ -3,7 +3,6 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { COMPANY, CONTACT, SITE } from "@/lib/constants";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -181,7 +180,6 @@ export default function RootLayout({
     >
       <body className="bg-white antialiased">
         {children}
-        <FloatingWhatsApp />
         <Script
           id="ld-json-localbusiness"
           type="application/ld+json"
