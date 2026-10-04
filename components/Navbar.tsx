@@ -39,7 +39,7 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          aria-label="E-Major — accueil"
+          aria-label="e-major, accueil"
           className="font-heading font-bold tracking-tight text-[20px] text-dark inline-flex items-center hover:opacity-85 transition-opacity duration-200"
         >
           <span>e-maj</span>

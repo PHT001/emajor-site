@@ -1,19 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { COMPANY, CONTACT, SITE } from "@/lib/constants";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "700"],
   variable: "--font-heading",
   display: "swap",
 });
@@ -78,9 +77,9 @@ const localBusinessJsonLd = {
   logo: `${SITE.url}/icon`,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "100 Rue de l'Ouest",
-    addressLocality: "Paris",
-    postalCode: "75014",
+    streetAddress: COMPANY.streetAddress,
+    addressLocality: COMPANY.city,
+    postalCode: COMPANY.postalCode,
     addressRegion: COMPANY.region,
     addressCountry: "FR",
   },
@@ -97,6 +96,19 @@ const localBusinessJsonLd = {
         "Saturday",
       ],
       opens: "07:30",
+      closes: "12:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "13:30",
       closes: "17:30",
     },
   ],
@@ -143,16 +155,6 @@ const localBusinessJsonLd = {
       credentialCategory: "certification",
       name: "Garantie décennale",
     },
-    {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "certification",
-      name: "Qualification RGE",
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "certification",
-      name: "Habilitation NF C 15-100",
-    },
   ],
   identifier: COMPANY.siret,
   sameAs: [] as string[],
@@ -180,18 +182,14 @@ export default function RootLayout({
     >
       <body className="bg-white antialiased">
         {children}
-        <Script
-          id="ld-json-localbusiness"
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(localBusinessJsonLd),
           }}
         />
-        <Script
-          id="ld-json-website"
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </body>

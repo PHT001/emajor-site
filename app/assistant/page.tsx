@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import Assistant from "@/components/Assistant";
 
 export const metadata = {
-  title: "Assistant — E-Major | Décrivez votre besoin en 30s",
+  title: "Assistant | Décrivez votre besoin en 30s",
+  alternates: { canonical: "/assistant" },
   description:
     "Répondez en cliquant sur les boutons, zéro saisie. Notre chargé d'affaires vous recontacte avec un devis sous 24h.",
 };

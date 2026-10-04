@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { COMPANY, CONTACT } from "@/lib/constants";
 
 export const alt = "E-Major — Électricité & plomberie à Paris";
 export const size = { width: 1200, height: 630 };
@@ -79,8 +80,8 @@ export default function OpengraphImage() {
             fontFamily: "ui-monospace, monospace",
           }}
         >
-          <span>Atelier — 100 Rue de l&apos;Ouest, 75014 Paris</span>
-          <span>contact@emajor.fr</span>
+          <span>{COMPANY.address}</span>
+          <span>{CONTACT.email}</span>
         </div>
       </div>
     ),

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Star } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 
@@ -7,12 +8,14 @@ export default function Hero() {
     <section className="relative min-h-[88vh] flex flex-col justify-end pt-24 sm:pt-32 pb-12 sm:pb-20 bg-dark overflow-hidden">
       {/* Background photo */}
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/assets/img/header-1.jpeg')",
-            filter: "grayscale(0.85) brightness(0.42) contrast(1.1)",
-          }}
+        <Image
+          src="/assets/img/header-1.jpeg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+          style={{ filter: "grayscale(0.85) brightness(0.42) contrast(1.1)" }}
         />
         <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-dark via-dark/90 to-transparent" />
       </div>
@@ -24,7 +27,7 @@ export default function Hero() {
             <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
             Disponible aujourd&apos;hui
           </span>
-          <div className="hidden sm:flex items-center gap-3 text-[11px] font-mono uppercase tracking-widest text-white/40">
+          <div className="hidden sm:flex items-center gap-3 text-[11px] font-mono uppercase tracking-widest text-white/60">
             <span>Paris / IDF</span>
             <span>·</span>
             <span>Est. 2024</span>
@@ -115,7 +118,7 @@ export default function Hero() {
               className="animate-stat-in"
               style={{ animationDelay: "200ms" }}
             >
-              <dt className="text-[11px] uppercase tracking-widest text-white/40 font-mono mb-1">
+              <dt className="text-[11px] uppercase tracking-widest text-white/60 font-mono mb-1">
                 Réponse
               </dt>
               <dd className="font-heading text-[32px] sm:text-[40px] font-bold tracking-tight leading-none">
@@ -127,7 +130,7 @@ export default function Hero() {
               className="animate-stat-in"
               style={{ animationDelay: "350ms" }}
             >
-              <dt className="text-[11px] uppercase tracking-widest text-white/40 font-mono mb-1">
+              <dt className="text-[11px] uppercase tracking-widest text-white/60 font-mono mb-1">
                 Dispo
               </dt>
               <dd className="font-heading text-[32px] sm:text-[40px] font-bold tracking-tight leading-none">
@@ -139,7 +142,7 @@ export default function Hero() {
               className="hidden sm:block animate-stat-in"
               style={{ animationDelay: "500ms" }}
             >
-              <dt className="text-[11px] uppercase tracking-widest text-white/40 font-mono mb-1">
+              <dt className="text-[11px] uppercase tracking-widest text-white/60 font-mono mb-1">
                 Devis
               </dt>
               <dd className="font-heading text-[32px] sm:text-[40px] font-bold tracking-tight leading-none">

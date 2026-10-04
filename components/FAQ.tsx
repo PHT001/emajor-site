@@ -24,7 +24,7 @@ const faqs: FAQItem[] = [
   {
     question: "Êtes-vous certifiés et assurés ?",
     answer:
-      "Oui. SIRET 951 039 957 00018, garantie décennale en cours, qualifications RGE et habilitation NF C 15-100. L'attestation d'assurance est fournie sur simple demande avant signature.",
+      "Oui. SIRET 951 039 957 00018, garantie décennale en cours, travaux réalisés conformément à la norme NF C 15-100. L'attestation d'assurance est fournie sur simple demande avant signature.",
   },
   {
     question: "Quelle zone géographique couvrez-vous ?",

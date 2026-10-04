@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/lib/blog";
+import { SITE } from "@/lib/constants";
 
-const BASE = "https://emajor.fr";
+const BASE = SITE.url;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
