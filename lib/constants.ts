@@ -39,7 +39,7 @@ export const MAPS = {
 
 export const SITE = {
   url: "https://emajor.fr",
-  title: "E-Major | Électricien & Plombier à Paris",
+  title: "E-Major (Emajor) | Électricien & Plombier à Paris",
   description:
-    "E-Major, votre électricien et plombier à Paris et Île-de-France. Rénovation, dépannage, maintenance pour particuliers, commerces, hôtels, bureaux et théâtres.",
+    "E-Major (emajor.fr), votre électricien et plombier à Paris et Île-de-France. Rénovation, dépannage, maintenance pour particuliers, commerces, hôtels, bureaux et théâtres.",
 } as const;

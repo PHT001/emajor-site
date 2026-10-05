@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     "théâtre",
     "commerce",
     "E-Major",
+    "emajor",
+    "e major",
+    "emajor.fr",
   ],
   openGraph: {
     type: "website",
@@ -69,6 +72,7 @@ const localBusinessJsonLd = {
   "@id": `${SITE.url}/#business`,
   name: COMPANY.name,
   legalName: COMPANY.legalName,
+  alternateName: ["Emajor", "E Major", "emajor.fr"],
   description: SITE.description,
   url: SITE.url,
   telephone: CONTACT.phone,
